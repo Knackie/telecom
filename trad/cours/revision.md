@@ -36,6 +36,10 @@ la portion du programme où elle est utilisable. Les règles de visibilités dé
 
 Un bloc est une fonction, une procédure, un fichier, ou un boc sans nom. Les délacarations en général sont uniques dans un bloc.
 
+## Définition ramasse miette (garbage collector)
+
+Element permettant de libérer des espaces mémoire dans le tas lorsqu'ils deviennent inaccessibles. ( plus de pointeurs existant )
+
 ## A quoi servent les régions
 
 Elle servent à trouver pour une variable l'unique déclaration correspondante
