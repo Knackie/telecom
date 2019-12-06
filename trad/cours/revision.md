@@ -10,6 +10,14 @@ Pour toute utlisation d'un identifiant, trouver  sa délacration correspondante 
 
 Il contient l'adresse de retour de la prochaine instruction
 
+## Portée d'une déclaration 
+
+c'est la **portion de code ou elle est définie**
+
+## Définition de la visibiité d'une variable
+
+la portion du programme où elle est utilisable. Les règles de visibilités déterminent à quelles définitions d'un idf une utilisation est susceptible de se rapporter.
+
 ## A quoi servent les régions
 
 Elle servent à trouver pour une variable l'unique déclaration correspondante
