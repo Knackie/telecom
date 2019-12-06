@@ -2,6 +2,10 @@
 
 C'est un ensemble de ce qui est désignable dans un contexte donné, par une méthode d'accès faisant usage de nom symbolique
 
+## Définition d'identification
+
+Pour toute utlisation d'un identifiant, trouver  sa délacration correspondante ( précède l'étape de contrôle de typage )
+
 ## A quoi servent les régions
 
 Elle servent à trouver pour une variable l'unique déclaration correspondante
