@@ -1,3 +1,9 @@
+## Domaine de nom 
+
+C'est un ensemble de ce qui est désignable dans un contexte donné, par une méthode d'accès faisant usage de nom symbolique
+
+
+
 ## Combien existe-t-il de tableau ?
 
 Il existe 3 types de tableaux : 
