@@ -6,6 +6,10 @@ C'est un ensemble de ce qui est désignable dans un contexte donné, par une mé
 
 Pour toute utlisation d'un identifiant, trouver  sa délacration correspondante ( précède l'étape de contrôle de typage )
 
+## Que contient le compteur ordinal 
+
+Il contient l'adresse de retour de la prochaine instruction
+
 ## A quoi servent les régions
 
 Elle servent à trouver pour une variable l'unique déclaration correspondante
