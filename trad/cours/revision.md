@@ -2,7 +2,36 @@
 
 C'est un ensemble de ce qui est désignable dans un contexte donné, par une méthode d'accès faisant usage de nom symbolique
 
+## A quoi servent les régions
 
+Elle servent à trouver pour une variable l'unique déclaration correspondante
+
+## Stucture d'un compilateur
+
+```text
+Programme source
+ +--|------------------------------------------+
+ |  └─> Lexeur (analyse lexicale)              |                    ┐
+ |          |                                  | Souvent ensemble   |
+ |          └─> Parser (analyse syntaxique)    |                    |
+ +------------------|--------------------------+                    | FRONT
+                  (AST)                                             |
+                    └─> (analyse sémantique)                        |
+                        |                                           |
+                        └─> (AST) +- (TDS)                          ┘
+                            |
+                            └─> Génération de code intermédiaire    ┐
+                                (code à trois adresses)             | COEUR (pas en PEL)
+                                    |                               |
+                                    └─> Optimisations               ┘
+                                        |
+                                        └─> Génération de code      ┐
+                                            assembleur              |
+                                            |                       | BACK
+                                            └─> Optimisations       |
+                                                |                   |
+                                                └─> Cible           ┘
+```
 
 ## Combien existe-t-il de tableau ?
 
