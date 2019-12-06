@@ -10,6 +10,18 @@ Pour toute utlisation d'un identifiant, trouver  sa délacration correspondante 
 
 Il contient l'adresse de retour de la prochaine instruction
 
+
+
+## Erreur sémantiques 
+
+erreurs sémantiques **statiques** :
+
+Vérifiable à la compilation, ex initialisation erronée, erreur de typage, appel de fonction avec la mauvaise signature.
+
+erreurs sémantiques **dynamique** : 
+
+Vérifiable à l'éxcecution, ex : disivion par 0, dépassement d'un tableau.
+
 ## Portée d'une déclaration 
 
 c'est la **portion de code ou elle est définie**
@@ -17,6 +29,10 @@ c'est la **portion de code ou elle est définie**
 ## Définition de la visibiité d'une variable
 
 la portion du programme où elle est utilisable. Les règles de visibilités déterminent à quelles définitions d'un idf une utilisation est susceptible de se rapporter.
+
+## Définiton d'un bloc
+
+Un bloc est une fonction, une procédure, un fichier, ou un boc sans nom. Les délacarations en général sont uniques dans un bloc.
 
 ## A quoi servent les régions
 
