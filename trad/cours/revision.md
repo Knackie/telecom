@@ -19,6 +19,12 @@ Il contient l'adresse de retour de la prochaine instruction
 
 Lorsqu'il est possible de faire 2 arbres à partir du meme mot
 
+## Analyse Asa
+
+On part des mots à analyser.
+– On remplace itérativement des fragments du mot courant qui correspondent à des parties droites
+de production par la partie gauche de cette production.
+
 ## Algo de constrution d'un item LR1 :
 
 On construit cet automate en découvrant les états à partir de ceux déjà créés (comme lors de la déterminisation d'un automate fini)
