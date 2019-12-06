@@ -10,7 +10,9 @@ Pour toute utlisation d'un identifiant, trouver  sa délacration correspondante 
 
 Il contient l'adresse de retour de la prochaine instruction
 
+## Grammaire ambigue
 
+Lorsqu'il est possible de faire 2 arbres à partir du meme mot
 
 ## Erreur sémantiques 
 
