@@ -188,7 +188,7 @@ Pour un tableau _dynamique_:
 Pour un tableau _flexible_:
 
 - A **l'exécution**, à chaque changement de taille
-- Dans la **pile**
+- Dans la **tas**
 - Calcul de `ei`
 - Calcul de la somme: `Σ BIk · ek`
 - Place nécessaire pour ranger le tableau en mémoire:   
