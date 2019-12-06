@@ -29,7 +29,7 @@ de production par la partie gauche de cette production.
 
 On construit cet automate en découvrant les états à partir de ceux déjà créés (comme lors de la déterminisation d'un automate fini)
 ●La construction s'arrête quand toutes les possibilités sont explorées
-on augmente la grammaire sans mettre un $ en plus–l'item initial est S ::= • E , $–en faisant avancer les •, on garde la lookahead de l'item–la règle de clôture est :
+on augmente la grammaire sans mettre un $ en plus–l'item initial est S ::= • E , $–en faisant avancer les •
 
 ## Erreur sémantiques 
 
