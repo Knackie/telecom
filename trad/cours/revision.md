@@ -2,6 +2,11 @@
 
 C'est un ensemble de ce qui est désignable dans un contexte donné, par une méthode d'accès faisant usage de nom symbolique
 
+## 0 de LR0
+
+En LR 0, le 0 correspond au fait que l'on ai 0 unité lexicale d'avance.
+Lors du choix de l'action a faire, reduction ou lecture, on a aucune unité lexicale d'avance pour prendre la decision
+
 ## Définition d'identification
 
 Pour toute utlisation d'un identifiant, trouver  sa délacration correspondante ( précède l'étape de contrôle de typage )
