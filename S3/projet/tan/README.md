@@ -1,1 +1,3 @@
-project by Antoine Jacques, Virgile Saint Pe and Mathieu Dreyer
+# TANduFUN
+
+c'est le projet Tan de l'ambiance
