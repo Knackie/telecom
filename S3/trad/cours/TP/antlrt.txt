@@ -1,0 +1,27 @@
+entre accolade, tous ce qui est c'est des actions qui sont porposée en Java.
+==> Explique le @headers et le @members
+Analyse syntaxique descendante
+Onglet en bas : 
+  - Interpreteur
+	- Permet de partir de n'importe quelle règle
+	- 
+
+Le WS est àce qui est ignorer : WS (''|\t) + {$channel=HIDDEN;};
+
+expr : d=INT '+' e=INT ';' --> ^('+' $d $e) 
+	;
+
+
+expr : INT ( '+' ^ INT)*
+	;
+
+
+Le ! supprime le dernier terminal dans l'analyse
+
+
+DecVar var Type ';' -> ^( 'DecVar' Var type) # Il faut aussi déclarer type
+
+Var : ID ';'! ## Le ! permet de faire remont l'information à DecVar
+	;
+
+

@@ -1,0 +1,56 @@
+\chapter{Introduction}
+Ce cahier des charges est réalisé dans le cadre du cours de TELECOM Nancy  et fait référence aux livres suivants~\cite{Sommerville:2010:SE:1841764,Pohl:2010:REF:1869735,Rumbaugh:2004:UML:993859}.
+\section{Objectif}
+TIMOTHEE\\\\\\\\\\\\\\\\\\
+$<$Identifiez le produit dont le cahier des charges va être décrit dans ce document. Indiquez ce que couvre le produit, en particulier si le cahier des charges ne concerne qu'une partie d'un système.$>$
+
+\section{Conventions}
+TIMOTHEE\\\\\\\\\\\\\\\\
+$<$Décrivez les conventions typographiques et les standards utilisés s'il vous en avez définie$>$
+
+\section{Description du projet}
+TIMOTHEE\\\\\\\\\\\\\\
+$<$Donnez une description rapide du logiciel spécifié, son but, les objectifs métiers, les gains attendus.$>$
+
+
+\section{Contexte et origine}
+TIMOTHEE\\\\\\\\\\\\
+$<$Décrivez le contexte dans lequel va fonctionner le logiciel et éventuellement ce qu'il va remplacer ou compléter. Décrivez également rapidement les relations avec les autres systèmes de l'environnement.$>$
+\newacronym{ade}{ADE}{ADE est le logiciel d'emploi du temps de l'université de Lorraine}
+\newacronym{API}{API}{Application Programming Interface}
+
+L'emploi du temps des étudiants est accessible grâce aux \acrshort{API} d'\acrshort{ade}.
+
+Les informations concernant les règles d'absence se trouvent dans le \Gls{livret}.
+
+\section{Principales fonctionnalités}
+TIMOTHEE\\
+$<$Indiquez ici les fonctionnalités principales du produit ainsi que les acteurs et leurs caractéristiques. $>$
+
+\section{Les acteurs}
+TIMOTHEE\\
+$<$Décrivez les différents acteurs concernés par le système aussi bien pour l'utilisation que pour l'exploitation.$>$
+
+\section{Environnement opérationnel}
+MARINE\\
+$<$Décrivez le contexte dans lequel le logiciel va s'exécuter, où se trouvent les serveurs, qui va les opérer.$>$
+L'application doit être hébergée sur un serveur web CentOS, couplé à un serveur de base de données qui permet d'enregistrer les informations.
+
+\section{Contraintes d'implantation et de conception}
+%QUENTIN\\
+
+Ce projet étant un site web, le logiciel sera développé dans un langage orienté Web. Dans ce cadre, la solution retenue est Angular pour la partie frontend et PHP pour la partie backend. Nous utiliserons PHP en association avec Symfony pour simplifier le développement. Cette partie backend sera associée à une base de donnée. Une base de données en PostgreSQL semble plus adapté qu'une simple base de donnée en MySQL, vis-a-vis de la quantité de données à traiter.
+
+L'ensemble du site sera mis en production sur un serveur dédié, hebergé chez OVH. Celui-ci tournera sous CentOS. Pour plus de sécurité, il devra contenir deux disques en RAID 1 pour garantir un niveau de service optimal d'une capacité de 100Go minimum chacun, ainsi qu'un processeur deux coeurs de 2 GHz et 4Go de RAM . Il récupéra l'ensemble des requêtes qu'il enverra au serveur NGINX. Il servira aussi de serveur de base de données. Elle sera exportée sur une machine du Gestionnaire pour limiter les pertes de données en cas de pannes majeur.
+
+%%$<$Décrivez ce qui peut avoir un impact sur la mise en {\oe}uvre, comme des questions de réglementation, de support d'exécution, de limites techniques, d'outils à utiliser, de langage, de système.$>$
+
+%%langages de prog, type de bdd, framework...
+
+\section{Hypothèses et dépendances}
+MARINE\\
+$<$Quelles sont les dépendances et les hypothèses qui vont orienter la construction du logiciel ?$>$
+
+Imaginer un certain nombre d'utilisateurs, la capacité du logiciel
+les dépendances à des systèmes externes (cartes bleues, système d'authentification particulier ...)
+On parlait d'un nombre de potentielles de connexions de 100 000 personnes.

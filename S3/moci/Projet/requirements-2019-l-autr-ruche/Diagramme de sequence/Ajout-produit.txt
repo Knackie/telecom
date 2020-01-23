@@ -1,0 +1,9 @@
+@startuml
+participant "Responsable de point de collecte" as Resp
+participant "Gestionnaire de plateforme" as Gest
+participant "Banque" as Banque
+participant "Client" as Client
+Resp -> Gest : Signale absence produit
+Gest -> Banque : Demande l'envoie d'argent vers le compte du client
+Banque -> Client : Envoie le remboursement au client final
+@enduml

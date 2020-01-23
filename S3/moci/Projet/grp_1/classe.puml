@@ -1,0 +1,110 @@
+@startuml
+
+title Diagramme de classe Goodbasket
+
+
+class Utilisateur {
+  +int utilisateur_id
+  +string nom
+  +string prenom
+  +string email
+  +string adresse
+  +string tel
+  +string username
+  +string password
+  +void change_password()
+
+}
+
+class Commande {
+  +bool paye
+  +int commande_id
+  +date commande_date
+  +double montant_totale
+  +double get_total()
+  +void add_ligne_commande(produit, quantite)
+  +int delete_produit(produit)
+  +double get_total_panier()
+  +vector<Produit> liste_produit()
+}
+
+class Detail_produit{
+  +int produit_id
+  +double prix
+  +String nom
+  +string description
+  
+}
+
+class Ligne_commande{
+  +int quantité
+  +double get_total_from_line()
+}
+class Reglement{
+  +string carte_number
+  +double montant
+  
+}
+class Controlleur_vente{
++ Payer(commande_id, Reglement)
++ Add_produit(commande_id, produit_id, quantite)
+}
+class Commandes_listes{
++ get_commande(commande_id) : Commande
+}
+class Controlleur_utilisateur{
++void incription(utlisateur_id, nom, prenom, email, adresse, tel, username, password)
++void connexion(username,password)
+}
+
+class Point_collecte{
+  +string adresse
+}
+
+class Gestionnaire_pc{
+
+}
+
+class Producteur{
++void add_produit()
+
+}
+class Client{
+  +void creer_panier() : commande_id
+  +void update_panier() : commande_id
+  +void delete_panier()
+}
+
+class Catalogue{
+  +int id
+  
+}
+class Stock{
++int quantite
++Detail_produit Get_produit()
+}
+class Controlleur_producteur{
++void add_produit(produit, prix, quantite)
++void delete_produit()
+}
+
+Client "1" -- "*" Commande
+Controlleur_vente "1" -- "*" Commandes_listes
+Commandes_listes "1" -- "*" Commande
+
+Point_collecte "1" -- "1" Catalogue : Contient 
+Controlleur_producteur "1" -- "1" Catalogue
+Commande "1"  --  "*" Ligne_commande : contient
+Detail_produit"1"  --  "*" Ligne_commande : décrit par
+Utilisateur <|--  Producteur
+Utilisateur <|--  Client
+Utilisateur <|--  Gestionnaire_pc
+Catalogue "1" -- "*" Stock : Est décrit par
+Stock "1" -- "*" Detail_produit
+Producteur "1" -- "*" Stock : propose 
+Gestionnaire_pc "1" -- "1" Point_collecte : gere
+Commande "1"  --  "0-1" Reglement 
+Controlleur_utilisateur "1"  --  "*" Utilisateur
+
+
+@enduml

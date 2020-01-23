@@ -1,0 +1,23 @@
+@startuml
+
+-> Controlleur_utilisateur : Connexion(username, password)
+activate Controlleur_utilisateur
+<-- Controlleur_utilisateur : Connexion réussi
+Controlleur_utilisateur -> Client : creer_panier()
+activate Client
+Controlleur_utilisateur <-- Client : commande_id
+deactivate Controlleur_utilisateur
+-> Controlleur_vente : add_produit(commande_id, produit_id, quantite)
+activate Controlleur_vente
+deactivate Client
+create ligne_commande
+Controlleur_vente -> ligne_commande : new (Produit,quantité)
+
+Controlleur_vente -> Commande : add_ligne_commande(produit, quantite)
+Activate Commande
+Controlleur_vente <-- Commande : Produit ajouté
+deactivate Controlleur_vente
+deactivate Commande
+
+
+@enduml
