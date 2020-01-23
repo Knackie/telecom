@@ -1,0 +1,11 @@
+"/Users/quentin/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/183.5429.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/bin/gcc -G "CodeBlocks - Unix Makefiles" "/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/C - Shell/C/Rappels"
+-- The C compiler identification is AppleClang 10.0.0.10001044
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/C - Shell/C/Rappels/cmake-build-debug

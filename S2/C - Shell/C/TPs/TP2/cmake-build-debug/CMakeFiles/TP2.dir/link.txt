@@ -1,0 +1,1 @@
+/usr/bin/gcc -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/TP2.dir/main.c.o CMakeFiles/TP2.dir/Exercice1.c.o CMakeFiles/TP2.dir/Exercice2.c.o CMakeFiles/TP2.dir/Exercice3.c.o CMakeFiles/TP2.dir/Exercice4.c.o  -o TP2 

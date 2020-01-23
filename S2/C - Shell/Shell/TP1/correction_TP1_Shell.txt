@@ -1,0 +1,65 @@
+#Exercice 1.
+
+#!/bin/sh
+
+mkdir C_FILE
+ls *.c > C_FILE/c_liste
+ls *.o >> C_FILE/c_liste
+cp `tail -1 C_FILE/c_liste` C_FILE
+cat C_FILE/c_liste
+
+
+Exercice 2
+
+#!/bin/sh
+
+if [ $# -ne 1 ]
+then
+        echo "usage : $0 nom-cde"
+        exit 1
+fi
+
+chemin=`echo $PATH | tr ":" " "`
+
+for i in $chemin
+do
+        if [ -x $i/$1 -a -f $i/$1 ]
+        then
+                echo $i/$1
+                echo "$1 trouve dans $i"
+                exit 0
+        fi
+done
+
+echo $1 non trouve dans $chemin
+exit 0
+
+
+Exercice 3
+
+#!/bin/sh
+# commande suffixer
+
+if [ $# -le 1 ] 
+then
+        echo "usage : $0 suffixe nom_de_fichier"
+        exit 1
+fi
+
+suffixe=".$1"
+echo suffixe: $suffixe 
+
+shift #supprime le premier argument , en l'occurence le suffixe
+echo "les arguments :" $*
+for nom in  $*
+do
+        echo "nom :" $nom
+        if [ ! -f  $nom ]  
+        then
+                echo $0": $nom n'existe pas"
+        else 
+                        mv $nom $nom$suffixe
+                
+        fi
+done
+exit 0

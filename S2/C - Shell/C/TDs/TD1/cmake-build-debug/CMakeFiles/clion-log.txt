@@ -1,0 +1,4 @@
+"/Users/Quentin/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/183.5153.40/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/Users/Quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/C - Shell/TDs/TD1"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/Quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/C - Shell/TDs/TD1/cmake-build-debug

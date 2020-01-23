@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Exercice_3"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ClientUDP">
+				<Option output="/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/cmake-build-debug/ClientUDP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 ClientUDP"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ClientUDP/fast">
+				<Option output="/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/cmake-build-debug/ClientUDP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 ClientUDP/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ICMP">
+				<Option output="/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/cmake-build-debug/ICMP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 ICMP"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ICMP/fast">
+				<Option output="/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/cmake-build-debug/ICMP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 ICMP/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/quentin/Library/Mobile\ Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP\ Programmation\ avancée/Exercice\ 3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/src/clientUDP.c">
+			<Option target="ClientUDP"/>
+		</Unit>
+		<Unit filename="/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/src/icmpd-incomplet.c">
+			<Option target="ICMP"/>
+		</Unit>
+		<Unit filename="/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

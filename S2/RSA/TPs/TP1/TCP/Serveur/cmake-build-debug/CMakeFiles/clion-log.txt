@@ -1,0 +1,33 @@
+"/Users/quentin/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/191.7141.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/bin/gcc -G "CodeBlocks - Unix Makefiles" "/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP1/TCP/Serveur "
+-- The C compiler identification is unknown
+-- Check for working C compiler: /usr/bin/gcc
+-- Check for working C compiler: /usr/bin/gcc -- broken
+CMake Error at /Users/quentin/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/191.7141.37/CLion.app/Contents/bin/cmake/mac/share/cmake-3.14/Modules/CMakeTestCCompiler.cmake:60 (message):
+  The C compiler
+
+    "/usr/bin/gcc"
+
+  is not able to compile a simple test program.
+
+  It fails with the following output:
+
+    Change Dir: /Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP1/TCP/Serveur /cmake-build-debug/CMakeFiles/CMakeTmp
+    
+    Run Build Command(s):/usr/bin/make cmTC_42a1f/fast 
+    
+    
+    Agreeing to the Xcode/iOS license requires admin privileges, please run “sudo xcodebuild -license” and then retry this command.
+    
+    
+    
+
+  
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP1/TCP/Serveur /cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP1/TCP/Serveur /cmake-build-debug/CMakeFiles/CMakeError.log".
