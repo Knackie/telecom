@@ -1,0 +1,16 @@
+@startuml
+participant "Responsable de point de collecte" as Resp
+participant "Gestionnaire de plateforme" as Gest
+activate Resp
+Resp -> Gest : Demande de creation d'un point de collecte
+activate Gest
+Resp --> Gest : Etat de la validation + détail
+deactivate Gest
+loop Non validée 
+Resp -> Gest : Version corrigée de la demande de création d'un point de collecte
+activate Gest
+Gest --> Resp : Etat de la validation + détail
+deactivate Gest
+end
+deactivate Resp
+@enduml

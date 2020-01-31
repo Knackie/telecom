@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/RSA/TPs/TP Programmation avancée/Exercice 3/src/clientUDP.c
+stdio.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+sys/un.h
+-
+arpa/inet.h
+-
+sys/uio.h
+-
+time.h
+-
+sys/timeb.h
+-
+netdb.h
+-
+stdlib.h
+-
+strings.h
+-
+zconf.h
+-
+

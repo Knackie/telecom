@@ -1,0 +1,83 @@
+Question 1 : un oscilloscope est un appareil de mesure qui permet
+Question 1 : Un oscilloscope cathodique est un appareil électronique constitué
+Question 1 : Méthode de deux courbes obtenues à l'oscilloscope bicourbe
+
+Question 2 : L'oscilloscope cathodique est un appareil électronique constitué 
+Question 2 : courant. L'oscilloscope ne mettant en évidence que des
+tensions, on 
+Question 2 : à l'oscilloscope bicourbe. L'oscilloscope peut servir à
+de multiples 
+ERREUR :      d = A sin(theta)
+ERREUR :      c = A cos(theta)
+ERREUR :      et a/b = theta/360
+
+Question 3 : Y = A sin(delta t) dont nous voulons connaître le déphasage theta
+Question 3 : et a/b = 360/theta
+Question 3 : Y = A sin(delta t) + theta
+ERREUR :      x234
+
+Question 4 : x 235 est une valeur numérique
+Question 4 : la valeur x 3 ne correspond pas à une mesure de tension
+Question 4 : les travaux 50 ne sont pas répertoriés dans l'inventaire
+ERREUR :      -Régler est une ligne fausse...
+
+Question 5 : - Régler la commande INTENSITY pour obtenir la luminosité
+Question 5 : déplacement Y de CH1 et - Régler la commande TRACE ROTATE
+(rotation 
+Question 5 : - Régler la commande FOCUS pour obtenir 
+
+Question 6 : C'est une MEthode de calcul très intéressante
+Question 6 : METHODE DE CALIBRAGE
+Question 6 : La méthode de deux courbes obtenues à l'oscilloscope bicourbe
+
+Question 7 : Représentation d'une courbe y = f(t)
+Question 7 : f(Y)/f(X) = n/m
+Question 7 : le monôme maximal de la fonction f(x,y,z,t) est m1.
+ERREUR :      f (a,b)
+ERREUR :      f(faute...
+
+Question 8 : - une trace horizontale doit apparaître sur l'écran lorsque la
+Question 8 : - Régler la commande FOCUS pour obtenir une           trace bien
+Question 8 : Pour obtenir une   trace
+ERREUR :      unetrace
+ERREUR :      trace
+ERREUR :      123
+
+Questions 9 et 10 et 14 : La fréquence de l'horloge f1 est de 800000
+hz, soit 800 Khz 
+Questions 9 et 10 et 14 : La valeur de PI est donnée à une certaine précision, soit 3,14116 (précision suffisante), 
+Questions 9 et 10 et 14 : 12345 alpha
+ERREUR :      Cela procure une longueur de trace de 100 cm et toute partie de
+
+Question 10 : 1 a 2 a 3 a 4 a 5 
+Question 10 : de 0,1 MicroFarad/400 V assure la liaison), mettre le
+commutateur sur 
+Question 10 : à environ 500 KHz ; aux cadences lentes de 0,2 s/cm a`
+0,5 ms/cm, le 
+
+Question 11 : - sur les axes de l'ellipse : b/a = tg(phi/2)
+Question 11 : photographique. Au contraire, un phénomène périodique, de par son
+Question 11 : Y = A sin(omega t + phi) dont nous voulons connaître le
+déphasage  
+
+Question 12 : X2 + Y2 - 2XY cos(alpha) = A2 sin2(beta)
+Question 12 : alphabeta est une autre lettre grecque...
+Question 12 : alpha, gamma et beta représentent les potentiels des
+interrupteurs 
+ERREUR :      beta ou alpha ne contient aucun x
+ERREUR :      beta est le nom d'un ane
+
+Question 13 : delta : Y = A sin(omega t + gamma)
+Question 13 : gamma : Y = A sin(omega t + delta)
+Question 13 : alpha, gamma et beta représentent les potentiels, delta
+représente 
+ERREUR :      delta, delta, delta...
+Question 14 : unique ligne de réponse à la question 14:  453676890879
+ERREUR question 14 : 453676897 pas assez de chiffres 
+ERREUR question 14 : 453676890879123 trop de chiffres
+Question 15 : une ellipse, deux ellipses, ...
+Question 15 : équation d'une ellipse inclinée à 45 o, sur les axes de
+l'ellipse : b/a = tg(phi/2) 
+Question 15 : Méthode de l'ellipse, l'ellipse est définie par
+ERREUR quest. 15: une ellipse, deux ellipses, trois ellipses, quatre
+ellipses, ... 

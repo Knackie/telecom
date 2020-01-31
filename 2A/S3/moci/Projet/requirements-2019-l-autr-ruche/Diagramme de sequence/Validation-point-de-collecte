@@ -1,0 +1,6 @@
+@startuml
+participant "Responsable de point de collecte" as Resp
+participant "Gestionnaire de plateforme" as Gest
+Resp -> Gest : Demande de creation d'un point de collecte
+Gest -> Resp : Validation de la demande de création d'un point de collecte
+@enduml

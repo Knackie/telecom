@@ -1,0 +1,5 @@
+SELECT * FROM HR.DEPARTMENTS;
+
+SELECT * FROM HR.LOCATIONS;
+
+SELECT Department_name FROM HR.DEPARTMENTS inner join HR.LOCATIONS on DEPARTMENTS.location_id = LOCATIONS.location_id where NOT city='Seattle';

@@ -1,0 +1,30 @@
+@startuml
+participant "Responsable de point de collecte" as Resp
+participant "Gestionnaire de plate-forme" as Gest
+participant "Banque" as Banque
+participant "Client" as Client
+
+
+activate Resp
+Resp -> Gest : Signale absence produit
+activate Gest
+Gest -> Banque : Demande l'envoi d'argent vers le compte du client
+activate Banque
+Banque --> Gest : État du remboursement
+deactivate Banque
+
+loop Echec du remboursement
+Gest -> Client : Demande de nouvelle cordonnées bancaire
+activate Client
+Client --> Gest : Cordonnées bancaires
+deactivate Client
+Gest -> Banque : Demande l'envoi d'argent vers le compte du client
+activate Banque
+Banque --> Gest : État du remboursement
+deactivate Banque
+end 
+
+Gest --> Resp : Confirmation du remboursement
+deactivate Gest
+deactivate Resp
+@enduml

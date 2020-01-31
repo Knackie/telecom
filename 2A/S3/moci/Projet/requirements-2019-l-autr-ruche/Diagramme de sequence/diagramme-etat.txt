@@ -1,0 +1,15 @@
+@startuml
+
+state EtatPanier {
+  [*] --> PanierVide 
+  PanierVide --> PanierUnArticle : Ajout d'un article au panier
+  PanierUnArticle --> PanierVide : Suppression du dernier article du panier
+  PanierUnArticle --> PanierPlusieursArticles : Ajout d'un article au panier
+  PanierPlusieursArticles --> PanierUnArticle : Suppression d'un article d'un panier n'en contenant plus que 2
+  PanierPlusieursArticles --> PanierPlusieursArticles : Suppression d'un article d'un panier contenant plus de 2 articles
+  PanierPlusieursArticles --> PanierValidé : Validation des articles du panier
+  PanierValidé --> PanierValidé : Paiement échoué
+  PanierValidé --> PanierPayé : Paiement réussi
+  PanierPayé --> [*]
+}
+@enduml

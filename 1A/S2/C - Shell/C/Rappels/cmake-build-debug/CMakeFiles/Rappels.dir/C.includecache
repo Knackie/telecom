@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/quentin/Library/Mobile Documents/com~apple~CloudDocs/Telecom/Cours/S2/C - Shell/C/Rappels/main.c
+stdio.h
+-
+
