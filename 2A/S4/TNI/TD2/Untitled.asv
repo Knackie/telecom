@@ -1,2 +1,0 @@
-[I,lut2]= imread('lena.tif');
-image
