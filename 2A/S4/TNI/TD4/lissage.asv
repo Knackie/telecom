@@ -1,8 +1,0 @@
-[I,lut2]= imread('lena.tif');
-A= [1/9,1/9,1/9;1/9,1/9,1/9;1/9,1/9,1/9];
-Est = [1,1,1;1/9,1/9,1/9;1/9,1/9,1/9];
-
-I = imnoise(I, 'salt & pepper', 0.1)
-imshow(I);
-figure
-imshow(uint8(fonction_lissage(I,A)));

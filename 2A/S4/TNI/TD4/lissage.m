@@ -12,3 +12,4 @@ Est = [-1,0,1;-1,0,1;-1,0,1];
 Nord = [1,1,1;0,0,0;-1,-1,-1];
 figure
 imshow(uint8(abs(fonction_lissage(I,Est))));
+    
