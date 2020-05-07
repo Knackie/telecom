@@ -1,8 +1,15 @@
-function [entropy] = entropy(img)
-%UNTITLED3 Summary of this function goes here
-[dim1,dim2] = size(img);
-tmp = Histo(img);
-tmp = tmp./(dim1*dim2);
-tmp = tmp(tmp >0,:);
-entropy = -sum(tmp.*log2(tmp));
+%% entropy.m
+%% Calculates an entropy for a probability distribution
+
+function [H] = entropy(probs, ary)
+
+n = size(probs);
+n = n(1,2);
+
+H = 0;
+
+for j=1:n
+  if (probs(1,j) > 0)
+    H = H - probs(1,j)*(log(probs(1,j))/log(ary));
+  end
 end

@@ -1,6 +1,19 @@
-[I,lut2]= imread('souris.bmp');
-entropy(I);
+I = imread('Morpho.tif');
+%median(I);
+%I = dilatation(I);
+%I = dilatation(I);
+%I = dilatation(I);
+%I = erosion(I);
+%I = erosion(I);
+%I = erosion(I);
+I = GradiantMorpho(I);
 
-A = double(I); B = double(imnoise(I));
-d = sum((A(:)-B(:)).^2) / prod(size(A));
-psnr = 10*log10(255*255/d);
+cadre=zeros(256,256,'uint8');
+cadre(:,1)=255;
+cadre(:,256)=255;
+cadre(256,:)=255;
+cadre(1,:)=255;
+
+E1=min(cadre,M);
+
+%erosion(I);
