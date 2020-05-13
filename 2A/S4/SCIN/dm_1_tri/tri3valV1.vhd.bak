@@ -1,0 +1,35 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tri3valV1 is
+	port(
+		inA: in std_logic;
+		inB: in std_logic;
+		inC: in std_logic;
+		max: out std_logic;
+		min: out std_logic;
+		med: out std_logic
+	);
+end basculeD;
+
+architecture arch of basculeD is
+	begin
+		process(clk, reset, preset)
+		begin
+			if (reset='1') then
+				-- Reset asynchrone (prioritaire sur preset)
+				q <= '0';
+			elsif (preset='1' and reset='0') then
+				-- Preset asynchrone
+				q <= '1';
+			elsif (clk'event and clk='1') then
+				-- Enable synchrone
+				if(enable='1') then
+					q <= '1';
+				else
+					q <= d;
+				end if;
+			end if;
+	end process;
+end arch;

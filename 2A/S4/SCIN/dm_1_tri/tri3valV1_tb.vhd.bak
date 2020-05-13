@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tri3valV1_tb is
+end tri3valV1_tb;
+
+architecture arch of tri3valV1_tb is
+	component tri3valV1 is
+		generic (size: integer:=32);
+		port(
+			clock, reset: in std_logic;
+			inA, inB, inC: in std_logic_vector(size-1 downto 0);
+			Max, Min, Med: out std_logic_vector(size-1 downto 0)
+		);
+	end component;
+	signal clk, reset : std_logic;
+	signal sigA, sigB, sigC : std_logic_vector(size-1 downto 0);
+	signal sigMax, sigMed, sigMin : std_logic_vector(size-1 downto 0);
+
+	begin	
+		mapping: tri3valV1 port map(clock, reset, inA, sigA);
+		
+		
+end arch;

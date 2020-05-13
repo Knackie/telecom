@@ -1,0 +1,34 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity registre is
+	port(
+		generic (N : integer := 8);
+		clk: in std_logic;
+		d: in std_logic_vector(N-1 downto 0);
+		reset: in std_logic;
+		preset: in std_logic;
+		enable: in std_logic;
+		q: out std_logic_vector(N-1 downto 0)
+	);
+end registre8b;
+
+architecture arch of registre8b is
+	begin
+		process(clk, reset, preset)
+		begin
+			if (reset='1') then
+				-- Reset asynchrone (prioritaire sur preset)
+				q <= (others => '0');
+			elsif (preset='1' and reset='0') then
+				-- Preset asynchrone
+				q <= (others => '1');
+			elsif (clk'event and clk='1') then
+				-- Enable synchrone
+				if(enable='1') then
+					q <= (others => '1');
+				else
+					q <= d;
+				end if;
+			end if;
+	end process;
+end arch;

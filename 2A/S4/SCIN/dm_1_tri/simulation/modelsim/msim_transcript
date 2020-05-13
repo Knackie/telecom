@@ -1,0 +1,59 @@
+# do Projet_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying /opt/altera/13.0sp1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied /opt/altera/13.0sp1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -2008 -work work {/home/teddy/Documents/TNCY/SCIN/TNCY-2A-Projet-SCIN/registre.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity registre
+# -- Compiling architecture arch of registre
+# vcom -2008 -work work {/home/teddy/Documents/TNCY/SCIN/TNCY-2A-Projet-SCIN/tri3valV2.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tri3valV2
+# -- Compiling architecture arch of tri3valV2
+# 
+# vcom -2008 -work work {/home/teddy/Documents/TNCY/SCIN/TNCY-2A-Projet-SCIN/tri3valV2_tb.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tri3valV2_tb
+# -- Compiling architecture arch of tri3valV2_tb
+# ** Warning: [4] /home/teddy/Documents/TNCY/SCIN/TNCY-2A-Projet-SCIN/tri3valV2_tb.vhd(24): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] /home/teddy/Documents/TNCY/SCIN/TNCY-2A-Projet-SCIN/tri3valV2_tb.vhd(33): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] /home/teddy/Documents/TNCY/SCIN/TNCY-2A-Projet-SCIN/tri3valV2_tb.vhd(39): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] /home/teddy/Documents/TNCY/SCIN/TNCY-2A-Projet-SCIN/tri3valV2_tb.vhd(45): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] /home/teddy/Documents/TNCY/SCIN/TNCY-2A-Projet-SCIN/tri3valV2_tb.vhd(51): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] /home/teddy/Documents/TNCY/SCIN/TNCY-2A-Projet-SCIN/tri3valV2_tb.vhd(57): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# ** Warning: [4] /home/teddy/Documents/TNCY/SCIN/TNCY-2A-Projet-SCIN/tri3valV2_tb.vhd(63): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs="+acc"  tri3valV2_tb
+# vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs=\"+acc\" -t 1ps tri3valV2_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tri3valv2_tb(arch)
+# Loading work.tri3valv2(arch)
+# Loading work.registre(arch)
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
