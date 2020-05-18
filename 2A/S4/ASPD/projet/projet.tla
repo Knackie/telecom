@@ -1,47 +1,36 @@
-int tour , 
-c1,c2 ; 
-main ()
-{
-c1 = c2 = tour = 1;
-parbegin 
-p1 () ;
-p2 () ;
-parend
-}
-p1 ()
-{
-for ( ; ; )
-{
-c1 = 0; 
-while (c2 == 0) 
-if (tour == 2) 
-{
-c1 = 1;
-while (tour == 2) ; 
-c1 = 0; 
-}
-crit1;
-tour = 2; 
-c1 = 1; 
-reste1;
-}
-}
-/**********************************************************************/
-p2 ()
-{
-for (; ; )
-{
-c2 = 0; 
-while (c1 == 0) 
-if (tour == 1) 
-{
-c2 = 1; 
-while (tour == 1); 
-c2 = 0; 
-}
-crit2;
-tour = 1; 
-c2 = 1; 
-reste2;
-}
-}
+------------------------------- MODULE work1 -------------------------------
+
+EXTENDS Integers, TLC, Sequences
+CONSTANTS nb_process
+process == 1..nb_process
+
+(*
+--algorithm work1
+    variables R = [Rto \in process |-> FALSE] ; MessageQueue = <<>>; Done = [Rto \in process |-> FALSE]
+    
+     fair process Q = nb_process+1
+    variables tmp;
+    begin Qp:
+        while \neg \A P \in process : Done[P]  do
+            TraiteMessage: 
+                await Len(MessageQueue)>0;
+                tmp := Head(MessageQueue);
+                MessageQueue := Tail(MessageQueue);
+                R[tmp] := TRUE;
+            AttenteTerminaison: 
+                await \neg R[tmp];
+        end while;
+    end process
+    
+    fair process P \in process
+    begin
+        SendMsg: 
+            MessageQueue := Append(MessageQueue, self);
+        Exec: 
+            await R[self];
+            R[self]:=FALSE;
+            Done[self]:=TRUE;
+    end process
+    
+    end algorithm; 
+*)
