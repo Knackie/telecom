@@ -1,0 +1,21 @@
+{
+  "short_name": "Pokelearning",
+  "name": "Pokelearning",
+  "icons": [
+    {
+      "src": "/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#F8F02E",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#F8F02E"
+}
