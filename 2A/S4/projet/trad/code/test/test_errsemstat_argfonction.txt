@@ -1,0 +1,11 @@
+program test
+    var a,b : int;
+    function opposer(a : int) : int
+        {return -a} 
+    
+	{
+	a=6;
+	b=1;
+    b = opposer(a,b);
+	}
+    

@@ -1,0 +1,11 @@
+program super
+	
+function compter () : 
+	var i : int;
+	{
+	i = 1;
+	while i <= 10 do
+		write i;
+		i = i+1;
+	}
+compter()

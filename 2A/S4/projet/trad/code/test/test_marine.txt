@@ -1,0 +1,27 @@
+program test
+    var a,b,j : int;
+    var tableau : array[0..6] of int;
+    function rien(o : int) : int
+        {return 42}
+    function opposer(a : int) : int
+        {return -a} 
+    
+	{
+	a=6;
+	j=2;
+	b=1;
+	if a < 4 then a=2;
+	while (j <=6) and (a==2) or (b>1) do
+		{
+		write "hello"; 
+		j=j+1;
+		b = b+1;
+		
+    y = rien(b);
+    write y;
+    p = opposer(j);
+    tableau[4] = p;
+    write "fini !"
+	}
+	}
+    

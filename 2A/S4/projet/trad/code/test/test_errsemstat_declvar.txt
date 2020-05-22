@@ -1,0 +1,19 @@
+program test
+    var a,b : int;
+
+    function rien(o : int) : int
+        var i,j : int ;
+        {
+            i = o;
+            j = 8;
+            if i < 4 then o=2;
+            return 42;
+        }
+    
+	{
+	a=6;
+	b=rien(a);
+    a = i;
+    write a;
+	}
+    

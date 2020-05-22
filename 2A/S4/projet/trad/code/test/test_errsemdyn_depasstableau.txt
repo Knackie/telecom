@@ -1,0 +1,7 @@
+program test
+    var i : int;
+    var tableau : array[0..5] of int;
+	{
+	while (i<10) do
+        {tableau[i]=2}
+	}

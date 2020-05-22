@@ -1,0 +1,7 @@
+program test
+    var a, ╬ : int;
+    a = 5;
+    ╬ = 1;	
+    /*MismatchedTokenException(0!=0)*/
+    {write a;}
+    

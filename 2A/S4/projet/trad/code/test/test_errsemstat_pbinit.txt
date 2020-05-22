@@ -1,0 +1,8 @@
+program test
+    var a,b : int;
+	{
+	a=6;
+	b=a+b;
+    write b;
+    }
+    

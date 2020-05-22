@@ -1,0 +1,7 @@
+program test
+    var a,b,j : int;
+    function rien(o : int) : /*ismatchedSetException(0!=0)*/
+        {return 42}
+    {
+        a = 2;
+        b = rien(a);}

@@ -1,0 +1,7 @@
+program test
+    var a : int;
+	{
+	a=true;
+    write a;
+	}
+    

@@ -1,0 +1,106 @@
+program → program IDF vardeclist fundeclist instr
+vardeclist → ∧
+vardeclist → varsuitdecl
+vardeclist → varsuitdecl vardeclist
+varsuitdecl → var identlist : typename ;
+identlist → IDF
+identlist → IDF , identlist
+typename → atomtype
+typename → arraytype
+atomtype → void
+atomtype → bool
+atomtype → int
+arraytype → array [ rangelist ] of atomtype
+rangelist → CSTE .. CSTE
+rangelist → CSTE .. CSTE, rangelist
+fundeclist → ∧
+fundeclist → fundecl fundeclist
+fundecl → function IDF ( arglist ) : atomtype vardeclist instr
+arglist → ∧
+arglist → arg
+arglist → arg , arglist
+arg → IDF : typename
+arg → ref IDF : typename
+
+
+instr → if expr then instr
+instr → if expr then instr else instr
+
+instr → while expr do instr
+instr → lvalue = expr
+lvalue → IDF
+lvalue → IDF [ exprlist ]
+instr → return expr
+instr → return
+instr → IDF ( exprlist )
+instr → IDF ( )
+instr → { sequence }
+instr → { }
+instr → read lvalue
+instr → write lvalue
+instr → write CSTE
+
+sequence → instr ; sequence
+sequence → instr;
+sequence → instr
+
+exprlist → expr
+exprlist → expr , exprlist
+atom → CSTE
+atom → ( expr )
+
+expr_moins_unaire → - expr_moins_unaire
+expr_moins_unaire → atom
+
+expr_puissance → expr_moins_unaire expr_puissance_2
+expr_puissance_2 → ² expr_puissance
+expr_puissance_2 → ^
+
+expr_mult_div → expr_puissance expr_mult_div_2
+expr_mult_div_2 → * expr_mult_div
+expr_mult_div_2 → / expr_mult_div
+expr_mult_div_2 → ^
+
+expr_add_sous → expr_mult_div expr_add_sous_2
+expr_add_sous_2 → + expr_add_sous
+expr_add_sous_2 → - expr_add_sous
+expr_add_sous_2 → ^
+
+expr_comparaison → expr_add_sous expr_comparaison_2
+expr_comparaison_2_sup → > expr_comparaison_2_egal
+expr_comparaison_2_inf → < expr_comparaison_2_egal
+expr_comparaison_2_egal → = expr_comparaison
+expr_comparaison_2_egal → expr_comparaison
+expr_comparaison_2 → expr_comparaison_2_sup
+expr_comparaison_2 → expr_comparaison_2_inf
+expr_comparaison_2 → == expr_comparaison
+expr_comparaison_2 → != expr_comparaison
+expr_comparaison_2 → ^
+
+expr_non → not expr_non
+expr_non → expr_comparaison
+
+expr_et → expr_non expr_et_2
+expr_et_2 → and expr_et
+expr_et_2 → ^
+
+expr_ou → expr_et expr_ou_2
+expr_ou_2 → or expr_ou
+expr_ou_2 → ^
+
+expr → expr_ou
+expr → IDF ( exprlist )
+expr → IDF ( )
+expr → IDF [ exprlist ]
+expr → IDF
+
+
+
+expr_moins_unaire → ('-')* atom
+expr_puissance → expr_moins_unaire (^ expr_moins_unaire)*
+expr_mult_div → expr_puissance (('*' expr_puissance) | (/ expr_puissance))*
+expr_add_sous → expr_mult_div (('-' expr_mult_div) | ('+' expr_mult_div))*
+expr_comparaison → expr_add_sous(('>' expr_add_sous) | ('<' expr_add_sous) | ('<=' expr_add_sous) | ('>=' expr_add_sous) | ('==' expr_add_sous) | ('!=' expr_add_sous))*
+expr_non → ('not')* expr_comparaison
+expr_et → expr_non ('and' expr_non)*
+expr_ou → expr_et ('or' expr_et)*

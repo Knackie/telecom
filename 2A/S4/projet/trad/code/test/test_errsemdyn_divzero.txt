@@ -1,0 +1,5 @@
+program testzero
+    var a, b : int;
+    a = 5;
+    b = 0;	
+    {div = a/b;}
