@@ -1,0 +1,1 @@
+les réponses ne sont pas forcement juste (même toutes fausses)
