@@ -1,0 +1,22 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity Processeur_tb is
+
+end Processeur_tb;
+architecture tb of Processeur_tb is
+--passage de l'entité PorteXor au testbench comme
+	component Processeur is
+	port(
+		clk : in std_logic
+	);
+	end component;
+	signal inClk : std_logic :='0';
+
+
+begin
+
+	mapping: Processeur port map(inClk);
+	--TEST 1;
+	inClk <= not inClk after 1 ns;
+		
+end tb;

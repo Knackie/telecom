@@ -1,0 +1,80 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_misc.or_reduce;
+entity ALU is
+	generic(N: integer:=4);
+	port(
+			inA, inB : in std_logic_vector(N-1 downto 0);
+			inCin : in std_logic;
+			consigne : in std_logic_vector(2 downto 0);
+			outS  : out std_logic_vector(N-1 downto 0);
+			outC : out std_logic;
+			outZ : out std_logic
+	);
+end ALU;
+architecture alu of ALU is
+--passage de l'entité PorteXor au testbench comme
+	component Additionneur is
+		port(
+			a,b,cin : in std_logic;
+			s,cout : out std_logic
+			);
+	end component;
+	signal cadd: std_logic_vector(N-2 downto 0);
+	signal outSadd: std_logic_vector(N-1 downto 0);
+	signal outCoutadd: std_logic;
+
+begin 
+	GEN_ADD_SOU : for I in 0 to N-1 generate
+
+    ADD_LOW: if I=0 generate
+      U: Additionneur port map
+         (inA(I),inB(I),inCin, outSadd(I),cadd(I));
+    end generate ADD_LOW;
+	 
+	 ADD: if I>0 and I<N-1 generate
+      U: Additionneur port map
+         (inA(I),inB(I),cadd(I-1), outSadd(I),cadd(I));
+    end generate ADD;
+	 
+	 ADD_LAST: if I=N-1 generate
+      U: Additionneur port map
+         (inA(I),inB(I),cadd(I-1), outSadd(I),outCoutadd);
+    end generate ADD_LAST;
+
+  end generate GEN_ADD_SOU;
+  
+	
+	process (inA,inB,inCin, consigne, outCoutadd, outSadd) 
+	begin
+		if consigne = "010" then 
+			outC <= outCoutadd;
+			outS <= outSadd;
+			outZ <= '0';
+		elsif consigne = "001" then
+			outC <= '0';
+			outS <= inA;
+			outZ <= '0';
+		elsif consigne = "011" then
+			outC <= '0';
+			outS <= inA xor inB;
+			outZ <= '0';
+		elsif consigne = "100" then
+			outC <= '0'; 
+			outZ <= not or_reduce(inA and inB);
+			outS <= (others => '0');
+		elsif consigne = "101" then
+			outC <= '1';
+			outS <= (others => '0');
+			outZ <= '0';
+		elsif consigne = "110" then
+			outC <= '0';
+			outS <= (others => '0');
+			outZ <= '0';
+		else
+			outC <= '0';
+			outS <= inB;
+			outZ <= '0';
+		end if;
+	end process;
+end alu;

@@ -1,0 +1,47 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity Reg2x4 is
+	port(
+		DFaible, DFort : in std_logic_vector(3 downto 0);
+		clk, ld_IR_lsn, ld_IR : in std_logic;
+		IRFaible, IRFort : out std_logic_vector(3 downto 0)
+	);
+end Reg2x4;
+architecture arch of Reg2x4 is
+	
+	component Registre is
+		generic(N: integer:=8);
+		port(
+				d: in std_logic_vector(N-1 downto 0);
+				reset, clk, enable : in std_logic;
+				s : out std_logic_vector(N-1 downto 0)
+		);
+	end component;
+	signal tmp : std_logic;
+begin 
+	tmp <= ld_IR_lsn or ld_IR;
+	regFort : Registre
+		generic map(
+			N =>4
+		)
+		port map(
+			d => DFort,
+			reset => '0',
+			clk => clk,
+			s => IRFort,
+			enable => ld_IR
+			);
+			
+	regFaible : Registre
+		generic map(
+			N =>4
+		)
+		port map(
+			d => DFaible,
+			reset => '0',
+			clk => clk,
+			s => IRFaible,
+			enable => tmp
+		);
+	
+end arch;

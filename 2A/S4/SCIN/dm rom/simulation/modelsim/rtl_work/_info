@@ -1,0 +1,92 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/simulation/modelsim
+Esingle_port_rom
+Z1 w1590421569
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd
+Z6 FC:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd
+l0
+L4
+V1>TY716I:eW3hh8zZK3XB0
+!s100 g;bhg[S@OBfin_o`=T15^1
+Z7 OV;C;10.5b;63
+31
+Z8 !s110 1590569591
+!i10b 1
+Z9 !s108 1590569591.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd|
+Z11 !s107 C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Artl
+R2
+R3
+R4
+DEx4 work 15 single_port_rom 0 22 1>TY716I:eW3hh8zZK3XB0
+l37
+L17
+VA>e6Wkbg2M0Q8:4R<B@W80
+!s100 Ki:djX3e[cNKaJDdVLh923
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Esingle_port_rom_tb
+Z14 w1590340161
+R2
+R3
+R4
+R0
+Z15 8C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom_tb.vhd
+Z16 FC:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom_tb.vhd
+l0
+L4
+VIM[38]3jYKbYLIS<j@Ec=3
+!s100 Cb0S`hFlN4c]5bW@dIo080
+R7
+31
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom_tb.vhd|
+Z18 !s107 C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom_tb.vhd|
+!i113 1
+R12
+R13
+Atb
+R2
+R3
+R4
+DEx4 work 18 single_port_rom_tb 0 22 IM[38]3jYKbYLIS<j@Ec=3
+l46
+L7
+V5TUM?:@6:]H68z;5fAFQ83
+!s100 ZIQAO?eUUj0UYa6ijg_Ef1
+R7
+31
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13

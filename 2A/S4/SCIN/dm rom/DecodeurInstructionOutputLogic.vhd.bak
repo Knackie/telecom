@@ -1,0 +1,119 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity DecodeurInstructionOutputLogic is
+	port(
+			C,Z : in std_logic;
+			IR : in std_logic_vector(7 downto 0);
+			state : in std_logic_vector(1 downto 0);
+			jump_pc,inc_pc,ld_ir,ld_ir_lsn,writ,en_ALU : out std_logic;
+			AOP : out std_logic_vector(2 downto 0)
+	);
+end DecodeurInstructionOutputLogic;
+architecture arch of DecodeurInstructionOutputLogic is
+	
+begin 
+	
+	process(state,IR,C,Z) begin
+		jump_pc <='0';
+		inc_pc <='0';
+		ld_ir <='0';
+		ld_ir_lsn <='0';
+		writ <='0';
+		en_ALU <='0';
+		AOP <= "000";
+		if state = "00" then
+			--incrément de PC
+			inc_pc<='1';
+			--charger l'instruction dans l'instruction en cours
+			ld_ir<='1';
+			
+		elsif state = "01" then		
+			--load Rd
+			if IR(7 downto 4) = "0100" then
+				--récuperer la valeur dans la ram
+				ld_ir_lsn <= '1';
+			--add Rd
+			elsif IR(7 downto 4) = "0101" then
+				ld_ir_lsn <= '1';
+			--xor Rd
+			elsif IR(7 downto 4) = "0110" then
+				ld_ir_lsn <= '1';
+			--test Rd
+			elsif IR(7 downto 4) = "0111" then
+				ld_ir_lsn <= '1';
+			end if;
+			
+		else 
+			--load Rd
+			if IR(7 downto 4) = "0100" then
+				--on allume l'ALU
+				en_ALU <='1';
+				--on fait passer simplement l'opérateur 1 dans l'alu pour le placer dans l'operateur 2 au prochain passage
+				AOP<="001";
+				
+			--load #d
+			elsif IR(7 downto 4) = "0001" then
+				--on allume l'ALU
+				en_ALU <='1';
+				--on fait passer simplement l'opérateur 1 dans l'alu pour le placer dans l'operateur 2 au prochain passage
+				AOP<="001";
+				
+			--store Rd
+			elsif IR(7 downto 4) = "0011" then
+				writ<='1';
+				
+			--add Rd
+			elsif IR(7 downto 4) = "0101" then
+				--on allume l'ALU
+				en_ALU <='1';
+				--on demande à l'alu d'additionner
+				AOP<="010";
+				
+			--add #d
+			elsif IR(7 downto 4) = "0010" then
+				--on allume l'ALU
+				en_ALU <='1';
+				--on demande à l'alu d'additionner
+				AOP<="010";
+				
+			--xor Rd
+			elsif IR(7 downto 4) = "0110" then
+				--on allume l'ALU
+				en_ALU <='1';
+				--on demande à l'alu d'additionner
+				AOP<="011";
+				
+			--test Rd
+			elsif IR(7 downto 4) = "0111" then
+				en_ALU<='1';
+				AOP <="100";
+				
+			--clear_c
+			elsif IR = "00000000" then
+				en_ALU <='1';
+				AOP <= "110";
+				
+			--set_c
+			elsif IR = "00000001" then
+				en_ALU <='1';
+				AOP <= "101";
+				
+			--skip_c
+			elsif IR = "00000010" then
+				inc_pc <= C;
+			
+			--skip_z
+			elsif IR = "00000011" then
+				inc_pc <= Z;
+				
+			--jump #a
+			elsif IR(7 downto 7) = "1" then
+				jump_pc <='1';
+				
+			end if;
+			
+		end if;
+	end process;
+	
+  
+end arch;

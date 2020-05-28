@@ -1,0 +1,41 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity compteur_modulo is
+	generic (
+		TAILLE : integer := 4;
+		MODULO : integer := 10 
+		);
+	port(
+		CLK : in std_logic;
+		load : in std_logic;
+		RESET : in std_logic;
+		ENABLE : in std_logic;
+		Preset : in std_logic_vector(TAILLE-1 downto 0);
+		DOUT : out std_logic_vector(TAILLE-1 downto 0);
+		TC : out std_logic
+	);
+end;
+architecture behavior of compteur_modulo is begin
+	clk_proc:process(CLK)
+	variable COUNT:unsigned(TAILLE-1 downto 0) := (others => '0');
+	begin
+		if rising_edge(CLK) then
+			if RESET = '1' then
+				COUNT := (others=>'0');
+			elsif load = '0' then
+				TC <= '0';
+				if ENABLE = '1' then
+					COUNT := COUNT + 1;
+					if COUNT = MODULO then
+						COUNT := (others => '0');
+						TC <= '1';
+					end if;
+				end if;
+			else
+				COUNT := unsigned(Preset);
+			end if;
+		end if;
+		DOUT <= std_logic_vector(COUNT);
+	end process clk_proc;
+end behavior;

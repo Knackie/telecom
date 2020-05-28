@@ -1,0 +1,248 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use IEEE.numeric_std.all;
+entity Processeur is
+	port(
+		clk : in std_logic
+	);
+end Processeur;
+architecture arch of Processeur is
+
+	
+	
+	component MultiplexeurNbits is
+	generic(
+		TAILLE: natural := 8
+	);
+	port(
+		IN0,IN1: in std_logic_vector(TAILLE-1 downto 0);
+		Selecteur : in std_logic;
+		Sortie : out std_logic_vector(TAILLE-1 downto 0)
+	);
+	end component;
+	
+	component single_port_rom is
+		generic
+		(
+			DATA_WIDTH : natural := 8;
+			ADDR_WIDTH : natural := 8
+		);
+		port
+		(
+			clk : in std_logic;
+			addr : in std_logic_vector((ADDR_WIDTH -1) downto 0);
+			q : out std_logic_vector((DATA_WIDTH -1) downto 0)
+		);
+	end  component;
+	
+	component compteur_modulo is
+		generic (
+			TAILLE : integer := 4;
+			MODULO : integer := 10 
+			);
+		port(
+		CLK : in std_logic;
+		load : in std_logic;
+		RESET : in std_logic;
+		ENABLE : in std_logic;
+		Preset : in std_logic_vector(TAILLE-1 downto 0);
+		DOUT : out std_logic_vector(TAILLE-1 downto 0);
+		TC : out std_logic
+	);
+	end component;
+	
+	component ALU is
+		generic(N: integer:=4);
+		port(
+				inA, inB : in std_logic_vector(N-1 downto 0);
+				inCin : in std_logic;
+				consigne : in std_logic_vector(2 downto 0);
+				outS  : out std_logic_vector(N-1 downto 0);
+				outC : out std_logic;
+				outZ : out std_logic
+		);
+	end component;
+	
+	component Registre is
+		generic(N: integer:=8);
+		port(
+				d: in std_logic_vector(N-1 downto 0);
+				reset, clk, enable : in std_logic;
+				s : out std_logic_vector(N-1 downto 0)
+		);
+	end component;
+	
+	component single_port_ram is
+
+		generic 
+		(
+			DATA_WIDTH : natural := 8;
+			ADDR_WIDTH : natural := 6
+		);
+
+		port 
+		(
+			clk		: in std_logic;
+			addr	: in std_logic_vector((ADDR_WIDTH-1) downto 0);
+			data	: in std_logic_vector((DATA_WIDTH-1) downto 0);
+			we		: in std_logic := '1';
+			q		: out std_logic_vector((DATA_WIDTH -1) downto 0)
+		);
+
+	end component;
+	
+	component Reg2x4 is
+		port(
+			DFaible, DFort : in std_logic_vector(3 downto 0);
+			clk, ld_IR_lsn, ld_IR : in std_logic;
+			IRFaible, IRFort : out std_logic_vector(3 downto 0)
+		);
+	end component;
+	
+	component DecodeurInstruction is
+		port(
+				C,Z : in std_logic;
+				clk : in std_logic;
+				IR : in std_logic_vector(7 downto 0);
+				jump_pc,inc_pc,ld_ir,ld_ir_lsn,writ,en_ALU : out std_logic;
+				AOP : out std_logic_vector(2 downto 0)
+		);
+	end component;
+		
+	signal jump_pc,inc_pc,ld_ir,ld_ir_lsn,writ,en_ALU,C,Cb,Z,Zb,enableC,enableACCU,enableZ : std_logic;
+	signal AOP : std_logic_vector(2 downto 0);
+	signal Ram, ACCU,ACCUb, Mout : std_logic_vector(3 downto 0);
+	signal ad_Rom : std_logic_vector(6 downto 0);
+	signal Rom  : std_logic_vector(7 downto 0);
+	signal IR : std_logic_vector(7 downto 0) := (others =>'0');
+	signal int_ad_Rom, int_ir_3_0 : integer;
+begin 
+	enableC <= '1' when en_ALU = '1' and ((AOP = "101" or AOP = "110") or AOP = "010" ) else '0';
+	enableZ <= '1' when en_ALU = '1' and AOP = "100" else '0';
+	enableACCU <= '1' when en_ALU = '1' and not ((AOP = "101" or AOP = "110") or AOP = "100")  else '0';
+	int_ad_Rom <= to_integer(unsigned(ad_Rom));
+	int_ir_3_0 <= to_integer(unsigned(IR(3 downto 0)));
+	compteur_binaire : compteur_modulo
+		generic map (
+			TAILLE =>7,
+			MODULO =>128
+			)
+		port map(
+			CLK => clk,
+			load => jump_pc,
+			RESET => '0',
+			ENABLE => inc_PC,
+			Preset => IR(6 downto 0),
+			DOUT =>ad_Rom
+		);
+		
+	romData : single_port_rom
+		generic map(
+			DATA_WIDTH => 8,
+			ADDR_WIDTH => 7
+		)
+		port map(
+			clk => clk,
+			addr => ad_Rom,
+			q => Rom
+		);
+		
+	multiRomRam : MultiplexeurNbits
+		generic map(
+			TAILLE =>4
+		)
+		port map(
+			IN0 => Rom(3 downto 0),
+			IN1 => Ram,
+			Selecteur => ld_ir_lsn,
+			Sortie => Mout
+		);
+
+	Alui : ALU
+		generic map(
+			N => 4
+			)
+		port map(
+				inA => IR(3 downto 0), 
+				inB => ACCU,
+				inCin => '0',
+				consigne => AOP,
+				outS  => ACCUb,
+				outC => Cb,
+				outZ => Zb
+		);
+		
+	regC : Registre
+		generic map(
+			N =>1
+		)
+		port map(
+			d(0) => Cb,
+			reset => '0',
+			clk => clk,
+			enable => enableC,
+			s(0) => C
+		);
+	
+	regZ : Registre
+		generic map(
+			N =>1
+		)
+		port map(
+			d(0) => Zb,
+			reset => '0',
+			clk => clk,
+			enable => enableZ,
+			s(0) => Z
+		);
+		
+	regACCU : Registre
+		generic map(
+			N =>4
+		)
+		port map(
+			d => ACCUb,
+			reset => '0',
+			clk => clk,
+			enable => enableACCU,
+			s => ACCU
+		);
+	RamData : single_port_ram
+		generic map(
+			DATA_WIDTH => 4,
+			ADDR_WIDTH => 4
+		)
+		port map(
+			clk => clk,
+			addr => IR(3 downto 0),
+			data => ACCU,
+			we	=> writ,
+			q => Ram
+		);
+	registreInst : Reg2x4
+		port map(
+			DFaible => Mout, 
+			DFort => Rom(7 downto 4),
+			clk => clk, 
+			ld_IR_lsn => ld_IR_lsn, 
+			ld_IR => ld_IR,
+			IRFaible => IR(3 downto 0),
+			IRFort => IR(7 downto 4)
+		);
+	decodeur : DecodeurInstruction 
+		port map(
+			C => C,
+			Z => Z,
+			clk => clk,
+			IR =>IR,
+			jump_pc => jump_pc,
+			inc_pc => inc_pc,
+			ld_ir => ld_ir,
+			ld_ir_lsn => ld_ir_lsn,
+			writ => writ,
+			en_ALU => en_ALU,
+			AOP => AOP
+		);
+		
+	
+end arch;

@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+entity DecodeurInstructionStateLogic is
+	port(
+			C,Z : in std_logic;
+			IR : in std_logic_vector(7 downto 0);
+			state : in std_logic_vector(1 downto 0);
+			state_next : out std_logic_vector(1 downto 0)
+	);
+end DecodeurInstructionStateLogic;
+architecture arch of DecodeurInstructionStateLogic is
+	
+begin 
+	
+	process(state) begin
+		if state = "00" then
+			state_next <="01";
+		elsif state = "01" then
+			state_next <= "10";
+		else 
+			state_next <="00";
+		end if;
+	end process;
+  
+end arch;

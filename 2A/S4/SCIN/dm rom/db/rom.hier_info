@@ -1,0 +1,20 @@
+|single_port_rom
+clk => ~NO_FANOUT~
+addr[0] => rom.RADDR
+addr[1] => rom.RADDR1
+addr[2] => rom.RADDR2
+addr[3] => rom.RADDR3
+addr[4] => rom.RADDR4
+addr[5] => rom.RADDR5
+addr[6] => rom.RADDR6
+addr[7] => rom.RADDR7
+q[0] << rom.DATAOUT
+q[1] << rom.DATAOUT1
+q[2] << rom.DATAOUT2
+q[3] << rom.DATAOUT3
+q[4] << rom.DATAOUT4
+q[5] << rom.DATAOUT5
+q[6] << rom.DATAOUT6
+q[7] << rom.DATAOUT7
+
+
