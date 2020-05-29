@@ -1,0 +1,1107 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.15 of Day Month 20?? (rev: eb3ff99)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 78 and seed -5868031746965134074 with 4 workers on 8 cores with 1209MB heap and 2719MB offheap memory [pid: 3332] (Windows 10 10.0 amd64, AdoptOpenJDK 14.0.1 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file C:\Users\Knacki\telecom\2A\S4\partiel\special covid\aspd\tla\exo1.toolbox\Model_1\MC.tla
+Parsing file C:\Users\Knacki\telecom\2A\S4\partiel\special covid\aspd\tla\exo1.toolbox\Model_1\exo1.tla
+Parsing file C:\Users\Knacki\Desktop\tla\plugins\org.lamport.tlatools_1.0.0.202004251858\tla2sany\StandardModules\TLC.tla
+Parsing file C:\Users\Knacki\Desktop\tla\plugins\org.lamport.tlatools_1.0.0.202004251858\tla2sany\StandardModules\Naturals.tla
+Parsing file C:\Users\Knacki\Desktop\tla\plugins\org.lamport.tlatools_1.0.0.202004251858\tla2sany\StandardModules\Sequences.tla
+Parsing file C:\Users\Knacki\Desktop\tla\plugins\org.lamport.tlatools_1.0.0.202004251858\tla2sany\StandardModules\FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module exo1
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2020-05-29 15:20:09)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2212:0 @!@!@
+Implied-temporal checking--satisfiability problem has 1 branches.
+@!@!@ENDMSG 2212 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 1 distinct state generated at 2020-05-29 15:20:10.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2114:1 @!@!@
+Deadlock reached.
+@!@!@ENDMSG 2114 @!@!@
+@!@!@STARTMSG 2121:1 @!@!@
+The behavior up to this point is:
+@!@!@ENDMSG 2121 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> FALSE )
+/\ sn = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ tr = {}
+/\ bm = {}
+/\ bt = {}
+/\ cnt = {}
+/\ msg = {}
+/\ ack = {}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <election line 10, col 5 to line 13, col 58 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ tr = {}
+/\ bm = {}
+/\ bt = {}
+/\ cnt = {}
+/\ msg = {}
+/\ ack = {}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <sending_msg line 18, col 5 to line 23, col 56 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ tr = {}
+/\ bm = {0}
+/\ bt = {}
+/\ cnt = {}
+/\ msg = {<<0, 1>>}
+/\ ack = {}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+4: <sending_msg line 18, col 5 to line 23, col 56 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ tr = {}
+/\ bm = {0, 3}
+/\ bt = {}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<3, 1>>}
+/\ ack = {}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+5: <sending_msg line 18, col 5 to line 23, col 56 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ tr = {}
+/\ bm = {0, 3, 5}
+/\ bt = {}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+6: <sending_ack line 26, col 5 to line 31, col 56 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = (0 :> {} @@ 1 :> {0} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ tr = {}
+/\ bm = {0, 3, 5}
+/\ bt = {}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+7: <sending_ack line 26, col 5 to line 31, col 56 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ tr = {}
+/\ bm = {0, 3, 5}
+/\ bt = {}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<3, 1>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+8: <sending_ack line 26, col 5 to line 31, col 56 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {5} @@ 5 :> {} @@ 6 :> {})
+/\ tr = {}
+/\ bm = {0, 3, 5}
+/\ bt = {}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+9: <progress line 35, col 5 to line 39, col 57 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {5} @@ 5 :> {} @@ 6 :> {})
+/\ tr = {<<0, 1>>}
+/\ bm = {0, 3, 5}
+/\ bt = {0}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+10: <progress line 35, col 5 to line 39, col 57 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {5} @@ 5 :> {} @@ 6 :> {})
+/\ tr = {<<0, 1>>, <<3, 1>>}
+/\ bm = {0, 3, 5}
+/\ bt = {0, 3}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+11: <rcv_cnf line 43, col 5 to line 46, col 60 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {0} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {5} @@ 5 :> {} @@ 6 :> {})
+/\ tr = {<<0, 1>>, <<3, 1>>}
+/\ bm = {0, 3, 5}
+/\ bt = {0, 3}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+12: <rcv_cnf line 43, col 5 to line 46, col 60 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {5} @@ 5 :> {} @@ 6 :> {})
+/\ tr = {<<0, 1>>, <<3, 1>>}
+/\ bm = {0, 3, 5}
+/\ bt = {0, 3}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+13: <sending_msg line 18, col 5 to line 23, col 56 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {5} @@ 5 :> {} @@ 6 :> {})
+/\ tr = {<<0, 1>>, <<3, 1>>}
+/\ bm = {0, 1, 3, 5}
+/\ bt = {0, 3}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<1, 2>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+14: <sending_ack line 26, col 5 to line 31, col 56 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {5} @@
+  5 :> {} @@
+  6 :> {} )
+/\ tr = {<<0, 1>>, <<3, 1>>}
+/\ bm = {0, 1, 3, 5}
+/\ bt = {0, 3}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<1, 2>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<1, 2>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+15: <progress line 35, col 5 to line 39, col 57 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {5} @@
+  5 :> {} @@
+  6 :> {} )
+/\ tr = {<<0, 1>>, <<1, 2>>, <<3, 1>>}
+/\ bm = {0, 1, 3, 5}
+/\ bt = {0, 1, 3}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<1, 2>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<1, 2>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+16: <rcv_cnf line 43, col 5 to line 46, col 60 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {1} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {5} @@
+  5 :> {} @@
+  6 :> {} )
+/\ tr = {<<0, 1>>, <<1, 2>>, <<3, 1>>}
+/\ bm = {0, 1, 3, 5}
+/\ bt = {0, 1, 3}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<1, 2>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<1, 2>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+17: <sending_msg line 18, col 5 to line 23, col 56 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {1} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {5} @@
+  5 :> {} @@
+  6 :> {} )
+/\ tr = {<<0, 1>>, <<1, 2>>, <<3, 1>>}
+/\ bm = {0, 1, 2, 3, 5}
+/\ bt = {0, 1, 3}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<1, 2>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+18: <sending_ack line 26, col 5 to line 31, col 56 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {1} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2, 5} @@
+  5 :> {} @@
+  6 :> {} )
+/\ tr = {<<0, 1>>, <<1, 2>>, <<3, 1>>}
+/\ bm = {0, 1, 2, 3, 5}
+/\ bt = {0, 1, 3}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+19: <progress line 35, col 5 to line 39, col 57 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {1} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2, 5} @@
+  5 :> {} @@
+  6 :> {} )
+/\ tr = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>}
+/\ bm = {0, 1, 2, 3, 5}
+/\ bt = {0, 1, 2, 3}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+20: <progress line 35, col 5 to line 39, col 57 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = (0 :> {} @@ 1 :> {0, 3} @@ 2 :> {1} @@ 3 :> {} @@ 4 :> {} @@ 5 :> {} @@ 6 :> {})
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2, 5} @@
+  5 :> {} @@
+  6 :> {} )
+/\ tr = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ bm = {0, 1, 2, 3, 5}
+/\ bt = {0, 1, 2, 3, 5}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+21: <rcv_cnf line 43, col 5 to line 46, col 60 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2} @@
+  5 :> {} @@
+  6 :> {} )
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2, 5} @@
+  5 :> {} @@
+  6 :> {} )
+/\ tr = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ bm = {0, 1, 2, 3, 5}
+/\ bt = {0, 1, 2, 3, 5}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+22: <rcv_cnf line 43, col 5 to line 46, col 60 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2, 5} @@
+  5 :> {} @@
+  6 :> {} )
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2, 5} @@
+  5 :> {} @@
+  6 :> {} )
+/\ tr = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ bm = {0, 1, 2, 3, 5}
+/\ bt = {0, 1, 2, 3, 5}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+23: <sending_msg line 18, col 5 to line 23, col 56 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2, 5} @@
+  5 :> {} @@
+  6 :> {} )
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2, 5} @@
+  5 :> {} @@
+  6 :> {} )
+/\ tr = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ bm = {0, 1, 2, 3, 4, 5}
+/\ bt = {0, 1, 2, 3, 5}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<4, 6>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+24: <sending_ack line 26, col 5 to line 31, col 56 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2, 5} @@
+  5 :> {} @@
+  6 :> {} )
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2, 5} @@
+  5 :> {} @@
+  6 :> {4} )
+/\ tr = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<5, 4>>}
+/\ bm = {0, 1, 2, 3, 4, 5}
+/\ bt = {0, 1, 2, 3, 5}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<4, 6>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<4, 6>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+25: <progress line 35, col 5 to line 39, col 57 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2, 5} @@
+  5 :> {} @@
+  6 :> {} )
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2, 5} @@
+  5 :> {} @@
+  6 :> {4} )
+/\ tr = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<4, 6>>, <<5, 4>>}
+/\ bm = {0, 1, 2, 3, 4, 5}
+/\ bt = {0, 1, 2, 3, 4, 5}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<4, 6>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<4, 6>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+26: <rcv_cnf line 43, col 5 to line 46, col 60 of module exo1>
+/\ root = ( 0 :> FALSE @@
+  1 :> FALSE @@
+  2 :> FALSE @@
+  3 :> FALSE @@
+  4 :> FALSE @@
+  5 :> FALSE @@
+  6 :> TRUE )
+/\ sn = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2, 5} @@
+  5 :> {} @@
+  6 :> {4} )
+/\ nb = ( 0 :> {1} @@
+  1 :> {0, 2, 3} @@
+  2 :> {1, 4} @@
+  3 :> {1} @@
+  4 :> {2, 5, 6} @@
+  5 :> {4} @@
+  6 :> {} )
+/\ ba = ( 0 :> {} @@
+  1 :> {0, 3} @@
+  2 :> {1} @@
+  3 :> {} @@
+  4 :> {2, 5} @@
+  5 :> {} @@
+  6 :> {4} )
+/\ tr = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<4, 6>>, <<5, 4>>}
+/\ bm = {0, 1, 2, 3, 4, 5}
+/\ bt = {0, 1, 2, 3, 4, 5}
+/\ cnt = {}
+/\ msg = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<4, 6>>, <<5, 4>>}
+/\ ack = {<<0, 1>>, <<1, 2>>, <<2, 4>>, <<3, 1>>, <<4, 6>>, <<5, 4>>}
+/\ con = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2020-05-29 15:20:10
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2773:0 @!@!@
+<Init line 79, col 1 to line 79, col 4 of module exo1>: 2:2
+@!@!@ENDMSG 2773 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 80, col 5 to line 90, col 14 of module exo1: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<election line 9, col 1 to line 9, col 11 of module exo1>: 1:362
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 10, col 8 to line 10, col 18 of module exo1: 2910
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 10, col 8 to line 10, col 8 of module exo1: 2548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 10, col 14 to line 10, col 18 of module exo1: 2548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 11, col 8 to line 11, col 18 of module exo1: 2910
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 11, col 8 to line 11, col 12 of module exo1: 2548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 11, col 14 to line 11, col 18 of module exo1: 2548
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 12, col 12 to line 12, col 40 of module exo1: 362
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 13, col 12 to line 13, col 58 of module exo1: 362
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<sending_msg line 17, col 1 to line 17, col 16 of module exo1>: 37:195
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 18, col 8 to line 18, col 18 of module exo1: 17835
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 18, col 8 to line 18, col 8 of module exo1: 17640
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 18, col 17 to line 18, col 18 of module exo1: 17640
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 19, col 8 to line 19, col 21 of module exo1: 10267
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 19, col 8 to line 19, col 8 of module exo1: 10072
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 19, col 17 to line 19, col 21 of module exo1: 10072
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 20, col 8 to line 20, col 27 of module exo1: 9667
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 20, col 8 to line 20, col 12 of module exo1: 9472
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 20, col 14 to line 20, col 27 of module exo1: 9472
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 21, col 12 to line 21, col 36 of module exo1: 195
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 22, col 8 to line 22, col 24 of module exo1: 195
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 23, col 12 to line 23, col 56 of module exo1: 195
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<sending_ack line 25, col 1 to line 25, col 16 of module exo1>: 63:194
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 26, col 8 to line 26, col 22 of module exo1: 17540
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 26, col 8 to line 26, col 14 of module exo1: 17346
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 26, col 20 to line 26, col 22 of module exo1: 17346
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 27, col 8 to line 27, col 21 of module exo1: 1260
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 27, col 8 to line 27, col 8 of module exo1: 1066
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 27, col 17 to line 27, col 21 of module exo1: 1066
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 28, col 8 to line 28, col 18 of module exo1: 388
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 28, col 8 to line 28, col 8 of module exo1: 194
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 28, col 17 to line 28, col 18 of module exo1: 194
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 29, col 12 to line 29, col 42 of module exo1: 194
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 30, col 8 to line 30, col 32 of module exo1: 194
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 31, col 12 to line 31, col 56 of module exo1: 194
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<progress line 34, col 1 to line 34, col 13 of module exo1>: 105:198
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 35, col 8 to line 35, col 22 of module exo1: 17250
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 35, col 8 to line 35, col 14 of module exo1: 17052
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 35, col 20 to line 35, col 22 of module exo1: 17052
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 36, col 8 to line 36, col 18 of module exo1: 1052
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 36, col 8 to line 36, col 8 of module exo1: 854
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 36, col 17 to line 36, col 18 of module exo1: 854
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 37, col 12 to line 37, col 32 of module exo1: 198
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 38, col 8 to line 38, col 24 of module exo1: 198
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 39, col 12 to line 39, col 57 of module exo1: 198
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<rcv_cnf line 42, col 1 to line 42, col 12 of module exo1>: 131:194
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 43, col 8 to line 43, col 21 of module exo1: 16952
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 43, col 8 to line 43, col 14 of module exo1: 16758
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 43, col 20 to line 43, col 21 of module exo1: 16758
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 44, col 8 to line 44, col 21 of module exo1: 833
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 44, col 8 to line 44, col 8 of module exo1: 639
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 44, col 17 to line 44, col 21 of module exo1: 639
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 45, col 12 to line 45, col 42 of module exo1: 194
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 46, col 12 to line 46, col 60 of module exo1: 194
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<decontention line 49, col 1 to line 49, col 17 of module exo1>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 50, col 8 to line 50, col 22 of module exo1: 16611
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 52, col 12 to line 52, col 25 of module exo1: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 53, col 12 to line 53, col 26 of module exo1: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 54, col 12 to line 54, col 19 of module exo1: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 55, col 12 to line 55, col 52 of module exo1: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<contention line 58, col 1 to line 58, col 15 of module exo1>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 59, col 8 to line 59, col 14 of module exo1: 16611
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 60, col 8 to line 60, col 22 of module exo1: 16611
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 61, col 8 to line 61, col 25 of module exo1: 995
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 62, col 8 to line 62, col 21 of module exo1: 188
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 63, col 8 to line 63, col 15 of module exo1: 188
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 64, col 12 to line 64, col 33 of module exo1: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 65, col 8 to line 65, col 14 of module exo1: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 66, col 12 to line 66, col 55 of module exo1: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<solvecon line 68, col 1 to line 68, col 13 of module exo1>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 69, col 8 to line 69, col 14 of module exo1: 16611
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 73, col 12 to line 73, col 42 of module exo1: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 74, col 8 to line 74, col 32 of module exo1: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 75, col 12 to line 75, col 56 of module exo1: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(26) at 2020-05-29 15:20:10: 1,089 states generated (57,925 s/min), 338 distinct states found (17,978 ds/min), 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+1089 states generated, 338 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2194:0 @!@!@
+The depth of the complete state graph search is 26.
+@!@!@ENDMSG 2194 @!@!@
+@!@!@STARTMSG 2268:0 @!@!@
+The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 4 and the 95th percentile is 3).
+@!@!@ENDMSG 2268 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 1136ms at (2020-05-29 15:20:10)
+@!@!@ENDMSG 2186 @!@!@
