@@ -8,8 +8,7 @@ entity registre2_4bits is
 	);
 end registre2_4bits;
 architecture arch of registre2_4bits is
-	
-	component registre2_4bits is
+	component registre is
 		generic(N: integer:=8);
 		port(
 				d: in std_logic_vector(N-1 downto 0);
@@ -20,9 +19,10 @@ architecture arch of registre2_4bits is
 	signal tmp : std_logic;
 begin 
 	tmp <= ld_ir_lsn or ld_ir;
-	regFort : registre2_4bits
+	regFort : registre
 		generic map(
 			N =>4
+			
 		)
 		port map(
 			d => d_fort,
@@ -31,8 +31,7 @@ begin
 			s => ir_fort,
 			enable => ld_ir
 			);
-			
-	regFaible : registre2_4bits
+	regFaible : registre
 		generic map(
 			N =>4
 		)
@@ -43,5 +42,4 @@ begin
 			s => ir_faible,
 			enable => tmp
 		);
-	
 end arch;

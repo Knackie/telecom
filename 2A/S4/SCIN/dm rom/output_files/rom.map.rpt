@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rom
-Wed May 27 11:08:43 2020
+Thu May 28 22:39:48 2020
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -14,10 +14,35 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: Top-level Entity: |single_port_rom
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  9. Parameter Settings for User Entity Instance: compteur_modulo:compteur_binaire
+ 10. Parameter Settings for User Entity Instance: single_port_rom:romData
+ 11. Parameter Settings for User Entity Instance: MultiplexeurNbits:multiRomRam
+ 12. Parameter Settings for User Entity Instance: alu4bitWith3bitOp:Alui
+ 13. Parameter Settings for User Entity Instance: Registre:regC
+ 14. Parameter Settings for User Entity Instance: Registre:regZ
+ 15. Parameter Settings for User Entity Instance: Registre:regACCU
+ 16. Parameter Settings for User Entity Instance: single_port_ram:RamData
+ 17. Parameter Settings for User Entity Instance: registre2_4bits:registreInst|Registre:regFort
+ 18. Parameter Settings for User Entity Instance: registre2_4bits:registreInst|Registre:regFaible
+ 19. Parameter Settings for User Entity Instance: DecodeurInstruction:decodeur|Registre:stateReg
+ 20. Port Connectivity Checks: "DecodeurInstruction:decodeur|Registre:stateReg|bascule:\gen:1:u"
+ 21. Port Connectivity Checks: "DecodeurInstruction:decodeur|Registre:stateReg|bascule:\gen:0:u"
+ 22. Port Connectivity Checks: "DecodeurInstruction:decodeur|Registre:stateReg"
+ 23. Port Connectivity Checks: "registre2_4bits:registreInst|Registre:regFaible"
+ 24. Port Connectivity Checks: "registre2_4bits:registreInst|Registre:regFort"
+ 25. Port Connectivity Checks: "Registre:regACCU|bascule:\gen:3:u"
+ 26. Port Connectivity Checks: "Registre:regACCU|bascule:\gen:2:u"
+ 27. Port Connectivity Checks: "Registre:regACCU|bascule:\gen:1:u"
+ 28. Port Connectivity Checks: "Registre:regACCU|bascule:\gen:0:u"
+ 29. Port Connectivity Checks: "Registre:regACCU"
+ 30. Port Connectivity Checks: "Registre:regZ"
+ 31. Port Connectivity Checks: "Registre:regC|bascule:\gen:0:u"
+ 32. Port Connectivity Checks: "Registre:regC"
+ 33. Port Connectivity Checks: "alu4bitWith3bitOp:Alui"
+ 34. Port Connectivity Checks: "compteur_modulo:compteur_binaire"
+ 35. Post-Synthesis Netlist Statistics for Top Partition
+ 36. Elapsed Time Per Partition
+ 37. Analysis & Synthesis Messages
 
 
 
@@ -44,14 +69,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed May 27 11:08:43 2020       ;
+; Analysis & Synthesis Status     ; Successful - Thu May 28 22:39:48 2020       ;
 ; Quartus Prime Version           ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                   ; rom                                         ;
-; Top-level Entity Name           ; single_port_rom                             ;
+; Top-level Entity Name           ; Processeur                                  ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
 ; Total registers                 ; 0                                           ;
-; Total pins                      ; 17                                          ;
+; Total pins                      ; 1                                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -70,7 +95,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
-; Top-level entity name                                                           ; single_port_rom    ; rom                ;
+; Top-level entity name                                                           ; processeur         ; rom                ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -167,49 +192,60 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                               ;
-+----------------------------------+-----------------+-----------------------+---------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                                  ; Library ;
-+----------------------------------+-----------------+-----------------------+---------------------------------------------------------------+---------+
-; single_port_rom.vhd              ; yes             ; Auto-Found VHDL File  ; C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd ;         ;
-+----------------------------------+-----------------+-----------------------+---------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++------------------------------------+-----------------+-----------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path   ; Used in Netlist ; File Type             ; File Name with Absolute Path                                                 ; Library ;
++------------------------------------+-----------------+-----------------------+------------------------------------------------------------------------------+---------+
+; processeur.vhd                     ; yes             ; Auto-Found VHDL File  ; C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd                     ;         ;
+; compteur_modulo.vhd                ; yes             ; Auto-Found VHDL File  ; C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/compteur_modulo.vhd                ;         ;
+; single_port_rom.vhd                ; yes             ; Auto-Found VHDL File  ; C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd                ;         ;
+; multiplexeurnbits.vhd              ; yes             ; Auto-Found VHDL File  ; C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/multiplexeurnbits.vhd              ;         ;
+; alu4bitwith3bitop.vhd              ; yes             ; Auto-Found VHDL File  ; C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd              ;         ;
+; registre.vhd                       ; yes             ; Auto-Found VHDL File  ; C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre.vhd                       ;         ;
+; bascule.vhd                        ; yes             ; Auto-Found VHDL File  ; C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/bascule.vhd                        ;         ;
+; single_port_ram.vhd                ; yes             ; Auto-Found VHDL File  ; C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_ram.vhd                ;         ;
+; registre2_4bits.vhd                ; yes             ; Auto-Found VHDL File  ; C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre2_4bits.vhd                ;         ;
+; decodeurinstruction.vhd            ; yes             ; Auto-Found VHDL File  ; C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd            ;         ;
+; decodeurinstructionstatelogic.vhd  ; yes             ; Auto-Found VHDL File  ; C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionstatelogic.vhd  ;         ;
+; decodeurinstructionoutputlogic.vhd ; yes             ; Auto-Found VHDL File  ; C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionoutputlogic.vhd ;         ;
++------------------------------------+-----------------+-----------------------+------------------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                 ;
-+---------------------------------------------+---------------+
-; Resource                                    ; Usage         ;
-+---------------------------------------------+---------------+
-; Estimate of Logic utilization (ALMs needed) ; 7             ;
-;                                             ;               ;
-; Combinational ALUT usage for logic          ; 12            ;
-;     -- 7 input functions                    ; 0             ;
-;     -- 6 input functions                    ; 1             ;
-;     -- 5 input functions                    ; 5             ;
-;     -- 4 input functions                    ; 5             ;
-;     -- <=3 input functions                  ; 1             ;
-;                                             ;               ;
-; Dedicated logic registers                   ; 0             ;
-;                                             ;               ;
-; I/O pins                                    ; 17            ;
-;                                             ;               ;
-; Total DSP Blocks                            ; 0             ;
-;                                             ;               ;
-; Maximum fan-out node                        ; addr[2]~input ;
-; Maximum fan-out                             ; 6             ;
-; Total fan-out                               ; 78            ;
-; Average fan-out                             ; 1.70          ;
-+---------------------------------------------+---------------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimate of Logic utilization (ALMs needed) ; 0     ;
+;                                             ;       ;
+; Combinational ALUT usage for logic          ; 0     ;
+;     -- 7 input functions                    ; 0     ;
+;     -- 6 input functions                    ; 0     ;
+;     -- 5 input functions                    ; 0     ;
+;     -- 4 input functions                    ; 0     ;
+;     -- <=3 input functions                  ; 0     ;
+;                                             ;       ;
+; Dedicated logic registers                   ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 1     ;
+;                                             ;       ;
+; Total DSP Blocks                            ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 1     ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                        ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-----------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name     ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-----------------+--------------+
-; |single_port_rom           ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 17   ; 0            ; |single_port_rom    ; single_port_rom ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-----------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |Processeur                ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 1    ; 0            ; |Processeur         ; Processeur  ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -228,34 +264,266 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |single_port_rom ;
-+----------------+-------+--------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                   ;
-+----------------+-------+--------------------------------------------------------+
-; DATA_WIDTH     ; 8     ; Signed Integer                                         ;
-; ADDR_WIDTH     ; 8     ; Signed Integer                                         ;
-+----------------+-------+--------------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: compteur_modulo:compteur_binaire ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; taille         ; 7     ; Signed Integer                                       ;
+; modulo         ; 128   ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: single_port_rom:romData ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; data_width     ; 8     ; Signed Integer                              ;
+; addr_width     ; 7     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MultiplexeurNbits:multiRomRam ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; taille         ; 4     ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu4bitWith3bitOp:Alui ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; n              ; 4     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Registre:regC ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; n              ; 1     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Registre:regZ ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; n              ; 1     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Registre:regACCU ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; n              ; 4     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: single_port_ram:RamData ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; data_width     ; 4     ; Signed Integer                              ;
+; addr_width     ; 4     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registre2_4bits:registreInst|Registre:regFort ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; n              ; 4     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: registre2_4bits:registreInst|Registre:regFaible ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; n              ; 4     ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DecodeurInstruction:decodeur|Registre:stateReg ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 2     ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DecodeurInstruction:decodeur|Registre:stateReg|bascule:\gen:1:u" ;
++--------+-------+----------+-----------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                         ;
++--------+-------+----------+-----------------------------------------------------------------+
+; preset ; Input ; Info     ; Stuck at GND                                                    ;
++--------+-------+----------+-----------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DecodeurInstruction:decodeur|Registre:stateReg|bascule:\gen:0:u" ;
++--------+-------+----------+-----------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                         ;
++--------+-------+----------+-----------------------------------------------------------------+
+; preset ; Input ; Info     ; Stuck at GND                                                    ;
++--------+-------+----------+-----------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DecodeurInstruction:decodeur|Registre:stateReg"                                                                                               ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                      ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; reset  ; Input ; Info     ; Stuck at GND                                                                                                                                 ;
+; enable ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Port Connectivity Checks: "registre2_4bits:registreInst|Registre:regFaible" ;
++-------+-------+----------+--------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                          ;
++-------+-------+----------+--------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                     ;
++-------+-------+----------+--------------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Port Connectivity Checks: "registre2_4bits:registreInst|Registre:regFort" ;
++-------+-------+----------+------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                        ;
++-------+-------+----------+------------------------------------------------+
+; reset ; Input ; Info     ; Stuck at GND                                   ;
++-------+-------+----------+------------------------------------------------+
+
+
++---------------------------------------------------------------+
+; Port Connectivity Checks: "Registre:regACCU|bascule:\gen:3:u" ;
++--------+-------+----------+-----------------------------------+
+; Port   ; Type  ; Severity ; Details                           ;
++--------+-------+----------+-----------------------------------+
+; preset ; Input ; Info     ; Stuck at GND                      ;
++--------+-------+----------+-----------------------------------+
+
+
++---------------------------------------------------------------+
+; Port Connectivity Checks: "Registre:regACCU|bascule:\gen:2:u" ;
++--------+-------+----------+-----------------------------------+
+; Port   ; Type  ; Severity ; Details                           ;
++--------+-------+----------+-----------------------------------+
+; preset ; Input ; Info     ; Stuck at GND                      ;
++--------+-------+----------+-----------------------------------+
+
+
++---------------------------------------------------------------+
+; Port Connectivity Checks: "Registre:regACCU|bascule:\gen:1:u" ;
++--------+-------+----------+-----------------------------------+
+; Port   ; Type  ; Severity ; Details                           ;
++--------+-------+----------+-----------------------------------+
+; preset ; Input ; Info     ; Stuck at GND                      ;
++--------+-------+----------+-----------------------------------+
+
+
++---------------------------------------------------------------+
+; Port Connectivity Checks: "Registre:regACCU|bascule:\gen:0:u" ;
++--------+-------+----------+-----------------------------------+
+; Port   ; Type  ; Severity ; Details                           ;
++--------+-------+----------+-----------------------------------+
+; preset ; Input ; Info     ; Stuck at GND                      ;
++--------+-------+----------+-----------------------------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "Registre:regACCU" ;
++-------+-------+----------+-------------------+
+; Port  ; Type  ; Severity ; Details           ;
++-------+-------+----------+-------------------+
+; reset ; Input ; Info     ; Stuck at GND      ;
++-------+-------+----------+-------------------+
+
+
++-------------------------------------------+
+; Port Connectivity Checks: "Registre:regZ" ;
++-------+-------+----------+----------------+
+; Port  ; Type  ; Severity ; Details        ;
++-------+-------+----------+----------------+
+; reset ; Input ; Info     ; Stuck at GND   ;
++-------+-------+----------+----------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "Registre:regC|bascule:\gen:0:u" ;
++--------+-------+----------+--------------------------------+
+; Port   ; Type  ; Severity ; Details                        ;
++--------+-------+----------+--------------------------------+
+; preset ; Input ; Info     ; Stuck at GND                   ;
++--------+-------+----------+--------------------------------+
+
+
++-------------------------------------------+
+; Port Connectivity Checks: "Registre:regC" ;
++-------+-------+----------+----------------+
+; Port  ; Type  ; Severity ; Details        ;
++-------+-------+----------+----------------+
+; reset ; Input ; Info     ; Stuck at GND   ;
++-------+-------+----------+----------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "alu4bitWith3bitOp:Alui" ;
++--------+-------+----------+------------------------+
+; Port   ; Type  ; Severity ; Details                ;
++--------+-------+----------+------------------------+
+; en_alu ; Input ; Info     ; Stuck at GND           ;
++--------+-------+----------+------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "compteur_modulo:compteur_binaire"                                                    ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; reset ; Input  ; Info     ; Stuck at GND                                                                        ;
+; tc    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 13                          ;
-;     normal            ; 13                          ;
-;         0 data inputs ; 1                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 5                           ;
-;         5 data inputs ; 5                           ;
-;         6 data inputs ; 1                           ;
-; boundary_port         ; 17                          ;
-;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.90                        ;
-+-----------------------+-----------------------------+
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; boundary_port     ; 1                               ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
 
 
 +-------------------------------+
@@ -273,31 +541,91 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Wed May 27 11:08:36 2020
+    Info: Processing started: Thu May 28 22:39:42 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rom -c rom
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Warning (12125): Using design file processeur.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: Processeur-arch File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd Line: 9
+    Info (12023): Found entity 1: Processeur File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd Line: 4
+Info (12127): Elaborating entity "processeur" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at processeur.vhd(115): object "int_ad_Rom" assigned a value but never read File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd Line: 115
+Warning (10036): Verilog HDL or VHDL warning at processeur.vhd(115): object "int_ir_3_0" assigned a value but never read File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd Line: 115
+Warning (12125): Using design file compteur_modulo.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: compteur_modulo-behavior File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/compteur_modulo.vhd Line: 19
+    Info (12023): Found entity 1: compteur_modulo File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/compteur_modulo.vhd Line: 4
+Info (12128): Elaborating entity "compteur_modulo" for hierarchy "compteur_modulo:compteur_binaire" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd Line: 122
 Warning (12125): Using design file single_port_rom.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: single_port_rom-rtl File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd Line: 17
     Info (12023): Found entity 1: single_port_rom File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd Line: 4
-Info (12127): Elaborating entity "single_port_rom" for the top level hierarchy
-Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276007): RAM logic "rom" is uninferred due to asynchronous read logic File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd Line: 36
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "q[3]" is stuck at GND File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd Line: 14
-Info (286030): Timing-Driven Synthesis is running
+Info (12128): Elaborating entity "single_port_rom" for hierarchy "single_port_rom:romData" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd Line: 136
+Warning (12125): Using design file multiplexeurnbits.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: MultiplexeurNbits-ArchIf File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/multiplexeurnbits.vhd Line: 13
+    Info (12023): Found entity 1: MultiplexeurNbits File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/multiplexeurnbits.vhd Line: 3
+Info (12128): Elaborating entity "MultiplexeurNbits" for hierarchy "MultiplexeurNbits:multiRomRam" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd Line: 147
+Warning (12125): Using design file alu4bitwith3bitop.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: alu4bitWith3bitOp-arch File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 16
+    Info (12023): Found entity 1: alu4bitWith3bitOp File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 5
+Info (12128): Elaborating entity "alu4bitWith3bitOp" for hierarchy "alu4bitWith3bitOp:Alui" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd Line: 158
+Warning (10492): VHDL Process Statement warning at alu4bitwith3bitop.vhd(21): signal "en_alu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 21
+Warning (10492): VHDL Process Statement warning at alu4bitwith3bitop.vhd(23): signal "operator" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 23
+Warning (10492): VHDL Process Statement warning at alu4bitwith3bitop.vhd(25): signal "op1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at alu4bitwith3bitop.vhd(28): signal "op1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 28
+Warning (10492): VHDL Process Statement warning at alu4bitwith3bitop.vhd(28): signal "op2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 28
+Warning (10492): VHDL Process Statement warning at alu4bitwith3bitop.vhd(31): signal "op1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at alu4bitwith3bitop.vhd(31): signal "op2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at alu4bitwith3bitop.vhd(34): signal "op1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at alu4bitwith3bitop.vhd(34): signal "op2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 34
+Warning (10631): VHDL Process Statement warning at alu4bitwith3bitop.vhd(19): inferring latch(es) for signal or variable "z", which holds its previous value in one or more paths through the process File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 19
+Warning (10631): VHDL Process Statement warning at alu4bitwith3bitop.vhd(19): inferring latch(es) for signal or variable "res", which holds its previous value in one or more paths through the process File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 19
+Info (10041): Inferred latch for "res[0]" at alu4bitwith3bitop.vhd(19) File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 19
+Info (10041): Inferred latch for "res[1]" at alu4bitwith3bitop.vhd(19) File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 19
+Info (10041): Inferred latch for "res[2]" at alu4bitwith3bitop.vhd(19) File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 19
+Info (10041): Inferred latch for "res[3]" at alu4bitwith3bitop.vhd(19) File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 19
+Info (10041): Inferred latch for "res[4]" at alu4bitwith3bitop.vhd(19) File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 19
+Info (10041): Inferred latch for "z" at alu4bitwith3bitop.vhd(19) File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd Line: 19
+Warning (12125): Using design file registre.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: registre-arch File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre.vhd Line: 12
+    Info (12023): Found entity 1: registre File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre.vhd Line: 3
+Info (12128): Elaborating entity "Registre" for hierarchy "Registre:regC" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd Line: 172
+Warning (12125): Using design file bascule.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: Bascule-arch File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/bascule.vhd Line: 13
+    Info (12023): Found entity 1: Bascule File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/bascule.vhd Line: 3
+Info (12128): Elaborating entity "bascule" for hierarchy "Registre:regC|bascule:\gen:0:u" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre.vhd Line: 25
+Info (12128): Elaborating entity "Registre" for hierarchy "Registre:regACCU" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd Line: 196
+Warning (12125): Using design file single_port_ram.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: single_port_ram-rtl File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_ram.vhd Line: 20
+    Info (12023): Found entity 1: single_port_ram File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_ram.vhd Line: 5
+Info (12128): Elaborating entity "single_port_ram" for hierarchy "single_port_ram:RamData" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd Line: 207
+Warning (12125): Using design file registre2_4bits.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: registre2_4bits-arch File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre2_4bits.vhd Line: 10
+    Info (12023): Found entity 1: registre2_4bits File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre2_4bits.vhd Line: 3
+Info (12128): Elaborating entity "registre2_4bits" for hierarchy "registre2_4bits:registreInst" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd Line: 219
+Warning (12125): Using design file decodeurinstruction.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: DecodeurInstruction-arch File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd Line: 12
+    Info (12023): Found entity 1: DecodeurInstruction File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd Line: 3
+Info (12128): Elaborating entity "DecodeurInstruction" for hierarchy "DecodeurInstruction:decodeur" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd Line: 229
+Warning (12125): Using design file decodeurinstructionstatelogic.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: DecodeurInstructionStateLogic-arch File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionstatelogic.vhd Line: 11
+    Info (12023): Found entity 1: DecodeurInstructionStateLogic File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionstatelogic.vhd Line: 3
+Info (12128): Elaborating entity "DecodeurInstructionStateLogic" for hierarchy "DecodeurInstruction:decodeur|DecodeurInstructionStateLogic:stateLogic" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd Line: 40
+Warning (12125): Using design file decodeurinstructionoutputlogic.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: DecodeurInstructionOutputLogic-arch File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionoutputlogic.vhd Line: 12
+    Info (12023): Found entity 1: DecodeurInstructionOutputLogic File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionoutputlogic.vhd Line: 3
+Info (12128): Elaborating entity "DecodeurInstructionOutputLogic" for hierarchy "DecodeurInstruction:decodeur|DecodeurInstructionOutputLogic:outputLogic" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd Line: 41
+Info (12128): Elaborating entity "Registre" for hierarchy "DecodeurInstruction:decodeur|Registre:stateReg" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd Line: 42
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd Line: 12
-Info (21057): Implemented 29 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 9 input pins
-    Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 12 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Warning (15610): No output dependent on input pin "clk" File: C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd Line: 6
+Info (21057): Implemented 1 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 29 warnings
     Info: Peak virtual memory: 4855 megabytes
-    Info: Processing ended: Wed May 27 11:08:43 2020
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:15
+    Info: Processing ended: Thu May 28 22:39:48 2020
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:14
 
 

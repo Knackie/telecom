@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Wed May 27 11:08:43 2020
+Analysis & Synthesis Status : Successful - Thu May 28 22:39:48 2020
 Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 Revision Name : rom
-Top-level Entity Name : single_port_rom
+Top-level Entity Name : Processeur
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
 Total registers : 0
-Total pins : 17
+Total pins : 1
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0
