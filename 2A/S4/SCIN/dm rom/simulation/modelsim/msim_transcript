@@ -12,7 +12,7 @@
 # 
 # vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:40:42 on May 28,2020
+# Start time: 12:39:38 on May 30,2020
 # vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -20,11 +20,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity Processeur
 # -- Compiling architecture arch of Processeur
-# End time: 22:40:42 on May 28,2020, Elapsed time: 0:00:00
+# End time: 12:39:38 on May 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/compteur_modulo.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:40:42 on May 28,2020
+# Start time: 12:39:38 on May 30,2020
 # vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/compteur_modulo.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -32,11 +32,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity compteur_modulo
 # -- Compiling architecture behavior of compteur_modulo
-# End time: 22:40:42 on May 28,2020, Elapsed time: 0:00:00
+# End time: 12:39:38 on May 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:40:42 on May 28,2020
+# Start time: 12:39:38 on May 30,2020
 # vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -44,22 +44,22 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity single_port_rom
 # -- Compiling architecture rtl of single_port_rom
-# End time: 22:40:42 on May 28,2020, Elapsed time: 0:00:00
+# End time: 12:39:38 on May 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/multiplexeurnbits.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:40:42 on May 28,2020
+# Start time: 12:39:38 on May 30,2020
 # vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/multiplexeurnbits.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity MultiplexeurNbits
 # -- Compiling architecture ArchIf of MultiplexeurNbits
-# End time: 22:40:42 on May 28,2020, Elapsed time: 0:00:00
+# End time: 12:39:38 on May 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:40:42 on May 28,2020
+# Start time: 12:39:38 on May 30,2020
 # vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -67,33 +67,33 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity alu4bitWith3bitOp
 # -- Compiling architecture arch of alu4bitWith3bitOp
-# End time: 22:40:42 on May 28,2020, Elapsed time: 0:00:00
+# End time: 12:39:38 on May 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:40:42 on May 28,2020
+# Start time: 12:39:38 on May 30,2020
 # vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity registre
 # -- Compiling architecture arch of registre
-# End time: 22:40:42 on May 28,2020, Elapsed time: 0:00:00
+# End time: 12:39:38 on May 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/bascule.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:40:42 on May 28,2020
+# Start time: 12:39:38 on May 30,2020
 # vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/bascule.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Bascule
 # -- Compiling architecture arch of Bascule
-# End time: 22:40:42 on May 28,2020, Elapsed time: 0:00:00
+# End time: 12:39:38 on May 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_ram.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:40:42 on May 28,2020
+# Start time: 12:39:38 on May 30,2020
 # vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_ram.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -101,68 +101,68 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity single_port_ram
 # -- Compiling architecture rtl of single_port_ram
-# End time: 22:40:42 on May 28,2020, Elapsed time: 0:00:00
+# End time: 12:39:38 on May 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre2_4bits.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:40:42 on May 28,2020
+# Start time: 12:39:38 on May 30,2020
 # vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre2_4bits.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity registre2_4bits
 # -- Compiling architecture arch of registre2_4bits
-# End time: 22:40:43 on May 28,2020, Elapsed time: 0:00:01
+# End time: 12:39:38 on May 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:40:43 on May 28,2020
+# Start time: 12:39:38 on May 30,2020
 # vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity DecodeurInstruction
 # -- Compiling architecture arch of DecodeurInstruction
-# End time: 22:40:43 on May 28,2020, Elapsed time: 0:00:00
+# End time: 12:39:38 on May 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionstatelogic.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:40:43 on May 28,2020
+# Start time: 12:39:38 on May 30,2020
 # vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionstatelogic.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity DecodeurInstructionStateLogic
 # -- Compiling architecture arch of DecodeurInstructionStateLogic
-# End time: 22:40:43 on May 28,2020, Elapsed time: 0:00:00
+# End time: 12:39:39 on May 30,2020, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionoutputlogic.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:40:43 on May 28,2020
+# Start time: 12:39:39 on May 30,2020
 # vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionoutputlogic.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity DecodeurInstructionOutputLogic
 # -- Compiling architecture arch of DecodeurInstructionOutputLogic
-# End time: 22:40:43 on May 28,2020, Elapsed time: 0:00:00
+# End time: 12:39:39 on May 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/Processeur_tb.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:40:43 on May 28,2020
+# Start time: 12:39:39 on May 30,2020
 # vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/Processeur_tb.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity Processeur_tb
 # -- Compiling architecture tb of Processeur_tb
-# End time: 22:40:43 on May 28,2020, Elapsed time: 0:00:00
+# End time: 12:39:39 on May 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs="+acc"  processeur_tb
 # vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs=""+acc"" processeur_tb 
-# Start time: 22:40:43 on May 28,2020
+# Start time: 12:39:39 on May 30,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -182,6 +182,11 @@
 # Loading work.decodeurinstructionoutputlogic(arch)
 # 
 # add wave *
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Knacki  Hostname: DESKTOP-7CS6RJS  ProcessID: 12552
+#           Attempting to use alternate WLF file "./wlftfwwtva".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftfwwtva
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
@@ -195,211 +200,8 @@
 #    Time: 0 ps  Iteration: 0  Instance: /processeur_tb/mapping
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /processeur_tb/mapping
-add wave -position end sim:/processeur_tb/mapping/compteur_binaire/*
-add wave -position end sim:/processeur_tb/mapping/romData/*
 add wave -position end sim:/processeur_tb/mapping/RamData/*
-restart
-do rom_run_msim_rtl_vhdl.do
-# if {[file exists rtl_work]} {
-# 	vdel -lib rtl_work -all
-# }
-# Error 31: Unable to unlink file "C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/simulation/modelsim/rtl_work/_lib.qdb".
-# Error 133: Unable to remove directory "C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/simulation/modelsim/rtl_work".
-# vlib rtl_work
-# ** Error: (vlib-35) Failed to create directory "rtl_work".
-# File exists. (errno = EEXIST)
-# vmap work rtl_work
-# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
-# vmap work rtl_work 
-# Modifying modelsim.ini
-# 
-# vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:43:26 on May 28,2020
-# vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity Processeur
-# -- Compiling architecture arch of Processeur
-# End time: 22:43:26 on May 28,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/compteur_modulo.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:43:26 on May 28,2020
-# vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/compteur_modulo.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity compteur_modulo
-# -- Compiling architecture behavior of compteur_modulo
-# End time: 22:43:27 on May 28,2020, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:43:27 on May 28,2020
-# vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_rom.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity single_port_rom
-# -- Compiling architecture rtl of single_port_rom
-# End time: 22:43:27 on May 28,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/multiplexeurnbits.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:43:27 on May 28,2020
-# vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/multiplexeurnbits.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity MultiplexeurNbits
-# -- Compiling architecture ArchIf of MultiplexeurNbits
-# End time: 22:43:27 on May 28,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:43:27 on May 28,2020
-# vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity alu4bitWith3bitOp
-# -- Compiling architecture arch of alu4bitWith3bitOp
-# End time: 22:43:27 on May 28,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:43:27 on May 28,2020
-# vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity registre
-# -- Compiling architecture arch of registre
-# End time: 22:43:27 on May 28,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/bascule.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:43:27 on May 28,2020
-# vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/bascule.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity Bascule
-# -- Compiling architecture arch of Bascule
-# End time: 22:43:27 on May 28,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_ram.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:43:27 on May 28,2020
-# vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/single_port_ram.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity single_port_ram
-# -- Compiling architecture rtl of single_port_ram
-# End time: 22:43:27 on May 28,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre2_4bits.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:43:27 on May 28,2020
-# vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/registre2_4bits.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity registre2_4bits
-# -- Compiling architecture arch of registre2_4bits
-# End time: 22:43:27 on May 28,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:43:27 on May 28,2020
-# vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity DecodeurInstruction
-# -- Compiling architecture arch of DecodeurInstruction
-# End time: 22:43:27 on May 28,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionstatelogic.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:43:27 on May 28,2020
-# vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionstatelogic.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity DecodeurInstructionStateLogic
-# -- Compiling architecture arch of DecodeurInstructionStateLogic
-# End time: 22:43:27 on May 28,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionoutputlogic.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:43:27 on May 28,2020
-# vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionoutputlogic.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity DecodeurInstructionOutputLogic
-# -- Compiling architecture arch of DecodeurInstructionOutputLogic
-# End time: 22:43:27 on May 28,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# 
-# vcom -93 -work work {C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/Processeur_tb.vhd}
-# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 22:43:27 on May 28,2020
-# vcom -reportprogress 300 -93 -work work C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/Processeur_tb.vhd 
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Compiling entity Processeur_tb
-# -- Compiling architecture tb of Processeur_tb
-# End time: 22:43:27 on May 28,2020, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# 
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs="+acc"  processeur_tb
-# End time: 22:43:28 on May 28,2020, Elapsed time: 0:02:45
-# Errors: 0, Warnings: 4
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs=""+acc"" processeur_tb 
-# Start time: 22:43:28 on May 28,2020
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading work.processeur_tb(tb)
-# Loading ieee.numeric_std(body)
-# Loading work.processeur(arch)
-# Loading work.compteur_modulo(behavior)
-# Loading work.single_port_rom(rtl)
-# Loading work.multiplexeurnbits(archif)
-# Loading work.alu4bitwith3bitop(arch)
-# Loading work.registre(arch)
-# Loading work.bascule(arch)
-# Loading work.single_port_ram(rtl)
-# Loading work.registre2_4bits(arch)
-# Loading work.decodeurinstruction(arch)
-# Loading work.decodeurinstructionstatelogic(arch)
-# Loading work.decodeurinstructionoutputlogic(arch)
-# 
-# add wave *
-# view structure
-# .main_pane.structure.interior.cs.body.struct
-# view signals
-# .main_pane.objects.interior.cs.body.tree
-# run -all
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /processeur_tb/mapping/RamData
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /processeur_tb/mapping/romData
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /processeur_tb/mapping
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /processeur_tb/mapping
 add wave -position end sim:/processeur_tb/mapping/romData/*
-add wave -position end sim:/processeur_tb/mapping/RamData/*
-run 5ms
+run 10ms
+# End time: 12:49:47 on May 30,2020, Elapsed time: 0:10:08
+# Errors: 0, Warnings: 6

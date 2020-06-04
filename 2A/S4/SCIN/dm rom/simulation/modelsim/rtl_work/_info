@@ -22,9 +22,9 @@ VfaDRcjP4;fmjOKAWaWR@70
 !s100 E;S0UjkK2o>oO=a1DGQJ@1
 Z7 OV;C;10.5b;63
 31
-Z8 !s110 1590698607
+Z8 !s110 1590835178
 !i10b 1
-Z9 !s108 1590698607.000000
+Z9 !s108 1590835178.000000
 Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd|
 Z11 !s107 C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/alu4bitwith3bitop.vhd|
 !i113 1
@@ -102,11 +102,11 @@ VYPI2D]l=6>8<nRIE2RnfO3
 !s100 3dN^efTj19mF]b`nAR9d[3
 R7
 31
-Z22 !s110 1590698606
+R8
 !i10b 1
-Z23 !s108 1590698606.000000
-Z24 !s90 -reportprogress|300|-93|-work|work|C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/compteur_modulo.vhd|
-Z25 !s107 C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/compteur_modulo.vhd|
+R9
+Z22 !s90 -reportprogress|300|-93|-work|work|C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/compteur_modulo.vhd|
+Z23 !s107 C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/compteur_modulo.vhd|
 !i113 1
 R12
 R13
@@ -121,21 +121,21 @@ Vb89Z=oU6^l;z@n17F=DXP0
 !s100 m<W@DiN:PT03Rbck`m[1h3
 R7
 31
-R22
+R8
 !i10b 1
+R9
+R22
 R23
-R24
-R25
 !i113 1
 R12
 R13
 Edecodeurinstruction
-Z26 w1590698280
+Z24 w1590698280
 R3
 R4
 R0
-Z27 8C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd
-Z28 FC:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd
+Z25 8C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd
+Z26 FC:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd
 l0
 L3
 VUZodQFbhg_XK64jO36[@L0
@@ -145,8 +145,8 @@ R7
 R8
 !i10b 1
 R9
-Z29 !s90 -reportprogress|300|-93|-work|work|C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd|
-Z30 !s107 C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd|
+Z27 !s90 -reportprogress|300|-93|-work|work|C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd|
+Z28 !s107 C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstruction.vhd|
 !i113 1
 R12
 R13
@@ -163,27 +163,27 @@ R7
 R8
 !i10b 1
 R9
-R29
-R30
+R27
+R28
 !i113 1
 R12
 R13
 Edecodeurinstructionoutputlogic
-Z31 w1590686838
+Z29 w1590686838
 R3
 R4
 R0
-Z32 8C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionoutputlogic.vhd
-Z33 FC:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionoutputlogic.vhd
+Z30 8C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionoutputlogic.vhd
+Z31 FC:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionoutputlogic.vhd
 l0
 L3
 Vicn0MD68G>hiRcZ`k?36@2
 !s100 ?LZC<VjPnT<54dOMm[fF90
 R7
 31
-R8
+Z32 !s110 1590835179
 !i10b 1
-R9
+Z33 !s108 1590835179.000000
 Z34 !s90 -reportprogress|300|-93|-work|work|C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionoutputlogic.vhd|
 Z35 !s107 C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionoutputlogic.vhd|
 !i113 1
@@ -199,9 +199,9 @@ VYY11BaQKle[i@?jDMiLVU0
 !s100 9LR[6Q7j2T`<CAXS8HOZf3
 R7
 31
-R8
+R32
 !i10b 1
-R9
+R33
 R34
 R35
 !i113 1
@@ -220,7 +220,7 @@ VcPBih6hAdBC6]k3T6:iiW2
 !s100 N`<X2cN8`SO?85875DLgX2
 R7
 31
-R8
+R32
 !i10b 1
 R9
 Z39 !s90 -reportprogress|300|-93|-work|work|C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/decodeurinstructionstatelogic.vhd|
@@ -238,7 +238,7 @@ V97KbOY32E7J`Xj9zi@>`i3
 !s100 JK]jTS]QHBN>nH@[6NGAf0
 R7
 31
-R8
+R32
 !i10b 1
 R9
 R39
@@ -299,9 +299,9 @@ V>VNe5O_llmP5OlKA1cen@3
 !s100 6bBgmGH26zWbZ?dH_QT4m1
 R7
 31
-R22
+R8
 !i10b 1
-R23
+R9
 Z49 !s90 -reportprogress|300|-93|-work|work|C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd|
 Z50 !s107 C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/processeur.vhd|
 !i113 1
@@ -318,9 +318,9 @@ V<G[4jQHTcAEj?@TZnk[O@0
 !s100 4hD^3_j>g67zlkh8D;^f01
 R7
 31
-R22
+R8
 !i10b 1
-R23
+R9
 R49
 R50
 !i113 1
@@ -339,9 +339,9 @@ VYkU2BLLRF5@@GJm^UWFle1
 !s100 ZNPW[odGc>HW;KbCZbCgb1
 R7
 31
-R8
+R32
 !i10b 1
-R9
+R33
 Z54 !s90 -reportprogress|300|-93|-work|work|C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/Processeur_tb.vhd|
 Z55 !s107 C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/Processeur_tb.vhd|
 !i113 1
@@ -357,9 +357,9 @@ V46;Q1z_I2:zmY;8XCE<a[2
 !s100 0C=<A`Z2HXn>`hifF10=i1
 R7
 31
-R8
+R32
 !i10b 1
-R9
+R33
 R54
 R55
 !i113 1

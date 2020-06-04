@@ -1,5 +1,5 @@
 Flow report for rom
-Thu May 28 22:40:21 2020
+Sat May 30 12:35:16 2020
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Thu May 28 22:40:21 2020       ;
+; Flow Status                     ; Successful - Sat May 30 12:35:16 2020       ;
 ; Quartus Prime Version           ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                   ; rom                                         ;
 ; Top-level Entity Name           ; Processeur                                  ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/28/2020 22:39:42 ;
+; Start date & time ; 05/30/2020 12:34:29 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; rom                 ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +--------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 929353222621.159069838223432           ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                ; 929353222621.159083486911484           ; --            ; --          ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; processeur_tb  ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; processeur_tb                          ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
@@ -106,12 +106,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 4855 MB             ; 00:00:14                           ;
-; Fitter               ; 00:00:20     ; 1.0                     ; 7065 MB             ; 00:00:44                           ;
-; Assembler            ; 00:00:06     ; 1.0                     ; 4843 MB             ; 00:00:06                           ;
-; Timing Analyzer      ; 00:00:03     ; 1.0                     ; 5193 MB             ; 00:00:03                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4730 MB             ; 00:00:01                           ;
-; Total                ; 00:00:35     ; --                      ; --                  ; 00:01:08                           ;
+; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4858 MB             ; 00:00:16                           ;
+; Fitter               ; 00:00:23     ; 1.0                     ; 7068 MB             ; 00:00:45                           ;
+; Assembler            ; 00:00:07     ; 1.0                     ; 4843 MB             ; 00:00:06                           ;
+; Timing Analyzer      ; 00:00:03     ; 1.0                     ; 5189 MB             ; 00:00:03                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4730 MB             ; 00:00:01                           ;
+; Total                ; 00:00:42     ; --                      ; --                  ; 00:01:11                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -1,5 +1,5 @@
 Fitter report for rom
-Thu May 28 22:40:09 2020
+Sat May 30 12:35:01 2020
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -57,7 +57,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Thu May 28 22:40:09 2020       ;
+; Fitter Status                   ; Successful - Sat May 30 12:35:01 2020       ;
 ; Quartus Prime Version           ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                   ; rom                                         ;
 ; Top-level Entity Name           ; Processeur                                  ;
@@ -1100,10 +1100,10 @@ Info (334004): Delay annotation completed successfully
 Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:02
 Info (144001): Generated suppressed messages file C:/Users/Knacki/telecom/2A/S4/SCIN/dm rom/output_files/rom.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 7065 megabytes
-    Info: Processing ended: Thu May 28 22:40:09 2020
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:44
+    Info: Peak virtual memory: 7068 megabytes
+    Info: Processing ended: Sat May 30 12:35:02 2020
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:46
 
 
 +----------------------------+
