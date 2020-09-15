@@ -1,0 +1,89 @@
+@startuml
+
+title Diagramme de classe Goodbasket
+
+
+class Utilisateur {
+  +int utilisateur_id
+  +string nom
+  +string prenom
+  +string email
+  +string adresse
+  +string tel
+  +string username
+  +string password
+  +void change_password()
+
+}
+
+class Commande {
+  +int commande_id
+  +date commande_date
+  +double montant_totale
+  +double get_total()
+   +int add_produit(produit)
+  +int delete_produit(produit)
+  +double get_total_panier()
+  +vector<Produit> liste_produit()
+}
+
+class Produit {
+  +int produit_id
+  +double prix
+  +String nom
+  +string description
+  
+}
+
+class Ligne_commande{
+  +int quantité
+  +double get_total_from_line()
+}
+class Reglement{
+  +string carte_number
+  +double montant
+  
+}
+
+class Point_collecte{
+  +string adresse
+}
+class Controlleur{
++void make_purchase()
++void add_produit_in_commande(produit_id,commande_id)
+}
+class Gestionnaire_pc{
+int id
+string nom
+string prenom
+}
+
+class Fournisseur{
++void add_produit()
+
+}
+class Client{
+  +void creer_panier()
+  +void update_panier()
+  +void delete_panier()
+}
+
+class Catalogue{
+  +int id
+  
+}
+
+
+Client "1" -- "*" Commande
+Commande "1"  --  "*" Ligne_commande : contient
+Produit "1"  --  "*" Ligne_commande : décrit par
+Controlleur "1" -- "1" Catalogue
+Fournisseur <|-- Utilisateur
+Client <|-- Utilisateur
+Catalogue "1" -- "*" Produit 
+Gestionnaire_pc "1" -- "1" Point_collecte : gere
+Commande "1"  --  "0-1" Reglement 
+Controlleur "1" -- "*" Commande
+
+
+@enduml

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html><link type="text/css" id="dark-mode" rel="stylesheet" href=""><style type="text/css" id="dark-mode-custom-style"></style><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>PlantText UML Editor</title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Arwen Vaughan">
+	<meta name="keywords" content="PlantText,PlantUML,UML Design Software,Architect,Unified Modeling Language,Design Patterns,Networking,IT">
+	<meta name="description" content="PlantText is an online tool that quickly generates images from text. Primarily, it is used to generate UML (Unified Modeling Language) diagrams. It is based on a text language called PlantUML.">
+	<meta name="viewport" content="width=device-width, initial-scale=0.5">
+
+	<link href="PlantText%20UML%20Editor_fichiers/styles.css" rel="stylesheet" type="text/css">
+	<link href="PlantText%20UML%20Editor_fichiers/jquery-ui.css" rel="stylesheet" type="text/css">
+
+	<script async="" src="PlantText%20UML%20Editor_fichiers/analytics.js"></script><script src="PlantText%20UML%20Editor_fichiers/cbgapi.loaded_0" async=""></script><script type="text/javascript" src="PlantText%20UML%20Editor_fichiers/jquery.js"></script>
+	<script type="text/javascript" src="PlantText%20UML%20Editor_fichiers/jquery-ui.js"></script>
+	<script type="text/javascript" src="PlantText%20UML%20Editor_fichiers/rawdeflate.js"></script>
+	<script type="text/javascript" src="PlantText%20UML%20Editor_fichiers/rawinflate.js"></script>
+	<script type="text/javascript" src="PlantText%20UML%20Editor_fichiers/plantuml.js"></script>
+	<script type="text/javascript" src="PlantText%20UML%20Editor_fichiers/ace.js"></script><style id="ace_editor">.ace_editor {position: relative;overflow: hidden;font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;font-size: 12px;line-height: normal;color: black;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: text;}.ace_dragging, .ace_dragging * {cursor: move !important;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUM2OEZDQTQ4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUM2OEZDQTU4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQzY4RkNBMjhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQzY4RkNBMzhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PkgXxbAAAAJbSURBVHjapFNNaBNBFH4zs5vdZLP5sQmNpT82QY209heh1ioWisaDRcSKF0WKJ0GQnrzrxasHsR6EnlrwD0TagxJabaVEpFYxLWlLSS822tr87m66ccfd2GKyVhA6MMybgfe97/vmPUQphd0sZjto9XIn9OOsvlu2nkqRzVU+6vvlzPf8W6bk8dxQ0NPbxAALgCgg2JkaQuhzQau/El0zbmUA7U0Es8v2CiYmKQJHGO1QICCLoqilMhkmurDAyapKgqItezi/USRdJqEYY4D5jCy03ht2yMkkvL91jTTX10qzyyu2hruPRN7jgbH+EOsXcMLgYiThEgAMhABW85oqy1DXdRIdvP1AHJ2acQXvDIrVHcdQNrEKNYSVMSZGMjEzIIAwDXIo+6G/FxcGnzkC3T2oMhLjre49sBB+RRcHLqdafK6sYdE/GGBwU1VpFNj0aN8pJbe+BkZyevUrvLl6Xmm0W9IuTc0DxrDNAJd5oEvI/KRsNC3bQyNjPO9yQ1YHcfj2QvfQc/5TUhJTBc2iM0U7AWDQtc1nJHvD/cfO2s7jaGkiTEfa/Ep8coLu7zmNmh8+dc5lZDuUeFAGUNA/OY6JVaypQ0vjr7XYjUvJM37vt+j1vuTK5DgVfVUoTjVe+y3/LxMxY2GgU+CSLy4cpfsYorRXuXIOi0Vt40h67uZFTdIo6nLaZcwUJWAzwNS0tBnqqKzQDnjdG/iPyZxo46HaKUpbvYkj8qYRTZsBhge+JHhZyh0x9b95JqjVJkT084kZIPwu/mPWqPgfQ5jXh2+92Ay7HedfAgwA6KDWafb4w3cAAAAASUVORK5CYII=");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUM2OEZDQTg4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUM2OEZDQTk4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQzY4RkNBNjhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQzY4RkNBNzhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pgd7PfIAAAGmSURBVHjaYvr//z8DJZiJgUIANoCRkREb9gLiSVAaQx4OQM7AAkwd7XU2/v++/rOttdYGEB9dASEvOMydGKfH8Gv/p4XTkvRBfLxeQAP+1cUhXopyvzhP7P/IoSj7g7Mw09cNKO6J1QQ0L4gICPIv/veg/8W+JdFvQNLHVsW9/nmn9zk7B+cCkDwhL7gt6knSZnx9/LuCEOcvkIAMP+cvto9nfqyZmmUAksfnBUtbM60gX/3/kgyv3/xSFOL5DZT+L8vP+Yfh5cvfPvp/xUHyQHXGyAYwgpwBjZYFT3Y1OEl/OfCH4ffv3wzc4iwMvNIsDJ+f/mH4+vIPAxsb631WW0Yln6ZpQLXdMK/DXGDflh+sIv37EivD5x//Gb7+YWT4y86sl7BCCkSD+Z++/1dkvsFRl+HnD1Rvje4F8whjMXmGj58YGf5zsDMwcnAwfPvKcml62DsQDeaDxN+/Y0qwlpEHqrdB94IRNIDUgfgfKJChGK4OikEW3gTiXUB950ASLFAF54AC94A0G9QAfOnmF9DCDzABFqS08IHYDIScdijOjQABBgC+/9awBH96jwAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/gif;base64,R0lGODlhEAAQAMQAAAAAAEFBQVJSUl5eXmRkZGtra39/f4WFhYmJiZGRkaampry8vMPDw8zMzNXV1dzc3OTk5Orq6vDw8P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABQALAAAAAAQABAAAAUuICWOZGmeaBml5XGwFCQSBGyXRSAwtqQIiRuiwIM5BoYVbEFIyGCQoeJGrVptIQA7");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGRTk5MTVGREIxNDkxMUUxOTc5Q0FFREQyMTNGMjBFQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGRTk5MTVGRUIxNDkxMUUxOTc5Q0FFREQyMTNGMjBFQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZFOTkxNUZCQjE0OTExRTE5NzlDQUVERDIxM0YyMEVDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkZFOTkxNUZDQjE0OTExRTE5NzlDQUVERDIxM0YyMEVDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SIDkjAAAAJ1JREFUeNpi/P//PwMlgImBQkB7A6qrq/+DMC55FkIGKCoq4pVnpFkgTp069f/+/fv/r1u37r+tre1/kg0A+ptn9uzZYLaRkRHpLvjw4cNXWVlZhufPnzOcO3eOdAO0tbVPAjHDmzdvGA4fPsxIsgGSkpJmv379Ynj37h2DjIyMCMkG3LhxQ/T27dsMampqDHZ2dq/pH41DxwCAAAMAFdc68dUsFZgAAAAASUVORK5CYII=");}.ace_scrollbar {position: absolute;overflow-x: hidden;overflow-y: auto;right: 0;top: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-h {position: absolute;overflow-x: auto;overflow-y: hidden;right: 0;left: 0;bottom: 0;z-index: 6;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;text-indent: -1em;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;}.ace_text-input.ace_composition {background: #f8f8f8;color: #111;z-index: 1000;opacity: 1;text-indent: 0;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;white-space: pre;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;/* setting pointer-events: auto; on node under the mouse, which changesduring scroll, will break mouse wheel scrolling in Safari */pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;border-left: 2px solid}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0px;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-moz-transition: opacity 0.18s;-webkit-transition: opacity 0.18s;-o-transition: opacity 0.18s;-ms-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_cursor[style*="opacity: 0"]{-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";}.ace_editor.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%11%00%00%00%09%08%06%00%00%00%D4%E8%C7%0C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%00%B5IDAT(%15%A5%91%3D%0E%02!%10%85ac%E1%05%D6%CE%D6%C6%CE%D2%E8%ED%CD%DE%C0%C6%D6N.%E0V%F8%3D%9Ca%891XH%C2%BE%D9y%3F%90!%E6%9C%C3%BFk%E5%011%C6-%F5%C8N%04%DF%BD%FF%89%DFt%83DN%60%3E%F3%AB%A0%DE%1A%5Dg%BE%10Q%97%1B%40%9C%A8o%10%8F%5E%828%B4%1B%60%87%F6%02%26%85%1Ch%1E%C1%2B%5Bk%FF%86%EE%B7j%09%9A%DA%9B%ACe%A3%F9%EC%DA!9%B4%D5%A6%81%86%86%98%CC%3C%5B%40%FA%81%B3%E9%CB%23%94%C16Azo%05%D4%E1%C1%95a%3B%8A'%A0%E8%CC%17%22%85%1D%BA%00%A2%FA%DC%0A%94%D1%D1%8D%8B%3A%84%17B%C7%60%1A%25Z%FC%8D%00%00%00%00IEND%AEB%60%82"),url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%007%08%06%00%00%00%C4%DD%80C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%00%3AIDAT8%11c%FC%FF%FF%7F%18%03%1A%60%01%F2%3F%A0%891%80%04%FF%11-%F8%17%9BJ%E2%05%B1ZD%81v%26t%E7%80%F8%A3%82h%A12%1A%20%A3%01%02%0F%01%BA%25%06%00%19%C0%0D%AEF%D5%3ES%00%00%00%00IEND%AEB%60%82");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%11%00%00%00%09%08%06%00%00%00%D4%E8%C7%0C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%00%B5IDAT(%15%A5%91%3D%0E%02!%10%85ac%E1%05%D6%CE%D6%C6%CE%D2%E8%ED%CD%DE%C0%C6%D6N.%E0V%F8%3D%9Ca%891XH%C2%BE%D9y%3F%90!%E6%9C%C3%BFk%E5%011%C6-%F5%C8N%04%DF%BD%FF%89%DFt%83DN%60%3E%F3%AB%A0%DE%1A%5Dg%BE%10Q%97%1B%40%9C%A8o%10%8F%5E%828%B4%1B%60%87%F6%02%26%85%1Ch%1E%C1%2B%5Bk%FF%86%EE%B7j%09%9A%DA%9B%ACe%A3%F9%EC%DA!9%B4%D5%A6%81%86%86%98%CC%3C%5B%40%FA%81%B3%E9%CB%23%94%C16Azo%05%D4%E1%C1%95a%3B%8A'%A0%E8%CC%17%22%85%1D%BA%00%A2%FA%DC%0A%94%D1%D1%8D%8B%3A%84%17B%C7%60%1A%25Z%FC%8D%00%00%00%00IEND%AEB%60%82"),url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%007%08%06%00%00%00%C4%DD%80C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%003IDAT8%11c%FC%FF%FF%7F%3E%03%1A%60%01%F2%3F%A3%891%80%04%FFQ%26%F8w%C0%B43%A1%DB%0C%E2%8F%0A%A2%85%CAh%80%8C%06%08%3C%04%E8%96%18%00%A3S%0D%CD%CF%D8%C1%9D%00%00%00%00IEND%AEB%60%82");background-repeat: no-repeat, repeat-x;background-position: center center, top left;}.ace_gutter-tooltip {background-color: #FFF;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;display: inline-block;max-width: 500px;padding: 4px;position: fixed;z-index: 999999;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre-line;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%00%05%08%06%00%00%00%8Do%26%E5%00%00%004IDATx%DAe%8A%B1%0D%000%0C%C2%F2%2CK%96%BC%D0%8F9%81%88H%E9%D0%0E%96%C0%10%92%3E%02%80%5E%82%E4%A9*-%EEsw%C8%CC%11%EE%96w%D8%DC%E9*Eh%0C%151(%00%00%00%00IEND%AEB%60%82");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%00%05%08%06%00%00%00%8Do%26%E5%00%00%004IDATx%DAm%C7%C1%09%000%08C%D1%8C%ECE%C8E(%8E%EC%02)%1EZJ%F1%C1'%04%07I%E1%E5%EE%CAL%F5%A2%99%99%22%E2%D6%1FU%B5%FE0%D9x%A7%26Wz5%0E%D5%00%00%00%00IEND%AEB%60%82");}.ace_fold-widget.ace_closed {background-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%03%00%00%00%06%08%06%00%00%00%06%E5%24%0C%00%00%009IDATx%DA5%CA%C1%09%000%08%03%C0%AC*(%3E%04%C1%0D%BA%B1%23%A4Uh%E0%20%81%C0%CC%F8%82%81%AA%A2%AArGfr%88%08%11%11%1C%DD%7D%E0%EE%5B%F6%F6%CB%B8%05Q%2F%E9tai%D9%00%00%00%00IEND%AEB%60%82");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}/*** Dark version for fold widgets*/.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-moz-transition: opacity 0.4s ease 0.05s;-webkit-transition: opacity 0.4s ease 0.05s;-o-transition: opacity 0.4s ease 0.05s;-ms-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-moz-transition: opacity 0.05s ease 0.05s;-webkit-transition: opacity 0.05s ease 0.05s;-o-transition: opacity 0.05s ease 0.05s;-ms-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;border-radius: 2px;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style>
+
+<script src="PlantText%20UML%20Editor_fichiers/keybinding-ace.js"></script><script src="PlantText%20UML%20Editor_fichiers/ext-searchbox.js"></script><style id="ace_searchbox">/* ------------------------------------------------------------------------------------------* Editor Search Form* --------------------------------------------------------------------------------------- */.ace_search {background-color: #ddd;border: 1px solid #cbcbcb;border-top: 0 none;max-width: 297px;overflow: hidden;margin: 0;padding: 4px;padding-right: 6px;padding-bottom: 0;position: absolute;top: 0px;z-index: 99;}.ace_search.left {border-left: 0 none;border-radius: 0px 0px 5px 0px;left: 0;}.ace_search.right {border-radius: 0px 0px 0px 5px;border-right: 0 none;right: 0;}.ace_search_form, .ace_replace_form {border-radius: 3px;border: 1px solid #cbcbcb;float: left;margin-bottom: 4px;overflow: hidden;}.ace_search_form.ace_nomatch {outline: 1px solid red;}.ace_search_field {background-color: white;border-right: 1px solid #cbcbcb;border: 0 none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;display: block;float: left;height: 22px;outline: 0;padding: 0 7px;width: 214px;margin: 0;}.ace_searchbtn,.ace_replacebtn {background: #fff;border: 0 none;border-left: 1px solid #dcdcdc;cursor: pointer;display: block;float: left;height: 22px;margin: 0;padding: 0;position: relative;}.ace_searchbtn:last-child,.ace_replacebtn:last-child {border-top-right-radius: 3px;border-bottom-right-radius: 3px;}.ace_searchbtn:disabled {background: none;cursor: default;}.ace_searchbtn {background-position: 50% 50%;background-repeat: no-repeat;width: 27px;}.ace_searchbtn.prev {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADFJREFUeNpiSU1NZUAC/6E0I0yACYskCpsJiySKIiY0SUZk40FyTEgCjGgKwTRAgAEAQJUIPCE+qfkAAAAASUVORK5CYII=);    }.ace_searchbtn.next {background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADRJREFUeNpiTE1NZQCC/0DMyIAKwGJMUAYDEo3M/s+EpvM/mkKwCQxYjIeLMaELoLMBAgwAU7UJObTKsvAAAAAASUVORK5CYII=);    }.ace_searchbtn_close {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABRVo5BAAAAZ0lEQVR42u2SUQrAMAhDvazn8OjZBilCkYVVxiis8H4CT0VrAJb4WHT3C5xU2a2IQZXJjiQIRMdkEoJ5Q2yMqpfDIo+XY4k6h+YXOyKqTIj5REaxloNAd0xiKmAtsTHqW8sR2W5f7gCu5nWFUpVjZwAAAABJRU5ErkJggg==) no-repeat 50% 0;border-radius: 50%;border: 0 none;color: #656565;cursor: pointer;display: block;float: right;font-family: Arial;font-size: 16px;height: 14px;line-height: 16px;margin: 5px 1px 9px 5px;padding: 0;text-align: center;width: 14px;}.ace_searchbtn_close:hover {background-color: #656565;background-position: 50% 100%;color: white;}.ace_replacebtn.prev {width: 54px}.ace_replacebtn.next {width: 27px}.ace_button {margin-left: 2px;cursor: pointer;-webkit-user-select: none;-moz-user-select: none;-o-user-select: none;-ms-user-select: none;user-select: none;overflow: hidden;opacity: 0.7;border: 1px solid rgba(100,100,100,0.23);padding: 1px;-moz-box-sizing: border-box;box-sizing:    border-box;color: black;}.ace_button:hover {background-color: #eee;opacity:1;}.ace_button:active {background-color: #ddd;}.ace_button.checked {border-color: #3399ff;opacity:1;}.ace_search_options{margin-bottom: 3px;text-align: right;-webkit-user-select: none;-moz-user-select: none;-o-user-select: none;-ms-user-select: none;user-select: none;}</style></head>
+<body>
+
+	<div id="header">
+		<div id="header-left">
+			<img id="logoimage" src="PlantText%20UML%20Editor_fichiers/blue_gray.png" alt="PlantText" width="35" height="35">
+			<span id="logotext" title="The expert's design tool">PlantText</span><span id="logotextmsg">- The expert's design tool</span>
+		</div>
+		<div id="header-right">
+			<div id="nav">
+				<ul>
+					<li><a href="http://blog.planttext.com/about" target="_blank">About</a></li>
+					<li><a href="http://blog.planttext.com/" target="_blank">Blog</a></li>
+					<li><a href="http://blog.planttext.com/forum" target="_blank">Forum</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="body">
+		<form>
+		<div id="loader" style="display: none;"></div>
+		<div id="fademessage" style="color: black; background-color: white; display: none;">The diagram is refreshing and your PlantUML has been saved to your computer's local storage.</div>
+		<div id="menu">
+			<div id="menu-left">
+				<select name="samples" id="samples">
+					<option value="default">Select a sample...</option>
+					<optgroup label="Activity Diagram">
+						<option value="1">1 - Activity</option>
+						<option value="2">2 - Conditional</option>
+						<option value="3">3 - Notes</option>
+						<option value="4">4 - Repeat</option>
+						<option value="5">5 - While Loop</option>
+						<option value="6">6 - Parallel</option>
+						<option value="7">7 - Color</option>
+					</optgroup>
+					<optgroup label="Class Diagram">
+						<option value="8">1 - Classes</option>
+						<option value="9" selected="selected">2 - Relationships</option>
+						<option value="10">3 - Types</option>
+						<option value="11">4 - Properties / Methods</option>
+						<option value="12">5 - Interfaces</option>
+						<option value="13">6 - Packages</option>
+					</optgroup>
+					<optgroup label="Component Diagram">
+						<option value="14">1 - Components</option>
+						<option value="15">2 - Interfaces</option>
+						<option value="16">3 - Packages</option>
+						<option value="17">4 - Labels and Notes</option>
+					</optgroup>
+					<optgroup label="GraphViz Diagram">
+						<option value="50">1 - Hello World</option>
+						<option value="18">2 - World Dynamics</option>
+						<option value="51">3 - Data Structures</option>
+						<option value="52">4 - Graph Cluster Node Gradient</option>
+					</optgroup>
+					<optgroup label="Object Diagram">
+						<option value="19">1 - Simple Object</option>
+					</optgroup>
+					<optgroup label="Salt GUI Diagram">
+						<option value="20">1 - Basic Elements</option>
+						<option value="21">2 - Grid</option>
+						<option value="22">3 - Separators</option>
+						<option value="23">4 - Tree View</option>
+						<option value="24">5 - Brackets</option>
+						<option value="25">6 - Tabs</option>
+						<option value="26">7 - Menus</option>
+					</optgroup>
+					<optgroup label="Sequence Diagram">
+						<option value="27">1 - Participants</option>
+						<option value="28">2 - Messages</option>
+						<option value="29">3 - Comments</option>
+						<option value="30">4 - Message Styles</option>
+					</optgroup>
+					<optgroup label="State Diagram">
+						<option value="31">1 - Simple State</option>
+						<option value="32">2 - Simple Composite State</option>
+						<option value="33">3 - Simple Orthogonal Composite State</option>
+						<option value="34">4 - Concurrent State C3PO</option>
+						<option value="35">5 - Arrows and Notes</option>
+					</optgroup>
+					<optgroup label="Use Case Diagram">
+						<option value="36">1 - Use Cases</option>
+						<option value="37">2 - Actors</option>
+						<option value="38">3 - Connections</option>
+						<option value="39">4 - Stereotypes</option>
+						<option value="40">5 - Directions</option>
+						<option value="41">6 - Package</option>
+					</optgroup>
+					<optgroup label="XEarth Diagram">
+						<option value="42">1 - Basic</option>
+						<option value="43">2 - Add Place</option>
+						<option value="44">3 - Add More Stars</option>
+						<option value="45">4 - Relative View From Sun</option>
+						<option value="46">5 - Change Grid Configuration</option>
+						<option value="47">6 - Fixed Position without Shading</option>
+						<option value="48">7 - View From Moon Changing Luminacity</option>
+						<option value="49">8 - Adding Cities</option>
+					</optgroup>
+				</select>
+				<span title="Settings"><button type="submit" class="popupbuttons" onclick="openSettings(); return false;" style="vertical-align: middle;"><img src="PlantText%20UML%20Editor_fichiers/cog-2x.png" alt="Files"></button></span>
+				<span title="Code"><button type="submit" class="popupbuttons" onclick="openCode(); return false;" style="vertical-align: middle;"><img src="PlantText%20UML%20Editor_fichiers/code-2x.png" alt="Code"></button></span>
+				<span title="Scripting"><button type="submit" class="popupbuttons" onclick="openScripting(); return false;" style="vertical-align: middle;"><img src="PlantText%20UML%20Editor_fichiers/script-2x.png" alt="Script"></button></span>
+				<span title="Questions"><button type="submit" class="popupbuttons" onclick="openHelp(); return false;" style="vertical-align: middle;"><img src="PlantText%20UML%20Editor_fichiers/question-mark-2x.png" alt="Question"></button></span>
+			</div>
+			<div id="menu-right">
+				<div id="authorize" style="z-index:2000;"><div style="z-index:2000;" title="undefined (mathieudreyer1@gmail.com)"><input id="authorize-button-logout" class="popupbuttons" type="button" onclick="logoutGoogle();" value="Logout">&nbsp;&nbsp;<img src="PlantText%20UML%20Editor_fichiers/photo.png" alt="undefined (mathieudreyer1@gmail.com)" height="30" align="top"></div></div>
+			</div>
+		</div>
+		<div id="main">
+			<div id="sidebar" style="height: 786px; width: 500px;" class="ui-resizable">
+				<div id="file-menu-dropdown">
+					<span title="Manage files"><button id="file-menu-button" style="width:100px;" type="submit" onclick="openFileMenu(); return false;">File Manager</button></span>
+					<div style="z-index:4000;" id="file-menu-list" class="file-menu-dropdown-content">
+						<a href="#" onclick="openFileMenuNew(); return false;">New</a>
+						<a href="#" onclick="openFileMenuOpen(); return false;">Open</a>
+						<a href="#" onclick="submitFileMenuSave(); return false;">Save</a>
+						<a href="#" onclick="openFileMenuSaveas(); return false;">Save As...</a>
+						<a href="#" onclick="openFiles(); return false;">Import / Export</a>
+						<a href="#" onclick="submitFileMenuDelete(); return false;">Delete</a>
+					</div>
+					<span title="Refresh (Alt + Enter)"><button id="refreshbutton" style="width:100px;" type="submit" onclick="refreshFromButton(); return false;">Refresh</button></span>
+					<span id="file-name-output-pre">File:</span><span id="file-name-output">Default Diagram</span>
+				</div>
+				<div id="editor" class=" ace_editor ace-tm" style="width: 490px; height: 741px; font-size: 12px;" draggable="false"><textarea class="ace_text-input" spellcheck="false" style="opacity: 0; height: 14px; width: 7px; right: 217px; bottom: 42px;" wrap="off"></textarea><div class="ace_gutter"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="margin-top: -13px; height: 771px; width: 47px;"><div class="ace_gutter-cell " style="height: 14px;">36</div><div class="ace_gutter-cell " style="height: 14px;">37</div><div class="ace_gutter-cell " style="height: 14px;">38</div><div class="ace_gutter-cell " style="height: 14px;">39</div><div class="ace_gutter-cell " style="height: 14px;">40</div><div class="ace_gutter-cell " style="height: 14px;">41</div><div class="ace_gutter-cell " style="height: 14px;">42</div><div class="ace_gutter-cell " style="height: 14px;">43</div><div class="ace_gutter-cell " style="height: 14px;">44</div><div class="ace_gutter-cell " style="height: 14px;">45</div><div class="ace_gutter-cell " style="height: 14px;">46</div><div class="ace_gutter-cell " style="height: 14px;">47</div><div class="ace_gutter-cell " style="height: 14px;">48</div><div class="ace_gutter-cell " style="height: 14px;">49</div><div class="ace_gutter-cell " style="height: 14px;">50</div><div class="ace_gutter-cell " style="height: 14px;">51</div><div class="ace_gutter-cell " style="height: 14px;">52</div><div class="ace_gutter-cell " style="height: 14px;">53</div><div class="ace_gutter-cell " style="height: 14px;">54</div><div class="ace_gutter-cell " style="height: 14px;">55</div><div class="ace_gutter-cell " style="height: 14px;">56</div><div class="ace_gutter-cell " style="height: 14px;">57</div><div class="ace_gutter-cell " style="height: 14px;">58</div><div class="ace_gutter-cell " style="height: 14px;">59</div><div class="ace_gutter-cell " style="height: 14px;">60</div><div class="ace_gutter-cell " style="height: 14px;">61</div><div class="ace_gutter-cell " style="height: 14px;">62</div><div class="ace_gutter-cell " style="height: 14px;">63</div><div class="ace_gutter-cell " style="height: 14px;">64</div><div class="ace_gutter-cell " style="height: 14px;">65</div><div class="ace_gutter-cell " style="height: 14px;">66</div><div class="ace_gutter-cell " style="height: 14px;">67</div><div class="ace_gutter-cell " style="height: 14px;">68</div><div class="ace_gutter-cell " style="height: 14px;">69</div><div class="ace_gutter-cell " style="height: 14px;">70</div><div class="ace_gutter-cell " style="height: 14px;">71</div><div class="ace_gutter-cell " style="height: 14px;">72</div><div class="ace_gutter-cell " style="height: 14px;">73</div><div class="ace_gutter-cell " style="height: 14px;">74</div><div class="ace_gutter-cell " style="height: 14px;">75</div><div class="ace_gutter-cell " style="height: 14px;">76</div><div class="ace_gutter-cell " style="height: 14px;">77</div><div class="ace_gutter-cell " style="height: 14px;">78</div><div class="ace_gutter-cell " style="height: 14px;">79</div><div class="ace_gutter-cell " style="height: 14px;">80</div><div class="ace_gutter-cell " style="height: 14px;">81</div><div class="ace_gutter-cell " style="height: 14px;">82</div><div class="ace_gutter-cell " style="height: 14px;">83</div><div class="ace_gutter-cell " style="height: 14px;">84</div><div class="ace_gutter-cell " style="height: 14px;">85</div><div class="ace_gutter-cell " style="height: 14px;">86</div><div class="ace_gutter-cell " style="height: 14px;">87</div><div class="ace_gutter-cell " style="height: 14px;">88</div><div class="ace_gutter-cell " style="height: 14px;">89</div></div><div class="ace_gutter-active-line" style="top: 687px; height: 14px;"></div></div><div class="ace_scroller" style="left: 47px; right: 17px; bottom: 0px;"><div class="ace_content" style="margin-top: -13px; width: 428px; height: 771px; margin-left: 0px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 564px; visibility: visible;"></div></div><div class="ace_layer ace_marker-layer"><div class="ace_active-line" style="height:14px;top:700px;left:0;right:0;"></div></div><div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line" style="height:14px">}<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">class<span class="ace_invisible">·</span>Ligne_commande{<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">··</span>+int<span class="ace_invisible">·</span>quantité<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">··</span>+double<span class="ace_invisible">·</span>get_total_from_line()<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">}<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">class<span class="ace_invisible">·</span>Reglement{<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">··</span>+string<span class="ace_invisible">·</span>carte_number<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">··</span>+double<span class="ace_invisible">·</span>montant<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">··</span><span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">}<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">class<span class="ace_invisible">·</span>Point_collecte{<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">··</span>+string<span class="ace_invisible">·</span>adresse<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">}<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">class<span class="ace_invisible">·</span>Controlleur{<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">+void<span class="ace_invisible">·</span>make_purchase()<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">+void<span class="ace_invisible">·</span>add_produit_in_commande(produit_id,commande_id)<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">}<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">class<span class="ace_invisible">·</span>Gestionnaire_pc{<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">int<span class="ace_invisible">·</span>id<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">string<span class="ace_invisible">·</span>nom<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">string<span class="ace_invisible">·</span>prenom<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">}<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">class<span class="ace_invisible">·</span>Fournisseur{<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">+void<span class="ace_invisible">·</span>add_produit()<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">}<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">class<span class="ace_invisible">·</span>Client{<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">··</span>+void<span class="ace_invisible">·</span>creer_panier()<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">··</span>+void<span class="ace_invisible">·</span>update_panier()<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">··</span>+void<span class="ace_invisible">·</span>delete_panier()<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">}<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">class<span class="ace_invisible">·</span>Catalogue{<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">··</span>+int<span class="ace_invisible">·</span>id<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">··</span><span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">}<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">Client<span class="ace_invisible">·</span>"1"<span class="ace_invisible">·</span>--<span class="ace_invisible">·</span>"*"<span class="ace_invisible">·</span>Commande<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">Commande<span class="ace_invisible">·</span>"1"<span class="ace_invisible">··</span>--<span class="ace_invisible">··</span>"*"<span class="ace_invisible">·</span>Ligne_commande<span class="ace_invisible">·</span>:<span class="ace_invisible">·</span>contient<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">Produit<span class="ace_invisible">·</span>"1"<span class="ace_invisible">··</span>--<span class="ace_invisible">··</span>"*"<span class="ace_invisible">·</span>Ligne_commande<span class="ace_invisible">·</span>:<span class="ace_invisible">·</span>décrit<span class="ace_invisible">·</span>par<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">Controlleur<span class="ace_invisible">·</span>"1"<span class="ace_invisible">·</span>--<span class="ace_invisible">·</span>"1"<span class="ace_invisible">·</span>Catalogue<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">Fournisseur<span class="ace_invisible">·</span>&lt;|--<span class="ace_invisible">·</span>Utilisateur<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">Client<span class="ace_invisible">·</span>&lt;|--<span class="ace_invisible">·</span>Utilisateur<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">Catalogue<span class="ace_invisible">·</span>"1"<span class="ace_invisible">·</span>--<span class="ace_invisible">·</span>"*"<span class="ace_invisible">·</span>Produit<span class="ace_invisible">·</span><span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">Gestionnaire_pc<span class="ace_invisible">·</span>"1"<span class="ace_invisible">·</span>--<span class="ace_invisible">·</span>"1"<span class="ace_invisible">·</span>Point_collecte<span class="ace_invisible">·</span>:<span class="ace_invisible">·</span>gere<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">Commande<span class="ace_invisible">·</span>"1"<span class="ace_invisible">··</span>--<span class="ace_invisible">··</span>"0-1"<span class="ace_invisible">·</span>Reglement<span class="ace_invisible">·</span><span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">Controlleur<span class="ace_invisible">·</span>"1"<span class="ace_invisible">·</span>--<span class="ace_invisible">·</span>"*"<span class="ace_invisible">·</span>Commande<span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px"><span class="ace_invisible">¬</span></div><div class="ace_line" style="height:14px">@enduml<span class="ace_invisible">¶</span></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor" style="left: 221px; top: 700px; width: 7px; height: 14px;"></div></div></div></div><div style="height: auto; width: auto; top: -100px; left: -100px; visibility: hidden; position: fixed; overflow: visible; white-space: nowrap;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div><div class="ace_scrollbar" style="width: 22px; overflow-y: scroll; bottom: 0px;"><div class="ace_scrollbar-inner" style="width: 22px; height: 1246px;"></div></div><div class="ace_scrollbar-h" style="height: 22px; overflow-x: scroll; left: 47px; right: 17px; display: none;"><div class="ace_scrollbar-inner" style="height: 22px; width: 428px;"></div></div><div class="ace_gutter-tooltip" style="display: none;"></div><div class="ace_search right" style="display: none;"><button type="button" action="hide" class="ace_searchbtn_close"></button><div class="ace_search_form ace_nomatch"><input class="ace_search_field" placeholder="Search for" spellcheck="false" value="client"><button type="button" action="findNext" class="ace_searchbtn next"></button><button type="button" action="findPrev" class="ace_searchbtn prev"></button></div><div class="ace_replace_form" style=""><input class="ace_search_field" placeholder="Replace with" spellcheck="false" value="utilisateur"><button type="button" action="replaceAndFindNext" class="ace_replacebtn">Replace</button><button type="button" action="replaceAll" class="ace_replacebtn">All</button></div><div class="ace_search_options"><span action="toggleRegexpMode" class="ace_button" title="RegExp Search">.*</span><span action="toggleCaseSensitive" class="ace_button" title="CaseSensitive Search">Aa</span><span action="toggleWholeWords" class="ace_button" title="Whole Word Search">\b</span></div></div></div>
+			<div class="ui-resizable-handle ui-resizable-e" style="z-index: 1000;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 1000;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 1000;"></div></div>
+			<div id="content">
+				<img id="im" src="PlantText%20UML%20Editor_fichiers/VLHDRzGm4BtxLrXxsgMi15TKeKeWUk5GWJX7tdX8H_L76Di5QUaFwk_e7sES.png" alt="PlantUML Diagram"><br><br>
+				<a id="plantimagelink" target="_blank" href="https://www.plantuml.com/plantuml/img/VLHDRzGm4BtxLrXxsgMi15TKeKeWUk5GWJX7tdX8H_L76Di5QUaFwk_e7sESn8dJZJWbVZEPUVFcEJSXAeh96Y4YHWFoCwgEbBKWDSZMg110tdglJoeyG1H239Zy4T5WK14IoREGyWfTb6a16zGP3P7GTT9vMvrwWZK0Lg6fpaeJSDyAYL37Km1oojO9FPFwxMbe-kXHo_PUkGwQWkyFGZmLyf-yjShnV3FpTa8csffdMB1y6b2VJgoGzIug5vleep9re8C9v6PoAgoqRdhoEc7SJyz3QQh1G8JDyEkAF8T3eA7mrIEqqTFrtPZ_KRBcLPd3CkUKiOmvvPGfnoOzuPzy_BwrAmsX9UmZUiVeKlehTWwQ8j7Su5TYPJ2-F6yEyPEyRGmw64YEXRv1Py22Y-UgQykUXCObUmAwL7v5vCvpNoPY3Ai2vmqNFSrRTv5oNgAp64rYrGCBbuZD4ZAf4Qrsrg2RXzmlwhsj_BACSWiXw-GK4bTjpo8hmb9Nbs1z0-OXllX43fdiGgqspk3TQGY3HQlHvWH0QtTaEFNPj9TuiLp1bokXU46-Iyig1u_a137sbBltEtayojsRtNo1n7oJSZ17X_3Q7F83NoLs1TSGnP7_JzSlpsmwjgiYKMrjPi2FcQ-ej9FNVpbS_PeAzKkyV5vFLSY9Luki-wxjnbmxe4qPtXtvTJQtt9oZLbA86t2QVyJ_0000">PNG</a>&nbsp;|&nbsp;
+				<a id="plantsvglink" target="_blank" href="https://www.plantuml.com/plantuml/svg/VLHDRzGm4BtxLrXxsgMi15TKeKeWUk5GWJX7tdX8H_L76Di5QUaFwk_e7sESn8dJZJWbVZEPUVFcEJSXAeh96Y4YHWFoCwgEbBKWDSZMg110tdglJoeyG1H239Zy4T5WK14IoREGyWfTb6a16zGP3P7GTT9vMvrwWZK0Lg6fpaeJSDyAYL37Km1oojO9FPFwxMbe-kXHo_PUkGwQWkyFGZmLyf-yjShnV3FpTa8csffdMB1y6b2VJgoGzIug5vleep9re8C9v6PoAgoqRdhoEc7SJyz3QQh1G8JDyEkAF8T3eA7mrIEqqTFrtPZ_KRBcLPd3CkUKiOmvvPGfnoOzuPzy_BwrAmsX9UmZUiVeKlehTWwQ8j7Su5TYPJ2-F6yEyPEyRGmw64YEXRv1Py22Y-UgQykUXCObUmAwL7v5vCvpNoPY3Ai2vmqNFSrRTv5oNgAp64rYrGCBbuZD4ZAf4Qrsrg2RXzmlwhsj_BACSWiXw-GK4bTjpo8hmb9Nbs1z0-OXllX43fdiGgqspk3TQGY3HQlHvWH0QtTaEFNPj9TuiLp1bokXU46-Iyig1u_a137sbBltEtayojsRtNo1n7oJSZ17X_3Q7F83NoLs1TSGnP7_JzSlpsmwjgiYKMrjPi2FcQ-ej9FNVpbS_PeAzKkyV5vFLSY9Luki-wxjnbmxe4qPtXtvTJQtt9oZLbA86t2QVyJ_0000">SVG</a>&nbsp;|&nbsp;
+				<a id="planttxtlink" target="_blank" href="https://www.plantuml.com/plantuml/txt/VLHDRzGm4BtxLrXxsgMi15TKeKeWUk5GWJX7tdX8H_L76Di5QUaFwk_e7sESn8dJZJWbVZEPUVFcEJSXAeh96Y4YHWFoCwgEbBKWDSZMg110tdglJoeyG1H239Zy4T5WK14IoREGyWfTb6a16zGP3P7GTT9vMvrwWZK0Lg6fpaeJSDyAYL37Km1oojO9FPFwxMbe-kXHo_PUkGwQWkyFGZmLyf-yjShnV3FpTa8csffdMB1y6b2VJgoGzIug5vleep9re8C9v6PoAgoqRdhoEc7SJyz3QQh1G8JDyEkAF8T3eA7mrIEqqTFrtPZ_KRBcLPd3CkUKiOmvvPGfnoOzuPzy_BwrAmsX9UmZUiVeKlehTWwQ8j7Su5TYPJ2-F6yEyPEyRGmw64YEXRv1Py22Y-UgQykUXCObUmAwL7v5vCvpNoPY3Ai2vmqNFSrRTv5oNgAp64rYrGCBbuZD4ZAf4Qrsrg2RXzmlwhsj_BACSWiXw-GK4bTjpo8hmb9Nbs1z0-OXllX43fdiGgqspk3TQGY3HQlHvWH0QtTaEFNPj9TuiLp1bokXU46-Iyig1u_a137sbBltEtayojsRtNo1n7oJSZ17X_3Q7F83NoLs1TSGnP7_JzSlpsmwjgiYKMrjPi2FcQ-ej9FNVpbS_PeAzKkyV5vFLSY9Luki-wxjnbmxe4qPtXtvTJQtt9oZLbA86t2QVyJ_0000">TXT</a>&nbsp;|&nbsp;
+				<a id="planteditorlink" target="_blank" href="https://www.planttext.com/?text=VLHDRzGm4BtxLrXxsgMi15TKeKeWUk5GWJX7tdX8H_L76Di5QUaFwk_e7sESn8dJZJWbVZEPUVFcEJSXAeh96Y4YHWFoCwgEbBKWDSZMg110tdglJoeyG1H239Zy4T5WK14IoREGyWfTb6a16zGP3P7GTT9vMvrwWZK0Lg6fpaeJSDyAYL37Km1oojO9FPFwxMbe-kXHo_PUkGwQWkyFGZmLyf-yjShnV3FpTa8csffdMB1y6b2VJgoGzIug5vleep9re8C9v6PoAgoqRdhoEc7SJyz3QQh1G8JDyEkAF8T3eA7mrIEqqTFrtPZ_KRBcLPd3CkUKiOmvvPGfnoOzuPzy_BwrAmsX9UmZUiVeKlehTWwQ8j7Su5TYPJ2-F6yEyPEyRGmw64YEXRv1Py22Y-UgQykUXCObUmAwL7v5vCvpNoPY3Ai2vmqNFSrRTv5oNgAp64rYrGCBbuZD4ZAf4Qrsrg2RXzmlwhsj_BACSWiXw-GK4bTjpo8hmb9Nbs1z0-OXllX43fdiGgqspk3TQGY3HQlHvWH0QtTaEFNPj9TuiLp1bokXU46-Iyig1u_a137sbBltEtayojsRtNo1n7oJSZ17X_3Q7F83NoLs1TSGnP7_JzSlpsmwjgiYKMrjPi2FcQ-ej9FNVpbS_PeAzKkyV5vFLSY9Luki-wxjnbmxe4qPtXtvTJQtt9oZLbA86t2QVyJ_0000">Edit</a>
+			</div>
+			<div id="addblock">
+				<script async="" src="PlantText%20UML%20Editor_fichiers/adsbygoogle.js"></script>
+				<!-- Right -->
+				<ins class="adsbygoogle" style="display:inline-block;width:120px;height:600px" data-ad-client="ca-pub-1879544236387698" data-ad-slot="9610488963"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</div>
+		</div>
+		
+		</form>
+ 	<div id="footer">
+		Thanks to <a href="http://www.plantuml.com/">PlantUML</a>,
+					<a href="http://www.graphviz.org/">Graphviz</a>,
+					<a href="http://ace.c9.io/">Ace Editor</a>,
+					<a href="https://github.com/johan/js-deflate">Johan Sundström (js-deflate)</a>, as well as 
+					<a href="http://stevenanichols.com/">Steven Nichols</a> and
+					<a href="https://github.com/bafolts/">Brian Folts</a>. © Copyright 2013 - 2017 <a href="http://www.arwenvaughan.com/">Arwen Vaughan</a> | <a href="http://blog.planttext.com/privacy" target="_blank">Privacy Policy</a>
+	</div>
+		
+	<script type="text/javascript">
+
+	  var clientId = '534457703788-oucagierq7s0v6e9529tf27njbn33g76.apps.googleusercontent.com';
+	  var apiKey = 'AIzaSyBOCz7jO63UPjvRWoXlZ0TwTzBCQVsG3rQ';
+	  var scopes = 'https://www.googleapis.com/auth/userinfo.email';
+
+		function logoutGoogle() {
+			window.open("https://accounts.google.com/logout",'_self',false);
+		}
+
+		// Use a button to handle authentication the first time.
+		function handleClientLoad() {
+			$('#loader').show();
+			gapi.client.setApiKey(apiKey);
+			window.setTimeout(checkAuth,1);
+		}
+
+		function checkAuth() {
+			gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
+		}
+
+		function handleAuthResult(authResult) {
+			var authorizeButton = document.getElementById('authorize-button');
+			if (authResult && !authResult.error) {
+				authorizeButton.style.visibility = 'hidden';
+				$('#loader').hide();
+				makeApiCall();
+
+			} else {
+				authorizeButton.style.visibility = '';
+				authorizeButton.onclick = handleAuthClick;
+				$('#loader').hide();
+			}
+		}
+
+		function handleAuthClick(event) {
+			gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
+			return false;
+		}
+
+		// Load the API and make an API call.  Display the results on the screen.
+		function makeApiCall() {
+			gapi.client.load('plus', 'v1', function() {
+				var request = gapi.client.plus.people.get({
+					'userId': 'me'
+				});
+				request.execute(function(resp) {
+
+					var html = '<div style="z-index:2000;" title="' + resp.displayName + ' (' + resp.emails[0].value + ')">';
+						html += '<input id="authorize-button-logout" class="popupbuttons" type="button" onclick="logoutGoogle();" value="Logout">&nbsp;&nbsp;';
+						html += '<img src="' + resp.image.url + '" alt="' + resp.displayName + ' (' + resp.emails[0].value + ')" height="30" align="top">';
+						html += '</div>'; 
+
+					var heading = document.getElementById("authorize");
+					heading.innerHTML = html;
+
+					googleResponse = resp;
+					plantUserId = googleResponse.id;
+
+					afterAuthentication();
+
+				});
+			});
+		}
+	</script>
+
+	<script src="PlantText%20UML%20Editor_fichiers/client.js" gapi_processed="true"></script>
+
+	<script type="text/javascript" src="PlantText%20UML%20Editor_fichiers/planttext.js"></script>
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-88014450-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+
+
+</div><div style="display: none; z-index: 1000; outline: currentcolor none 0px;" class="ui-dialog ui-widget ui-widget-content ui-corner-all " tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-file-menu-new"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" style="background: rgb(217, 213, 255) none repeat scroll 0% 0%;"><span class="ui-dialog-title" id="ui-dialog-title-file-menu-new">New</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="file-menu-new" class="ui-dialog-content ui-widget-content">
+			<table style="width:100%;">
+				<tbody><tr>
+					<td style="text-align:right;width:25%;">
+						Name:
+					</td>
+					<td style="text-align:left;width:75%;">
+						<input id="file-menu-new-name" type="text">
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:right;width:25%;">
+					</td>
+					<td style="text-align:left;width:75%;">
+						<input id="file-menu-new-submit" class="otherbuttons" type="submit" value="New" onclick="submitFileMenuNew(); return false;">
+						<input id="file-menu-new-cancel" class="otherbuttons" type="submit" value="Cancel" onclick="submitFileMenuNewCancel(); return false;">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align:left;">
+						<div class="messages" id="file-menu-new-message"></div>
+					</td>
+				</tr>
+			</tbody></table>
+		</div></div><div style="display: none; z-index: 1000; outline: currentcolor none 0px; position: absolute;" class="ui-dialog ui-widget ui-widget-content ui-corner-all  ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-file-menu-open"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" style="background: rgb(217, 213, 255) none repeat scroll 0% 0%;"><span class="ui-dialog-title" id="ui-dialog-title-file-menu-open">Open</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="file-menu-open" class="ui-dialog-content ui-widget-content">
+			<table style="border:0;width=100%">
+				<tbody><tr>
+					<td style="vertical-align:top;text-align:right;width:25%;">
+						Diagrams:
+					</td>
+					<td style="text-align:left;width:75%;">
+						<select id="file-menu-open-list" size="10" style="width:300px"></select>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:right;width:25%;">
+					</td>
+					<td style="text-align:left;">
+						<input id="file-menu-open-submit" class="otherbuttons" type="submit" value="Open" onclick="submitFileMenuOpen(); return false;">
+						<input id="file-menu-open-cancel" class="otherbuttons" type="submit" value="Cancel" onclick="submitFileMenuOpenCancel(); return false;">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align:left;">
+						<div class="messages" id="file-menu-open-message"></div>
+					</td>
+				</tr>
+			</tbody></table>
+		</div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 1000;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 1000;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 1000;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 1000;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 1000;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 1000;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 1000;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 1000;"></div></div><div style="display: none; z-index: 1000; outline: currentcolor none 0px;" class="ui-dialog ui-widget ui-widget-content ui-corner-all " tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-file-menu-saveas"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" style="background: rgb(217, 213, 255) none repeat scroll 0% 0%;"><span class="ui-dialog-title" id="ui-dialog-title-file-menu-saveas">Save As...</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="file-menu-saveas" class="ui-dialog-content ui-widget-content">
+			<table style="width:100%;">
+				<tbody><tr>
+					<td style="text-align:right;width:25%;">
+						Name:
+					</td>
+					<td style="text-align:left;width:75%;">
+						<input id="file-menu-saveas-name" type="text">
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:right;width:25%;">
+					</td>
+					<td style="text-align:left;width:75%;">
+						<input id="file-menu-saveas-submit" class="otherbuttons" type="submit" value="Save As" onclick="submitFileMenuSaveas(); return false;">
+						<input id="file-menu-saveas-cancel" class="otherbuttons" type="submit" value="Cancel" onclick="submitFileMenuSaveasCancel(); return false;">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align:left;">
+						<div class="messages" id="file-menu-saveas-message"></div>
+					</td>
+				</tr>
+			</tbody></table>
+		</div></div><div style="display: none; z-index: 1000; outline: currentcolor none 0px;" class="ui-dialog ui-widget ui-widget-content ui-corner-all  ui-draggable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-help"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" style="background: rgb(217, 213, 255) none repeat scroll 0% 0%;"><span class="ui-dialog-title" id="ui-dialog-title-help">Help</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="help" class="ui-dialog-content ui-widget-content">
+			<table style="border:0;width=100%">
+				<tbody><tr>
+					<td style="text-align:left;">
+						PlantText is a text-based tool for quickly creating clear UML 
+diagrams that can be compared, versioned, and managed. Simply type 
+PlantUML language into the editor and refresh the screen to produce a 
+professional diagram. Save, export, or copy the image for use in your 
+requirements or design documents.
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:center;">
+						<h2><a href="https://youtu.be/d8ABkAkT3q0" target="_blank">PlantText Video Tutorial</a></h2>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">
+						<span title=""><h2>Helpful Tips:</h2></span>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">
+						<ul>
+							<li>Press the Alt + Enter keystroke combination to refresh the 
+PlantUML diagram. This way you don't have to use your mouse to refresh 
+at all.</li>	
+							<li>A quick way to learn PlantUML is by working through the 
+sample dropdown list. These PlantUML diagrams are grouped by diagram 
+type and follow a natural progression. We will continue to add to this 
+list over time.</li>	
+							<li>If you login with your Google account, you can then use the 
+"Save" button to store your PlantUML and other settings to the PlantText
+ server. If you do this, your PlantUML will automatically load any time 
+you login. You can press the "Load" button if you want to revert to the 
+saved PlantUML and user settings.</li>
+							<li>Use the 'Files' button to quickly export and import PlantUML 
+as text files to and from your local file system. Be careful though 
+because importing will copy the PlantUML in those files over any 
+PlantUML you already have in the PlantText editor.</li>
+							<li>The 'Settings' buttons contains user settings that affect the
+ way the editor works and it's appearance. You can switch to VIM or 
+Emacs mode if you are an old school unix geek.</li>			
+							<li>If diagrams are not refreshing quickly or not at all, the 
+PlantUML server may be slow or completely down. Use the 'Server' button 
+to enter a URL to a different PlantUML server in order to make it work 
+or speed it up. You can follow the instructions <a href="http://plantuml.sourceforge.net/server.html" target="_blank">here</a> in order to set your own PlantUML server up.</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">
+						<p>Finally, if you are using Google Docs you may want to try our Google Docs Addon...</p>
+						<h2><img src="PlantText%20UML%20Editor_fichiers/new.png" alt="New" style="vertical-align: middle; display: inline-block;" width="30"> <a href="https://chrome.google.com/webstore/detail/planttext/lcnoppmgehpmddfmhlnajmchlgkmpaoj?hl=en" target="_blank">Add-on for Google Docs</a></h2>
+					</td>
+				</tr>
+			</tbody></table>
+		</div></div><div style="display: none; z-index: 1000; outline: currentcolor none 0px;" class="ui-dialog ui-widget ui-widget-content ui-corner-all  ui-draggable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-setting"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" style="background: rgb(217, 213, 255) none repeat scroll 0% 0%;"><span class="ui-dialog-title" id="ui-dialog-title-setting">Settings</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="setting" class="ui-dialog-content ui-widget-content">
+			<table style="border:0;width=100%">
+				<tbody><tr>
+					<td style="text-align:right;width:25%;">Layout:</td>
+					<td>
+						<input id="layout-portrait" type="radio" name="layout" value="portrait" onclick="portrait();" checked="checked">Portrait
+						<input id="layout-landscape" type="radio" name="layout" value="landscape" onclick="landscape();">Landscape
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:right;">Theme:</td>
+					<td>
+						<select name="theme" id="theme" class="otherdrops" size="1">
+						<optgroup label="Bright">
+							<option value="chrome">Chrome</option>
+							<option value="clouds">Clouds</option>
+							<option value="crimson_editor">Chrimson Editor</option>
+							<option value="dawn">Dawn</option>
+							<option value="dreamweaver">Dreamweaver</option>
+							<option value="eclipse">Eclipse</option>
+							<option value="github">GitHub</option>
+							<option value="solarized_light">Solarized Light</option>
+							<option value="textmate" selected="selected">TextMate</option>
+							<option value="tomorrow">Tomorrow</option>
+							<option value="chrome">Chrome</option>
+							<option value="xcode">XCode</option>
+						</optgroup>
+						<optgroup label="Dark">
+							<option value="ambiance">Ambiance</option>
+							<option value="chaos">Chaos</option>
+							<option value="clouds_midnight">Clouds Midnight</option>
+							<option value="cobalt">Cobalt</option>
+							<option value="idle_fingers">Idle Filgers</option>
+							<option value="kr_theme">krThems</option>
+							<option value="merbivore">Merbivore</option>
+							<option value="merbivore_soft">Merbivore Soft</option>
+							<option value="mono_industrial">Mono Industrial</option>
+							<option value="monokai">Monokai</option>
+							<option value="pastel_on_dark">Pastel on Dark</option>
+							<option value="solarized_dark">Solarized Dark</option>
+							<option value="terminal">Terminal</option>
+							<option value="tomorrow_night">Tomorrow Night</option>
+							<option value="tomorrow_night_blue">Tomorrow Night Blue</option>
+							<option value="tomorrow_night_dark">Tomorrow Night Dark</option>
+							<option value="tomorrow_night_eighties">Tomorrow Night 80s</option>
+							<option value="twilight">Twilight</option>
+							<option value="vibrant_ink">Vibrant Ink</option>
+						</optgroup>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:right;">Bindings:</td>
+					<td>
+						<select name="keybinding" id="keybinding" class="otherdrops" size="1">
+							<option value="ace" selected="selected">Normal</option>
+							<option value="vim">Vim</option>
+							<option value="emacs">Emacs</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:right;">Font Size: </td>
+					<td>
+						<select name="fontsize" id="fontsize" class="otherdrops" size="1">
+							<option value="10">10 px</option>
+							<option value="11">11 px</option>
+							<option value="12" selected="selected">12 px</option>
+							<option value="13">13 px</option>
+							<option value="14">14 px</option>
+							<option value="16">16 px</option>
+							<option value="18">18 px</option>
+							<option value="20">20 px</option>
+							<option value="24">24 px</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:right;">Marks: </td>
+					<td>
+						<input name="invisibles" id="invisibles" type="checkbox" checked="checked" onclick="toggleVisibles();">Show invisibles
+						<input name="indentguide" id="indentguide" type="checkbox" checked="checked" onclick="toggleIndentGuide()">Show indent guides
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:right;">
+						<span title="This application uses a PlantUML server in order to generate the diagrams. If you have problems generating diagrams, please enter a different PlantUML server URL below. These servers have been known to go down from time to time. You can setup a server by reading the information. You can enter your own PlantUML server or revert by clicking 'Default'.">PlantUML Server:</span>
+					</td>
+					<td>
+						<input class="otherbuttons" id="defaultserver" type="submit" value="Default" onclick="defaultFromButton(); return false;">
+						<input type="text" id="plantumlserver">
+						<a href="http://plantuml.sourceforge.net/server.html" target="_blank"><img id="infomark" src="PlantText%20UML%20Editor_fichiers/info-2x.png" alt="PlantUML Server Info" align="middle"></a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align:left;">
+						<div style="text-align: center; width:100%;" title="Save one editor document to the cloud"><input id="savebutton" class="otherbuttons" type="submit" value="Save Settings" onclick="saveFromButton(); return false;"></div><br>
+					</td>
+				</tr>
+			</tbody></table>
+		</div></div><div style="display: none; z-index: 1012; outline: currentcolor none 0px; height: auto; width: 500px; top: 289px; left: 706px;" class="ui-dialog ui-widget ui-widget-content ui-corner-all  ui-draggable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-code"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" style="background: rgb(217, 213, 255) none repeat scroll 0% 0%;"><span class="ui-dialog-title" id="ui-dialog-title-code">Code</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all ui-state-focus" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="code" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 92.0333px; height: auto;">
+			<table style="border:0;width=100%">
+				<tbody><tr>
+					<td colspan="2" style="text-align:left;">
+						Convert class diagrams to code stubs in one of he available programming languages.
+						<br><br>
+						Special thanks to <a target="_blank" href="https://github.com/bafolts">Brian Folts</a> for building the conversion code.  If you want to help improve this feature please log issues <a id="planteditorlink" target="_blank" href="https://www.planttext.com/?text=VLHDRzGm4BtxLrXxsgMi15TKeKeWUk5GWJX7tdX8H_L76Di5QUaFwk_e7sESn8dJZJWbVZEPUVFcEJSXAeh96Y4YHWFoCwgEbBKWDSZMg110tdglJoeyG1H239Zy4T5WK14IoREGyWfTb6a16zGP3P7GTT9vMvrwWZK0Lg6fpaeJSDyAYL37Km1oojO9FPFwxMbe-kXHo_PUkGwQWkyFGZmLyf-yjShnV3FpTa8csffdMB1y6b2VJgoGzIug5vleep9re8C9v6PoAgoqRdhoEc7SJyz3QQh1G8JDyEkAF8T3eA7mrIEqqTFrtPZ_KRBcLPd3CkUKiOmvvPGfnoOzuPzy_BwrAmsX9UmZUiVeKlehTWwQ8j7Su5TYPJ2-F6yEyPEyRGmw64YEXRv1Py22Y-UgQykUXCObUmAwL7v5vCvpNoPY3Ai2vmqNFSrRTv5oNgAp64rYrGCBbuZD4ZAf4Qrsrg2RXzmlwhsj_BACSWiXw-GK4bTjpo8hmb9Nbs1z0-OXllX43fdiGgqspk3TQGY3HQlHvWH0QtTaEFNPj9TuiLp1bokXU46-Iyig1u_a137sbBltEtayojsRtNo1n7oJSZ17X_3Q7F83NoLs1TSGnP7_JzSlpsmwjgiYKMrjPi2FcQ-ej9FNVpbS_PeAzKkyV5vFLSY9Luki-wxjnbmxe4qPtXtvTJQtt9oZLbA86t2QVyJ_0000">here</a>.
+					 	<br><br>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:left;width:25%">
+						<select name="language" id="language" class="otherdrops" size="1">
+							<option value="coffeescript">Coffee Script</option>
+							<option value="csharp">C Sharp</option>
+							<option value="ecmascript5">ECMAScript 5</option>
+							<option value="ecmascript6">ECMAScript 6</option>
+							<option value="java" selected="selected">Java</option>
+							<option value="php">PHP</option>
+							<option value="ruby">Ruby</option>
+							<option value="typescript">Type Script</option>
+						</select>
+					</td>
+					<td>
+						<input id="codebutton" class="otherbuttons" type="submit" value="Convert to Code" onclick="codeFromButton(); return false;">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align:left;">
+						<textarea name="codeoutput" id="codeoutput" rows="10">Error parsing input file: 
+/home/ubuntu/bin/PlantCode/Log/2019-14-11-10-17-17-java.txt
+{ message: 'Expected [ \\t], [(], [A-Za-z0-9_], [\\n] or [\\r\\n] but "{" found.',
+  expected: 
+   [ { type: 'class', value: '[ \\t]', description: '[ \\t]' },
+     { type: 'class', value: '[(]', description: '[(]' },
+     { type: 'class',
+       value: '[A-Za-z0-9_]',
+       description: '[A-Za-z0-9_]' },
+     { type: 'class', value: '[\\n]', description: '[\\n]' },
+     { type: 'class', value: '[\\r\\n]', description: '[\\r\\n]' } ],
+  found: '{',
+  location: 
+   { start: { offset: 455, line: 33, column: 21 },
+     end: { offset: 456, line: 33, column: 22 } },
+  name: 'SyntaxError' }
+</textarea>
+					</td>
+				</tr>
+		</tbody></table>
+		
+		
+		
+		
+		
+		
+		
+		<textarea name="description" id="description" style="display: none;">@startuml
+
+title Diagramme de classe Goodbasket
+
+
+class Utilisateur {
+  +int utilisateur_id
+  +string nom
+  +string prenom
+  +string email
+  +string adresse
+  +string tel
+  +string username
+  +string password
+  +void change_password()
+
+}
+
+class Commande {
+  +int commande_id
+  +date commande_date
+  +double montant_totale
+  +double get_total()
+   +int add_produit(produit)
+  +int delete_produit(produit)
+  +double get_total_panier()
+  +vector&lt;Produit&gt; liste_produit()
+}
+
+class Produit {
+  +int produit_id
+  +double prix
+  +String nom
+  +string description
+  
+}
+
+class Ligne_commande{
+  +int quantité
+  +double get_total_from_line()
+}
+class Reglement{
+  +string carte_number
+  +double montant
+  
+}
+
+class Point_collecte{
+  +string adresse
+}
+class Controlleur{
++void make_purchase()
++void add_produit_in_commande(produit_id,commande_id)
+}
+class Gestionnaire_pc{
+int id
+string nom
+string prenom
+}
+
+class Fournisseur{
++void add_produit()
+
+}
+class Client{
+  +void creer_panier()
+  +void update_panier()
+  +void delete_panier()
+}
+
+class Catalogue{
+  +int id
+  
+}
+
+
+Client "1" -- "*" Commande
+Commande "1"  --  "*" Ligne_commande : contient
+Produit "1"  --  "*" Ligne_commande : décrit par
+Controlleur "1" -- "1" Catalogue
+Fournisseur &lt;|-- Utilisateur
+Client &lt;|-- Utilisateur
+Catalogue "1" -- "*" Produit 
+Gestionnaire_pc "1" -- "1" Point_collecte : gere
+Commande "1"  --  "0-1" Reglement 
+Controlleur "1" -- "*" Commande
+
+
+@enduml</textarea>	
+		
+	</div></div><div style="display: none; z-index: 1000; outline: currentcolor none 0px;" class="ui-dialog ui-widget ui-widget-content ui-corner-all  ui-draggable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-scripting"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" style="background: rgb(217, 213, 255) none repeat scroll 0% 0%;"><span class="ui-dialog-title" id="ui-dialog-title-scripting">Scripting</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="scripting" class="ui-dialog-content ui-widget-content">
+			<table style="border:0;width=100%">
+				<tbody><tr>
+					<td colspan="2" style="text-align:left;">
+						Convert raw PlantUML text into a URL. The URL can then be copies 
+into a browser in order to create the diagram image. This URL is useful 
+when trying
+						to put PlantUML diagrams into documents or uploading them to other
+ websites. You can generate the URLs manually using the form below, or 
+folow the
+						link below to learn how to programmatically call a web endpoint 
+and run this functionality automatically.
+						<br><br>
+						<a target="_blank" href="https://www.planttext.com/api/scripting">Click Here</a>
+						<br><br>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:left;width:20%">
+						<select name="scriptingimagetype" id="scriptingimagetype" class="otherdrops" size="1">
+							<option value="png" selected="selected">PNG</option>
+							<option value="svg">SVG</option>
+							<option value="txt">ASCI Text</option>
+						</select>
+					</td>
+					<td>
+						<input id="scriptingbutton" class="otherbuttons" type="submit" value="PlantUML to Link" onclick="urlFromPlantUML(); return false;">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align:left;">
+						<textarea name="scriptingoutput" id="scriptingoutput" rows="10"></textarea>
+					</td>
+				</tr>
+			</tbody></table>
+		</div></div><div style="display: none; z-index: 1000; outline: currentcolor none 0px;" class="ui-dialog ui-widget ui-widget-content ui-corner-all  ui-draggable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-files"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" style="background: rgb(217, 213, 255) none repeat scroll 0% 0%;"><span class="ui-dialog-title" id="ui-dialog-title-files">Import / Export</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="files" class="ui-dialog-content ui-widget-content">
+			<table style="border:0;width=100%">
+				<tbody><tr>
+					<td style="text-align:right;width:25%;">
+						Import:
+					</td>
+					<td style="text-align:left;">
+						<input id="fileInput" type="file" onchange="importUML(); return false;">
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:right;width:25%;">
+						Export:
+					</td>
+					<td style="text-align:left;">
+						<input id="fileExport" class="otherbuttons" type="submit" value="Browse..." onclick="exportUML(); return false;">
+					</td>
+				</tr>
+			</tbody></table>
+		</div></div><div style="display: none; z-index: 1002; outline: currentcolor none 0px; height: auto; width: 500px; top: 307px; left: 706px;" class="ui-dialog ui-widget ui-widget-content ui-corner-all " tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-newspop"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" style="background: rgb(217, 213, 255) none repeat scroll 0% 0%;"><span class="ui-dialog-title" id="ui-dialog-title-newspop">News</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all ui-state-focus" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="newspop" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 86.0333px; height: auto;">
+			<table style="border:0;width=100%">
+				<tbody><tr>
+					<td style="text-align:left;">
+						<img src="PlantText%20UML%20Editor_fichiers/new.png" alt="New" style="align:left; display: inline-block;" width="25">
+						<p>Announcement:</p>
+						<p>I am currently trying to decide what to do with planttext.com. 
+If you have an idea or would like to be involved in its future in one 
+way or another please contact me at admin@planttext.com</p>
+						<p>Update: Thank you for all the emails with ideas and concern. 
+Don't worry! The PlantText website will always be available. Based on 
+all the feedback, I will be moving forward with a donate button to help 
+with hosting costs and 
+						development time. I will also be moving towards making the 
+software open source on GitHub so anyone can contribute to fixes and new
+ features. I don't timeline as of yet, but will keep you posted.</p>	
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:center;">
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:center;">
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:center;">
+						<input name="newpopstop" id="newpopstop" type="checkbox" onclick="toggleNewspop()">Stop showing this message.
+					</td>
+				</tr>
+			</tbody></table>
+
+		</div></div><iframe id="ssIFrame_google" sandbox="allow-scripts allow-same-origin allow-storage-access-by-user-activation" style="position: absolute; width: 1px; height: 1px; inset: -9999px; display: none;" aria-hidden="true" frame-border="0" src="PlantText%20UML%20Editor_fichiers/iframe.html"></iframe><iframe id="apiproxya4e0b1aac4e108b2a5099c46298cb4255acb66af0.1574844666" name="apiproxya4e0b1aac4e108b2a5099c46298cb4255acb66af0.1574844666" style="width: 1px; height: 1px; position: absolute; top: -100px; display: none;" src="PlantText%20UML%20Editor_fichiers/proxy.html" tabindex="-1" aria-hidden="true"></iframe></body></html>

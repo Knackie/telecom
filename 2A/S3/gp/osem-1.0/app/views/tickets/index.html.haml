@@ -1,0 +1,46 @@
+.container
+  .row
+    .col-md-12
+      .page-header
+        %h1
+          Tickets
+      %p.lead
+        If you like, support
+        %strong
+          = @conference.title
+        by buying a ticket*
+      =form_tag(conference_ticket_purchases_path, method: :post) do |f|
+        %table.table.table-hover
+          %thead
+            %tr
+              %th Ticket
+              %th Quantity
+              %th Price
+              %th Total
+          %tbody
+          - @conference.tickets.each do |ticket|
+            = render partial: 'ticket', f: f, locals: {ticket: ticket}
+          %tr
+            %td
+            %td
+            %td.col-sm-1.col-md-1.text-center
+              %h4
+                Total
+            %td.col-sm-1.col-md-1.text-center
+              %h4
+                %strong
+                  = @conference.tickets.first.price.symbol
+                  %span{id: 'total_price'}
+                    0
+        .pull-right
+          .btn-group-vertical
+            = button_tag(type: 'submit', class: 'btn btn-success btn-lg') do
+              Support
+              %i.fa.fa-shopping-cart
+            = link_to 'Continue without a Ticket!', conference_conference_registrations_path(@conference.short_title),
+            class: 'btn btn-danger btn-sm'
+  .row
+    .col-md-13
+      %p.text-muted.text-center
+        %small
+          * Buying a ticket is not mandatory. Checkout will be at the conference registration.

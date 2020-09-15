@@ -1,0 +1,34 @@
+= content_for :splash_nav do
+  %li
+    %a.smoothscroll{ href: '#venue' } Venue
+-if @conference.venue.location?
+  = render 'conference/venue_map'
+-else
+  .container
+    .row
+      - if @conference.venue.commercial.present? and @conference.venue.commercial.persisted?
+        .col-md-5
+          .thumbnail
+            .flexvideo{ id: "resource-content-#{@conference.venue.commercial.id}"}
+              = render partial: 'shared/media_item', locals: { commercial: @conference.venue.commercial }
+    
+      .col-md-6
+        %h2.text-center
+          = "#{@conference.venue.city} / #{@conference.venue.country_name}"
+      .col-md-6
+        .thumbnail
+          .caption
+            - unless @conference.venue.description.blank?
+              = markdown(@conference.venue.description)
+      .col-md-6
+        %address
+          %h1
+            = @conference.venue.name
+          = @conference.venue.street
+          %br
+          = "#{@conference.venue.postalcode}, #{@conference.venue.city}"
+          %br
+          = @conference.venue.country_name
+          - if @conference.venue.website
+            %br
+            =link_to @conference.venue.website, @conference.venue.website

@@ -1,0 +1,48 @@
+.container
+  .row
+    .col-md-12
+      %h2.text-center
+        Program
+      %p.lead.text-center
+        %span.notranslate
+          = @conference.short_title
+        has the most awesome program ever!
+        - if @conference.splashpage and @conference.program.tracks.any? and @conference.splashpage.include_tracks
+          See rock-star speakers cover the topics of
+      - if @conference.splashpage and @conference.splashpage.include_tracks
+        - @conference.program.tracks.each_slice(3) do |slice|
+          .row.row-centered
+            - slice.each do |track|
+              .col-md-4.col-sm-4.col-centered.col-top.track
+                %h4.text-center
+                  = track.name
+                = markdown(track.description)
+
+  - if @conference.program and @conference.program.schedule_public
+    .row
+      .col-md-12
+        %p.cta-button.text-center
+          = link_to(schedule_conference_path(@conference.short_title), class: 'btn btn-default btn-lg') do
+            Full Schedule
+
+
+  %h3.text-center
+    Don't miss out!
+  %br
+  - if @conference.program.events.highlights.any?
+    .row
+      .col-md-12
+        - @conference.program.events.highlights.each_slice(2) do |slice|
+          .row.row-centered
+            - slice.each do |event|
+              .col-md-6.col-centered.col-top.highlights
+                %p.text-center
+                  %b= event.title
+                %h5.text-center
+                  = simple_format truncate(event.abstract, length: 500, separator: ' ')
+                  = link_to "Read More", conference_program_proposal_path(@conference.short_title, event)
+
+  = content_for :splash_nav do
+    %li
+      =link_to('#program', class: 'smoothscroll') do
+        Program

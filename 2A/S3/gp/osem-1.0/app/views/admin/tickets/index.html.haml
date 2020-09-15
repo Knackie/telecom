@@ -1,0 +1,39 @@
+.row
+  .col-md-12
+    .page-header
+      %h1 Tickets
+      %p.text-muted
+        Tickets to purchase during registration
+- if @conference.tickets.any?
+  .row
+    .col-md-12
+      %table.table.table-hover#tickets
+        %thead
+          %th Title
+          %th Price
+          %th Sold
+          %th Turnover
+          %th Actions
+        %tbody
+          - @conference.tickets.each do |ticket|
+            %tr
+              %td
+                = link_to(admin_conference_ticket_path(@conference.short_title, ticket.id)) do
+                  = ticket.title
+              %td
+                = humanized_money_with_symbol ticket.price
+              %td
+                = ticket.tickets_sold
+              %td
+                = humanized_money_with_symbol ticket.tickets_turnover
+              %td
+                .btn-group
+                  = link_to 'Edit', edit_admin_conference_ticket_path(@conference.short_title, ticket.id),
+                  method: :get, class: 'btn btn-primary'
+                  = link_to 'Delete', admin_conference_ticket_path(@conference.short_title, ticket.id),
+                  method: :delete, class: 'btn btn-danger',
+                  data: { confirm: "Do you really want to delete the Ticket for #{ticket.title}? Attention: All ticket purchases will be also deleted!" }
+.row
+  .col-md-12
+    = link_to 'Add Ticket', new_admin_conference_ticket_path, class: 'btn btn-success pull-right'
+

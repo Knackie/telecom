@@ -1,0 +1,46 @@
+%html{:xmlns => "http://www.w3.org/1999/html"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
+    %title= content_for?(:title) ? yield(:title) : (ENV['OSEM_NAME'] || 'OSEM')
+    %meta{:content => "", :name => "description"}
+    %meta{:content => "", :name => "author"}
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+
+    = csrf_meta_tags
+    :javascript
+      window.liveSettings = {
+        api_key: "#{ENV['OSEM_TRANSIFEX_APIKEY']}",
+        picker: "bottom-right",
+        detectlang: true,
+        autocollect: true
+      };
+    = content_for(:script_head)
+    = javascript_include_tag "//cdn.transifex.com/live.js"
+
+    = yield(:head)
+  %body
+    = render 'layouts/navigation'
+    -# Admin area
+    - if controller.class.name.split("::").first=="Admin"
+      = render 'layouts/admin'
+    -else
+      #messages
+        .container
+          = render 'layouts/messages'
+      #content
+        = yield
+    #footer
+      .container
+        %p.muted.text-center
+          %small
+            This tool is
+            =link_to "free software,", "http://www.gnu.org/philosophy/free-sw.html"
+            released under the
+            =link_to "MIT license.", "http://opensource.org/licenses/MIT"
+            You can run, copy, distribute, study, change and improve it.
+            The source code and the developers are on
+            =link_to "github.", "https://github.com/openSUSE/osem"
+    = content_for(:script_body)
+    = piwik_tracking_tag

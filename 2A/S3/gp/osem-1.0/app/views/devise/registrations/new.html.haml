@@ -1,0 +1,19 @@
+.container
+  .row
+    .col-md-6.col-md-offset-3
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+            Sign Up
+        .panel-body
+          = semantic_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            = f.input :username, input_html: { required: true }
+            = f.input :email, input_html: { required: true }
+            = f.input :name, input_html: { required: true }
+            = f.input :password, input_html: { required: true }
+            = f.input :password_confirmation, input_html: { required: true }
+            %p.text-right
+              = f.action :submit, as: :button, label: 'Sign Up', button_html: { class: 'btn btn-success' }
+
+          = render partial: 'devise/shared/openid'
+          = render partial: 'devise/shared/help'

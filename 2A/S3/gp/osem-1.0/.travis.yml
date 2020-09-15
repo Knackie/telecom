@@ -1,0 +1,24 @@
+sudo: required
+dist: trusty
+language: ruby
+cache: bundler
+rvm:
+  - 2.2.3
+before_install:
+  - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+  - "echo `phantomjs -v`"
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+  irc:
+    channels:
+      - "chat.freenode.net#osem"
+    on_success: change
+    on_failure: change
+before_script:
+  - cp config/database.yml.example config/database.yml
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+script:
+  - 'bundle exec rubocop -Dc .rubocop.yml'
+  - 'bundle exec rspec --color --format documentation'
