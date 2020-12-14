@@ -499,7 +499,7 @@ GEM
     unicode_utils (1.4.0)
     unobtrusive_flash (3.1.0)
       railties
-    user_agent_parser (2.1.5)
+    user_agent_parser (2.7.0)
     uuidtools (2.1.5)
     warden (1.2.4)
       rack (>= 1.0)
