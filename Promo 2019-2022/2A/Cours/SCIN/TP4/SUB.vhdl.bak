@@ -1,0 +1,22 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity soustracteur4bit is
+port(
+a,b : in std_logic_vector(3 downto 0);
+cin : in std_logic;
+s : out std_logic_vector(3 downto 0);
+cout : out std_logic);
+end;
+
+architecture archConc of soustracteur4bit is
+signal s_int : unsigned (4 downto 0);
+signal cin_vector: std_logic_vector (0 downto 0);
+begin
+	cin_vector(0) <= cin;
+	s_int <= unsigned('0' & a) + unsigned(not('0' & b)) + unsigned("0000" & cin_vector);
+	--s_int <= resize(unsigned(a),5) + resize(unsigned(b),5) + resize(unsigned(cin_vector),5);
+	s <= std_logic_vector(s_int(3 downto 0));
+cout <= s_int(4);
+end archConc;
