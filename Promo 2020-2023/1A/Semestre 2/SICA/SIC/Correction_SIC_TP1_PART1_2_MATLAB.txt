@@ -1,0 +1,83 @@
+%Langlois Jean
+close all;
+clear all;
+
+f1 = 10; %Fréquence de la première sinusoïde
+f2 = 190; %Fréquence de la deuxième sinusoïde
+fe = 400; %Fréquence d'échantillonnage
+A1 = 1; %Amplitude de la première sinusoïde amortie
+A2 = 1; %Amplitude de la deuxième sinusoïde amortie
+a1 = 2; %Coeff d'amortissement de la première sinusoïde amortie
+a2 = 2; %Coeff d'amortissement de la deuxième sinusoïde amortie
+
+T1 = 1/f1; %période 1
+T2 = 1/f2; %période 2
+Te = 1/fe; %période d'échantillonnage
+
+t = (0:Te:2); %intervalle d'analyse
+
+%question n°1)
+x = A1*exp(-(a1)*t).*cos(2*pi*f1*t) + A2*exp(-(a2)*t).*cos(2*pi*f2*t);
+%t est de dimension n et cos est de dim 1 donc conflit si pas de .*
+
+%2°) question n°2)
+length(x)% calcule la taille de x soit 281 points.
+%Mais théoriquement c'est 2 fois fe soit 280 "intervalles" mais 281 points (principe de la barrière : 3 poteaux mais deux intervalles)
+
+%question n°3) 
+figure(1)
+plot(t,x,'r')
+xlabel('continu') 
+ylabel('x(t)')
+title('Signal x(t)')
+
+%question n°4) bruit...
+b = 0;
+for n=1:10 %on fait la moyenne de 10 signaux bruités différents
+bruit_unitaire = randn(1,length(x)); %longueur de x = 281 points
+bruit_unitaire = sqrt(20)*((bruit_unitaire-mean(bruit_unitaire))/std(bruit_unitaire));
+%sqrt("valeur de la variance") * (b - moyenne(b) %%% assure une moyenne nulle %%% 
+%/std(b) "calcul divisé par l'écart-type" pour corriger l'erreur qu'on crée en soustrayant la moyenne
+b = b + bruit_unitaire; % cumul des 10 signaux bruités gaussiens de variance 20 et moyenne nulle.
+end 
+b = b/10; %moyenne des 10 signaux 
+
+%question n°5)
+signal_xb = x+b;
+
+%question n°6)
+figure(2)
+plot(t,signal_xb,'r',t,x,'b');
+xlabel('continu');
+ylabel('xb(t)');
+title('Signal xb(t)');
+
+%question n°7)
+y = A1*cos(2*pi*f1*t);
+
+%question n°8)
+figure(3)
+plot(t,signal_xb,'r',t,x,'g',t,y,'b');
+xlabel('continu'); 
+ylabel('xb(t)et y(t)');
+title('Signal xb(t) et y(t)');
+
+%question n°9) convolution
+z = conv(signal_xb,y);
+length(z); %taille de z à 561 points.
+tz = (1:1:length(z))
+
+%question n°10) inter-corrélation
+r = xcorr(signal_xb,y);
+length(r);
+tr = (0:1:length(r)-1)
+
+%question n°11)
+% lmao = conv(z,r);
+% LMAO = (1:1:length(lmao));
+
+figure(4)
+plot(tz,z,'r',tr,r,'g');
+xlabel('continu'); 
+ylabel('LMAO(t)');
+title('convolution signal z(t) et r(xb,y)');

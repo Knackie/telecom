@@ -1,0 +1,70 @@
+set ns [new Simulator]
+
+set trace [open "out.tr" w]
+set namtrace [open "out.nam" w]
+set trace_file [open "trace_file.tr" "w"]
+
+$ns trace-all $trace
+$ns namtrace-all $namtrace
+
+$ns color 0 green
+$ns color 1 yellow
+$ns color 2 blue
+$ns color 3 red
+
+set n0 [$ns node]
+$n0 label "S"
+set n1 [$ns node]
+$n1 label "R"
+set n2 [$ns node]
+$n2 label "D"
+
+$ns duplex-link $n0 $n1 8Mb 10ms DropTail
+$ns duplex-link $n1 $n2 0.8Mb 100ms DropTail
+
+$ns duplex-link-op $n0 $n1 orient right
+$ns duplex-link-op $n1 $n2 orient right
+
+$ns duplex-link-op $n1 $n2 queuePos 0.5
+$ns queue-limit $n1 $n2 3 ;
+
+set tcp [new Agent/TCP]		
+$tcp set fid_ 2		
+#$tcp set window_ 16
+$tcp set window_ 4
+
+set sink [new Agent/TCPSink]    
+$ns attach-agent $n0 $tcp
+$ns attach-agent $n2 $sink
+$ns connect $tcp $sink
+
+set ftp [new Application/FTP]
+$ftp attach-agent $tcp
+
+
+proc record {} {
+
+    global ns trace_file tcp
+    set interval 0.1
+    set now [$ns now]
+    set c [$tcp set cwnd_]
+    puts $trace_file "$now $c"
+    $ns at [expr $now + $interval] "record"
+}
+
+proc finish {} {
+    global ns trace namtrace trace_file
+    $ns flush-trace
+    close $trace
+    close $namtrace
+    close $trace_file
+    #exec nam out.nam &
+    exit 0
+}
+
+$ns at 0.0 "$ftp start"
+$ns at 0.0 "record"
+$ns at 3.0 "$ftp stop"
+$ns at 3.1 "finish"
+
+$ns run

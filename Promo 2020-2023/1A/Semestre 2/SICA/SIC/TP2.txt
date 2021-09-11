@@ -1,0 +1,52 @@
+f0 = 24;
+fm = 200;
+fe = 2200;
+t = 0:1/fe:800/fe
+
+x = cos(2*pi*f0*t)
+
+fa = abs(fft(x));
+
+fx = fftshift(fa);
+
+figure(1);
+plot((0:1/800:1)*fe,fa)
+plot((((0:1/800:1)-0.5)*fe),fx)
+
+y = cos(2*pi*fm*t);
+
+disp(size(x));
+disp(size(y));
+
+z = x.*y;
+
+%subplot(3,1,1),plot(x);
+%subplot(3,1,2),plot(y);
+%subplot(3,1,3),plot(z);
+disp("------------------")
+
+fx = fftshift(abs(fft(x)));
+plot((((0:1/800:1)-0.5)*fe),fx)
+fy = fftshift(abs(fft(y)));
+plot((((0:1/800:1)-0.5)*fe),fy)
+fz = fftshift(abs(fft(z)));
+plot((((0:1/800:1)-0.5)*fe),fz)
+
+disp("------------------")
+
+d = z.*y;
+fd = fftshift(abs(fft(d)));
+plot((((0:1/800:1)-0.5)*fe),fd)
+
+s = z./y;
+fs = fftshift(abs(fft(s)));
+plot((((0:1/800:1)-0.5)*fe),fs)
+
+plot(t,s)
+plot(t,x);
+
+
+
+
+
+

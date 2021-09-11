@@ -1,0 +1,176 @@
+clear all 
+close all 
+grid on 
+
+%Variabes:
+f = 24
+T = 1/f
+N = 880 %nb d'échantillons
+fe = 2200 %fréquence d'échantillonnage supérieure à 2f
+
+Nf = 880 +10000%Créer suite à la création d'un 0 padding sur y
+
+k = 0:N-1 %indice axe abscisse qu'on répète N fois
+k_Nf = 0:Nf-1 %indice axe abscisse qu'on répète Nf fois (0 padding -> y)
+
+% intervalle axe abscisses qui dépend de fe et de l'indice temporel
+t = k*(1/fe)
+
+%intervalle fréquenciel de mes fft 
+f1 = k*fe/N %axe fréquentiel du signal x
+f1_Nf = k_Nf*fe/Nf %axe fréquentiel en lien avec le 0 padding
+
+%Signaux
+x = cos(2*pi*f*t) 
+x2 = [x, zeros(1,10000)] %10000 = nb zeros ajoutés -> en tenir compte pour Nf
+
+%affichage question n°2)
+plot(t,x)
+title("Tu t'appelles comment ? ")
+xlabel("Niques ta mère Jean-Kevin")
+ylabel("Jean-Kevin")
+
+%obligation de passer par la valeur absolue pour virer les complexes lors
+%de l'affichage des courbes.
+X = fft(x)
+magX = abs(X)
+
+X2 = fft(x2)
+magX2 = abs(X2)
+
+%question 3°) 
+%La durée d'observation du signal va de 0 à NTe secondes.
+
+%question 4°) 
+%A priori, l'allure du spectre sera un pic en f et un pic en fe-f et fe+f. 
+% Sur un support illimité : on obtient Nfe +/- f 
+% Sur un support borné : on obtient juste f et fe-f | fe+f
+
+%affichage spectre de x
+stem(f1,magX)
+title("Tu t'appelles comment le spectre ? ")
+xlabel("Niques ta mère Jean-Kevin Spectral")
+ylabel("Jean-Kevin Spectral")
+
+%affichage optimal spectre x avec zero padding (question 5°))
+stem(f1_Nf,magX2)
+title("Tu t'appelles comment le spectre ? ")
+xlabel("Niques ta mère Jean-Kevin Spectral Y")
+ylabel("Jean-Kevin Spectral Y")
+
+
+%Variables question 6°)
+ks_Nf = -Nf/2:Nf/2-1 %attention indice axe abscisse entre -Nf/2 et Nf/2 
+fs_Nf = (ks_Nf - 0.5)*fe/Nf % axe fréquentiel en fonction de Nf et fe et le -0.5 demandé.
+X2s_Nf = fftshift(magX2) %fftshift de l'abs(fft(x))
+
+
+%affichage spectre de y (analyse optimale entre -0.5fe et 0.5fe (1100 Hz) -> question 6°))
+stem(fs_Nf,X2s_Nf)
+title("Tu t'appelles comment le spectre centré ? ")
+xlabel("Shift ta mère Jean-Kevin")
+ylabel("Jean-Kevin Shift ")
+
+%question 7°) 
+%La résolution fréquentielle ou l'intervalle de fréquence entre deux points
+%consécutifs est égale à fe/Nf soit NfTe : on échantillonne à chaque point
+%Nf tout les Te. 
+
+%question 8°) 
+%On obtient une fft centrée en 0 allant de -1100 Hz à 1100 Hz. Le signal
+%est optimisé avec le 0 padding. On obtient uniquement deux raies en -f et
+%f : c'est normal : on n'affiche pas fe +/- f car il n'est pas compris dans
+%l'intervale [-0.5fe, 0.5fe].
+
+
+%quesion 9°) 
+%Pour plus de lisibilité, nous déclarerons les variables pour cette
+%question ici.
+
+%variables 
+fm = 200 %fréquence du signal y 
+
+%Signaux
+y = cos(2*pi*fm*t) %t le même intervalle pour l'axe des abscisses que précedemment
+z = y.*x %multiplication des signaux nécessite "*" pour éviter les erreurs de dimensions entre les signaux 
+
+%affichage question 9°) 
+%subplot (a,b,c) : 
+    % a : nombre de plot à afficher (nombre de lignes d'une matrice)
+    % b : nombre de colonne alloué dans une matrice pour afficher les plots
+    % c : le numéro du plot afin que subplot sache ou l'afficher dans sa
+    % matrice. 
+    
+%Ici on défini une matrice de (3,1) pour 3 plots
+subplot(3,1,1),plot(x,'r');
+subplot(3,1,2),plot(y,'g');
+subplot(3,1,3),plot(z);
+
+
+%question 10 ET 11°) : analyse spectrale
+%Ici, on ne nous demande pas une analyse optimale des signaux en
+%introduisant un 0 padding. C'est pourquoi notre nombre d'échantillons Nf
+%pour l'analyse spectrale est égal à N soit 880 échantillons. 
+
+ks_N = -N/2:N/2-1 %attention indice axe abscisse entre -N/2 et N/2 puisque Nf = N
+fs_N = (ks_N - 0.5)*fe/N % axe fréquentiel en fonction de N et fe et le -0.5 demandé.
+
+%Mise en place des valeurs absolues des fft des 3 signaux x(t), y(t), z(t)
+X = fft(x)
+magX = abs(X)
+Y = fft(y)
+magY = abs(Y)
+Z= fft(z)
+magZ = abs(Z)
+
+%Mise en place des 3 fftshifts prenant en compte les fft précédentes
+Xs = fftshift(magX)
+Ys = fftshift(magY)
+Zs = fftshift(magZ)
+
+%Affichage des fftshift 
+figure(2); %nécessaire de créer une nouvelle figure sinon subplot écrase ses résultats précedents. 
+subplot(4,1,1),stem(fs_N, Xs, 'r');
+subplot(4,1,2),stem(fs_N, Ys, 'g');
+subplot(4,1,3),stem(fs_N, Zs);
+
+%question 12°) 
+%Les fréquences présentes dans le signal transmis Z correpondent bien aux
+%deux fréquences f et fm des signaux X et Y. Encore une fois, seules +/- f
+%et +/- fm sont représentées car nous enlevons de l'analyse la fréquence
+%d'échantillonnage à 2200 Hz. 
+
+%question 13°) 
+% Le but de cette question est de retrouver x(t) à partir de z(t).
+%On n'oublie pas le "." pour éviter les erreurs de dimensions entre les
+%deux signaux. 
+d = z./y % On demande ici un produit... une division est un produit ;)
+
+%question 14°) 
+D = fft(d)
+magD = abs(D)
+
+%Les conditions des axes restent les mêmes que pour la question 10 et 11
+%donc : 
+
+Ds = fftshift(magD)
+subplot(4,1,4)
+stem(fs_N,Ds)
+title("Tu t'appelles comment le spectre centré démodulé ? ")
+xlabel("Shift ta mère Jean-Kevin Démodulé")
+ylabel("Jean-Kevin Shift Démodulé ")
+
+%question 15°) 
+%On remarque les raies des signaux d(t) et x(t) sont identiques, on ne s'y
+%attendait pas du touuuuuut. 
+
+%Pour retrouver le signal x(t) à partir de z(t), il faut simplement retirer
+%le signal y(t) de z(t) 
+
+%question 16°) facultative 
+%comparer d(t) et x(t) 
+figure(5) 
+subplot(2,1,1)
+plot(t,d)
+subplot(2,1,2)
+plot(t,x,'r')
