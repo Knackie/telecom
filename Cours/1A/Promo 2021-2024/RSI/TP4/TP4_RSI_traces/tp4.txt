@@ -1,0 +1,26 @@
+First analyse :
+1) Sec558user1
+2) Here's the secret recipe...
+3) recipe.docx
+4) MD5 ->
+5) contenu de recipe.docx
+
+Second analyse : 
+1) nrtjo.eu/true.php
+2) q.jar / sdfr.jar
+3) networkminer -> file.exe
+	Virustoal -> Trojan
+	md5=5942ba36cf732097479c51986eee91ed
+4) 213.155.29.144
+
+Third analyse :
+1) sneakyg33k@aol.com / NTU4cjAwbHo= en base64 (558r00lz)
+2) mistersecretx@aol.com
+3) fake passport and a bathing suit 
+4) secretrendezvous.docx
+
+
+débit TCP max (bit/s) = Windows_size * 8 / RTT 
+
+windows_size émetteur dépend de la capacité dynamique du lien 
+environ égale à la quantité de données transmises entre 2 ACKs

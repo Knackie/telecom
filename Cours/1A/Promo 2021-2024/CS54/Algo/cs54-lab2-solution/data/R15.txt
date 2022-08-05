@@ -1,0 +1,7 @@
+6
+True
+True
+False
+False
+True
+False

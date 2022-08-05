@@ -1,0 +1,7 @@
+6
+b, abcdefghijklmnopqurstuvwxyz
+b, abcdef1234
+a, abca
+a, baab
+x, 
+f, dfgdfgdfgdfg
