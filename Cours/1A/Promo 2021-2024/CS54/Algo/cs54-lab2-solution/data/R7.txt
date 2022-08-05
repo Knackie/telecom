@@ -1,0 +1,6 @@
+5
+3
+ASSERTION ERROR
+1
+a
+z

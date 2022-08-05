@@ -1,0 +1,116 @@
+close all
+clear all
+
+% Question 1 : créez un signal sinusoïdal
+f0 = 25
+f  = 1000
+Te = 1/f
+A  = 4
+N  = 320
+TeMax = (Te*(N-1))
+t = 0:Te:TeMax
+
+
+s = A*sin(2*pi*f0*t)
+
+% Question 2 : signal sinusoïdal dont la fréq évolue dans le temps
+
+f1 = 100
+
+x = A*chirp(t,f0,t(end),f1)
+
+% Question 3 : figure
+
+figure
+subplot(211)
+plot(t,s)
+title('Signal sinusoïdal')
+xlabel('temps')
+ylabel('signal')
+subplot(212)
+plot(t,x)
+xlabel('temps')
+ylabel('signal')
+title('Signal sinusoïdal chirp')
+
+% Question 4 : puissance du signal Ps
+
+Ps = sum(s.^2)/N % valeur thé
+
+% Question 5 : la puissance théorique correspond bien à la puissance
+% calculée
+Psth = A^2/2
+
+% Question 6 : puissance du signal Px
+Px = sum(x.^2)/N
+
+% Question 7 : autocorrélation des signaux
+maxlag = 100
+[sautocorr, slags] = xcorr(s,maxlag,'unbiased')
+[xautocorr, xlags] = xcorr(x,maxlag,'unbiased')
+
+figure
+subplot(211)
+plot(slags,sautocorr)
+title('Autocorrélation du signal s')
+xlabel('temps')
+ylabel('signal')
+subplot(212)
+plot(xlags,xautocorr)
+xlabel('temps')
+ylabel('signal')
+title('Autocorrélation du signal x')
+
+% Question 8 : en zéro cela correspond à l'amplitude des signaux
+
+% Question 9 : chrip retardé
+y = [zeros(1,40) x(1:(end-40))]
+figure
+plot(t,x,t,y)
+legend('Chirp','Chirp retardé')
+xlabel('temps')
+ylabel('signal')
+
+% Question 10 : 0.05 sec
+
+% Question 11 : signal bruité
+b = rand(size(t))
+b = b - mean(b)
+b = b/std(b)
+b = b*sqrt(8)
+var = var(b) % pour vérifier
+
+% Question 12 : puissance du bruit
+Pb = sum(b.^2)/N
+
+% Question 13 : valeur du rapport signal sur bruit (en dB)
+Py = sum(y.^2)/N
+rap = 10*log10(Py/Pb)
+
+% Question 14 : représentation du signal bruité
+yb = y + b
+figure
+plot(t,y,t,yb)
+legend('Chirp retardé','Chirp retardé bruité')
+xlabel('temps')
+ylabel('signal')
+
+% Question 15 : intercorrélation entre yb et x
+[rybx, intlags] = xcorr(yb,x,maxlag,'unbiased')
+
+% Question 16 : répresensation graphique (l'axe du temps est pas retardé
+% par contre)
+figure
+subplot(211)
+plot(slags,sautocorr)
+title('Autocorrélation du signal x')
+xlabel('temps')
+ylabel('signal')
+subplot(212)
+plot(intlags,rybx)
+xlabel('temps')
+ylabel('signal')
+title('Intercorrélation entre yb et x')
+
+% Question 18 : max de l'intercorrélation
+max = max(rybx)

@@ -1,0 +1,18 @@
+n = nombre de sommets
+m = nombre d'arêtes
+alpha(G) = card. du plus grand sous-ens stable
+omega(G) = card. de la plus grande clique de G
+dmin= degré mini des sommets de G
+dmax = degré max des sommets de G
+
+Bornes sup :
+
+x <= n + 1 - alpha(G) 
+x <= dmax + 1
+
+Bornes min : 
+
+x >= omega(G)
+x >= n / (n - dmin)
+x >= n^2 / (n^2 - 2m) 
+x >= n / alpha(G)

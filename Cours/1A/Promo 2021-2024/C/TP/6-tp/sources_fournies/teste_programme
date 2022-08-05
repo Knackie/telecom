@@ -1,0 +1,15 @@
+#!/bin/sh
+./$* > $1.output
+if [ ! -f $1.result ]
+then
+  echo fichier $1.result absent, je ne peux verifier les resultats
+  exit 1
+fi
+if [ -n "`diff $1.output $1.result`" ]
+then
+  echo -n "ECHEC : "
+  echo "Verifiez votre programme ou utilisez le debugger"
+else
+  echo -n "SUCCES : "
+  echo "Vous pouvez passer a l'exercice suivant"
+fi

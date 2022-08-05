@@ -1,0 +1,7 @@
+6
+olivier, voilier
+python, typhon
+luxe, algus
+ , endalone
+ startalone, 
+ is, nogood

@@ -1,0 +1,1 @@
+docker run --rm --name postgresql -p 5432:5432 -e POSTGRES_USER=<POSTGRES_USERNAME> -e POSTGRES_PASSWORD=<POSTGRES_PASSWORD> -d postgres:latest 
