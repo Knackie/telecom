@@ -1,6 +1,6 @@
 ## Télécom Nancy
 
-Regroupement de la formation par apprentissage de Télécom nancy, de 2018 à 2021.
+Regroupement de la formation par apprentissage de Télécom nancy, de 2018 à 2021 (et autres promos mis à jour par les promos suviantes.
 
 
 ## Téléchargement
