@@ -1,0 +1,38 @@
+git add [nom du fichier .nature]	: Sélectionne le fichier à ajout à commit, photographie le fichier pour enregistrer modification
+git commit -m "explications"		: Explique raisons de la modification
+
+git diff 				: avant le add/commit, montre ce qui a changé
+git status				: dit s'il y a des modifications à enregistrer (commit)
+git log 				: Affiche les modifications
+
+git reset [nom du fichier]		: désindexe un fichier (annule le add)
+git reset --hard			: Rétablit le dépot à l'état du dernier commit
+
+git branch [nom_branche]		: Ajoute une branche
+git branch				: Affiche les branches
+git checkout [nom_branche]		: Entre dans la branche
+git merge [nom_branche]			: Rapatrier branche dans branche actuelle
+git branch -d [nom_branche]		: supprimer branche
+get rebase [nom_branche]		: Copie la branche actuelle à la suite de celle mentionnée
+gitk --all				: interface graphique montrant les branches
+
+git remote add origin [lien]		: crée dépot à distance (origin = ex. de label du dépot)
+git remote				: affiche origine si réussi
+git push origin [nom_branche]		: envoie branche sur le projet (master)
+git pull [label_du_dépot] [nom_branche] : Récupérer le projet sur le dépot distant
+^					: commit du dessus (exemple HEAD^)
+~[nombre]				: commit [nombre] fois au dessus
+git branch -f [branche] [commit]	: déplace la branche sur le commit
+git cherry-pick	[commit1] [commit2] ... : copie les commits sous HEAD
+git rebase [commit]			: copie le commit actuel sous [commit]
+git rebase -i [commit]~[nombre]		: réordonne/suppr les [nombre] commits au dessus de [commit]/Head
+
+git reset HEAD~[nombre]			: Annule modification en déplaçant la réf. de la branche [nombre] fois plus haut
+git revert HEAD				: Annule la modification sur le commit actuelle, avance un commit, et déplace la réf. dessus
+git tag [nom_tag] [commit]		: Donne un tag à au commit, ou HEAD si non spécifié
+git describe [ref]			: ref résoluble en commit --> <tag>_<numCommits>_g<hash> où tag est le tag le plus proche dans l'historique, numCommits le nombre de commits avec le tag, et <hash> le hash/identifiant du commit décrit
+cat .git/HEAD				: montre où est positionnée HEAD
+
+git fetch				: rapporter des données depuis un dépôt distant vers le nôtre
+git pull				: rapporter des données depuis un dépot distant vers le nôtre et les fusionne chez nous (merge)
+git pull --rebase			: fetch puis rebase (l'autre fait fetch puis merge) 
